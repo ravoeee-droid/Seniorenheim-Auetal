@@ -1,49 +1,28 @@
-# Auetal Websystem — Final QA Report
+# Auetal Websystem V5 – QA Report
 
 ## Status
-Send-ready concept build for review. GitHub push authorized on 11 Sep 2026; no deployment authorized.
+**Local build ready for review. Not pushed. Not deployed.**
 
-## Functional checks
-- Local asset references: PASS
-- Duplicate IDs: PASS (0)
-- JavaScript syntax: PASS (`app.js`, `jobmatch.js`, `admin.js`)
-- Home audience-router modal: PASS
-- Career Job-Match 4 questions -> result: PASS
-- Recruiting Quick-Match -> result: PASS
-- Admin demo lead simulation: PASS
-- Mobile responsive rules: PASS
-- Reduced-motion support: PASS
-- Noindex/nofollow on prospect demo pages: PASS
+## V5 employer-attraction upgrade
+- Candidate-first Wechselgrund-Lab: Familie, Entwicklung, Entlastung, Sicherheit, Kennenlernen
+- Benefits rebuilt as lived situations instead of icon/card list
+- Role-specific fact block for Pflegeassistenz: 3.700 € entry pay, 35 vacation days, 500 € annual bonus
+- Interactive Wunsch-Arbeitsplatz builder; explicitly framed as preference capture, not contractual promise
+- Trust section: belegbare Aussagen vs. bewusst nicht versprochene Recruiting-Floskeln
+- Stronger social recruiting landing page with everyday benefit translation
+- Admin cockpit now includes an Employer Attractiveness layer with strengths, content opportunities and items that must be clarified in conversation
+- Existing Job-Match, Social Recruiting, Admin Pipeline, Care Compass and premium scroll layer retained
 
-## Factual checks against current Auetal public pages (11 Sep 2026)
-- Current open care roles: verified
-- Pflegeassistenz: 3,700 EUR starting salary: verified for this role
-- Pflegeassistenz: 35 vacation days: verified for this role
-- Pflegeassistenz: 500 EUR annual bonus: verified for this role
-- Employee childcare / company nursery: verified
-- Electronic documentation / SIS: verified
-- Further training: verified
-- Trial work: verified
-- Employee relaxation offers: verified
-- 2017 family-friendly employer award: verified and explicitly dated
+## Source discipline
+Only employer claims already published by Seniorenheim Auetal are presented as facts. Role-specific conditions are labeled as role-specific. No invented employee quote, shift promise, hiring guarantee or fake employer claim has been added.
 
-## Visual QA
-- Desktop layouts reviewed for Home / Career / Recruiting / Admin: PASS
-- Mobile layouts reviewed for same routes: PASS
-- Original Auetal image URLs are wired as primary visuals.
-- The sandbox cannot fetch the external image binaries, so final live-image loading must be checked once in a real online preview. Branded visual fallbacks prevent broken-image boxes.
+## Static QA
+- HTML parser: PASS on index.html, karriere.html, recruiting.html, admin.html
+- Duplicate IDs: PASS (none)
+- Internal anchor/file-link audit: PASS
+- JavaScript syntax: PASS for app.js, jobmatch.js, carematch.js, admin.js, premium.js
+- Lenis dependency pinned to 1.3.26 with native-scroll fallback
+- prefers-reduced-motion handling retained
 
-## V3 score (excluding live remote-image transport)
-- Positioning & offer clarity: 11/12
-- Hero / first impression: 9/10
-- Conversion architecture: 13/14
-- Copy & objection handling: 9/10
-- Trust & proof: 9/10
-- Visual design & brand consistency: 11/12
-- UX & information architecture: 7/8
-- Mobile quality: 7/8
-- SEO & GEO: 7/8
-- Technical quality / performance / accessibility: 7/8
-- Total: 90/100
-
-Live preview image transport remains the one final environment-specific verification before calling a deployed preview fully released.
+## Visual QA limitation
+A container Chromium screenshot attempt did not complete in the sandbox environment. Therefore the V5 visual/motion layer is **not claimed as fully browser-render verified** here. Final live-preview review is still required before customer delivery.

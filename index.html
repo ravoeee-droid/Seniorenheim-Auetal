@@ -12,6 +12,7 @@
   <meta property="og:type" content="website" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/styles-1.css" /><link rel="stylesheet" href="assets/styles-2.css" /><link rel="stylesheet" href="assets/styles-3.css" /><link rel="stylesheet" href="assets/styles-4.css" /><link rel="stylesheet" href="assets/styles-5.css" />
+  <link rel="stylesheet" href="assets/premium.css" />
 </head>
 <body data-page="home">
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -70,6 +71,11 @@
       <div class="hero-bottom-note"><span>Scrollen</span><i></i><small>und Auetal kennenlernen</small></div>
     </section>
 
+
+    <section class="promise-marquee" aria-label="Wofür Auetal steht">
+      <div class="promise-track" aria-hidden="true"><span>Würde. Nähe. Selbstbestimmung. Vertrauen. Familie. Pflege, die Menschen sieht.</span><span>Würde. Nähe. Selbstbestimmung. Vertrauen. Familie. Pflege, die Menschen sieht.</span></div>
+    </section>
+
     <section class="route-section section" id="orientierung">
       <div class="wrap">
         <div class="section-heading split-heading reveal">
@@ -86,6 +92,27 @@
         </div>
       </div>
     </section>
+
+
+
+    <section class="care-compass section" id="pflege-kompass">
+      <div class="wrap care-compass-grid">
+        <div class="care-compass-copy" data-premium-reveal>
+          <p class="eyebrow"><span></span> Pflege-Kompass</p>
+          <h2>Erst verstehen.<br><em>Dann entscheiden.</em></h2>
+          <p>Wenn Pflege plötzlich Thema wird, fehlen selten Informationen – sondern Orientierung. Vier ruhige Fragen sortieren die Situation, bevor ein Mensch übernimmt.</p>
+          <div class="care-compass-proof"><span>keine medizinische Einschätzung</span><span>keine Verfügbarkeitsversprechen</span><span>persönlicher Kontakt bleibt der nächste Schritt</span></div>
+        </div>
+        <div class="care-flow-card" id="careFlow" data-premium-reveal>
+          <div class="care-flow-top"><span>AUETAL PFLEGE-KOMPASS</span><strong id="careCount">01 / 05</strong></div>
+          <div class="care-flow-progress"><i id="careProgress"></i></div>
+          <div class="care-flow-stage" id="careStage" aria-live="polite"></div>
+          <div class="care-flow-nav"><button id="careBack" type="button">← zurück</button><button id="careRestart" type="button">neu starten</button></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-transition" aria-hidden="true"><strong>zwei Häuser. ein Gefühl.</strong></div>
 
     <section class="house-story section" id="haeuser">
       <div class="wrap">
@@ -152,5 +179,8 @@
 
   <div class="mobile-action"><a href="tel:+49555399430">Anrufen</a><a href="karriere.html">Karriere</a></div>
   <script src="assets/app.js"></script>
+  <script src="assets/carematch.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script src="assets/premium.js"></script>
 </body>
 </html>

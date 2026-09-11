@@ -1,0 +1,54 @@
+  .manifesto-note,.system-reveal-head{grid-template-columns:1fr;gap:25px}
+  .workday-shell{grid-template-columns:1fr;gap:40px}.workday-visual{position:relative;top:auto;height:70svh;min-height:520px}.workday-step{min-height:auto;padding:44px 0}
+  .system-flow{grid-template-columns:1fr 1fr}.benefit-grid{grid-template-columns:1fr 1fr!important}.benefit-card:nth-child(3n){border-right:1px solid var(--hairline)!important}.benefit-card:nth-child(2n){border-right:0!important}
+  .employer-story-visual{min-height:650px}
+}
+@media(max-width:760px){
+  .promise-marquee{padding:20px 0}.promise-track span{font-size:2.7rem;gap:24px;padding-right:24px}
+  .career-manifesto{padding:80px 0}.manifesto-line{font-size:clamp(3.6rem,18vw,6.2rem)}.manifesto-note{margin-top:48px}
+  .career-hero-inner{padding-top:120px;padding-bottom:60px}.career-openings{border-radius:0}
+  .workday-shell{padding:80px 0}.workday-visual{height:62svh;min-height:460px}.workday-visual-caption{left:20px;right:20px;bottom:18px}.workday-step{padding:36px 0}.workday-copy>h2{font-size:3.7rem}
+  .benefit-grid{grid-template-columns:1fr!important}.benefit-card{border-right:0!important;min-height:270px!important}.benefit-card h3{margin-top:45px!important}
+  .employer-story-visual{min-height:560px}.employer-photo{inset:0 0 105px 0!important}.employer-story-visual blockquote{width:calc(100% - 24px)!important;right:12px!important;left:12px!important;bottom:0!important}.employer-story-copy h2{font-size:3.8rem}
+  .pay-copy h2{font-size:clamp(4rem,17vw,5.7rem)!important}
+  .system-reveal{padding:80px 0}.system-flow{grid-template-columns:1fr}.system-node{min-height:280px}.system-demo-link{display:grid}.system-reveal-head h2{font-size:3.8rem}
+  .house-card-alt{margin-top:0!important}.house-image{height:390px!important}
+  .pointer-glow{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .promise-track{animation:none}.career-signal i{animation:none}.manifesto-line{transform:none!important}.workday-visual-layer{transition:none}.hero-media-main img,.career-hero-media img{transform:none!important}.page-ready .hero-copy h1 em:after,.page-ready .career-hero h1 em:after{transition:none}
+}
+
+/* --- Pflege-Kompass: turns the resident side into a real websystem --- */
+.care-compass{background:#efe6d9;position:relative;overflow:hidden}.care-compass:before{content:"?";position:absolute;right:-.05em;top:-.22em;font-family:var(--serif);font-size:42vw;color:rgba(143,31,50,.035);line-height:1;pointer-events:none}.care-compass-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:90px;align-items:start;position:relative;z-index:1}.care-compass-copy{position:sticky;top:120px}.care-compass-copy h2{font-family:var(--serif);font-size:clamp(4rem,6vw,7rem);font-weight:400;line-height:.88;letter-spacing:-.055em;margin:0 0 30px}.care-compass-copy>p{color:#616960;max-width:530px}.care-compass-proof{display:grid;gap:13px;margin-top:36px}.care-compass-proof span{display:flex;gap:12px;align-items:center;font-size:12px;font-weight:750}.care-compass-proof span:before{content:"✓";width:24px;height:24px;border:1px solid rgba(143,31,50,.25);display:grid;place-items:center;color:var(--wine);border-radius:50%}.care-flow-card{background:#fff;padding:34px;min-height:620px;border:1px solid rgba(24,33,28,.1);box-shadow:0 32px 90px rgba(65,46,31,.08);display:flex;flex-direction:column}.care-flow-top{display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:10px;letter-spacing:.15em;text-transform:uppercase}.care-flow-top strong{font-family:var(--serif);font-size:1.2rem;letter-spacing:0;font-weight:400}.care-flow-progress{height:2px;background:#e9e3da;margin:20px 0 42px}.care-flow-progress i{display:block;height:100%;background:var(--wine);width:20%;transition:width .4s var(--ease-premium)}.care-flow-stage{flex:1}.care-flow-stage small{color:var(--wine);text-transform:uppercase;letter-spacing:.16em;font-size:9px;font-weight:800}.care-flow-stage h3{font-family:var(--serif);font-size:clamp(2.7rem,4.6vw,5.5rem);font-weight:400;line-height:.92;letter-spacing:-.045em;margin:12px 0 30px;max-width:720px}.care-options{display:grid;border-top:1px solid var(--hairline)}.care-options button{border:0;border-bottom:1px solid var(--hairline);background:transparent;text-align:left;padding:18px 6px;display:flex;justify-content:space-between;align-items:center;font-weight:750;cursor:pointer;transition:padding .28s var(--ease-premium),color .2s ease}.care-options button:hover{padding-left:16px;color:var(--wine)}.care-result-summary{background:#f7f2ea;border-left:3px solid var(--wine);padding:20px;margin:20px 0;display:grid;gap:6px}.care-result-summary span{font-size:12px;color:#657067}.care-result-actions{display:flex;gap:10px;flex-wrap:wrap}.care-flow-nav{display:flex;justify-content:space-between;gap:20px;margin-top:28px;padding-top:18px;border-top:1px solid var(--hairline)}.care-flow-nav button{border:0;background:transparent;cursor:pointer;font-size:11px;color:#6f776f}.care-flow-nav button:disabled{opacity:.25;cursor:default}
+@media(max-width:1100px){.care-compass-grid{grid-template-columns:1fr;gap:44px}.care-compass-copy{position:static}}
+@media(max-width:760px){.care-flow-card{padding:22px;min-height:560px}.care-compass-copy h2{font-size:3.9rem}.care-flow-stage h3{font-size:3.15rem}}
+
+/* --- Magic UI-inspired system beam: visualize the recruiting pipeline instead of another card row --- */
+.system-flow{position:relative;isolation:isolate}
+.system-node{position:relative;z-index:2}
+.system-beams{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible}
+.system-beam-base{fill:none;stroke:rgba(255,255,255,.13);stroke-width:1.25;vector-effect:non-scaling-stroke}
+.system-beam-live{fill:none;stroke:url(#auetalBeamGradient);stroke-width:2;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:.16 .84;animation:auetalBeamTravel 3.4s linear infinite;filter:drop-shadow(0 0 7px rgba(215,177,118,.35))}
+@keyframes auetalBeamTravel{to{stroke-dashoffset:-1}}
+.system-reveal-head:after{content:"LIVE FLOW";display:inline-flex;margin-top:24px;border:1px solid rgba(255,255,255,.18);padding:8px 11px;font-size:8px;letter-spacing:.18em;color:#e8d7bb}
+.system-reveal-head:before{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:#79d38a;box-shadow:0 0 0 7px rgba(121,211,138,.08);margin-top:30px;margin-left:88px;animation:pulseSignal 2s infinite}
+
+/* Micro-transition inside both guided flows. Avoids the hard screen swap of ordinary forms. */
+.flow-screen,.flow-result,.care-flow-stage>small,.care-flow-stage>h3,.care-flow-stage>.care-options,.care-flow-stage>.care-result-summary,.care-flow-stage>p,.care-flow-stage>.care-result-actions{animation:auetalStageIn .42s var(--ease-premium) both}
+.flow-stage .flow-screen,.flow-stage .flow-result{transform-origin:50% 20%}
+@keyframes auetalStageIn{from{opacity:0;transform:translateY(12px);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
+
+/* Editorial focus states for keyboard and premium hover without turning the UI into a tech demo. */
+.route-card,.job-row,.benefit-card,.system-node{transition:background .35s ease,color .35s ease,border-color .35s ease,transform .45s var(--ease-premium)}
+.route-card:focus-visible,.job-row a:focus-visible,.btn:focus-visible,.care-options button:focus-visible,.flow-options button:focus-visible{outline:3px solid rgba(215,177,118,.75);outline-offset:4px}
+.system-node:hover{transform:translateY(-7px);border-color:rgba(215,177,118,.36)}
+
+@media(max-width:900px){.system-beams{display:none}.system-reveal-head:before{display:none}}
+@media(prefers-reduced-motion:reduce){.system-beam-live{animation:none}.system-reveal-head:before{animation:none}.flow-screen,.flow-result,.care-flow-stage>*{animation:none!important}}
+/* Keep the live-flow badge decorative; do not let generated content become a grid item. */
+.system-reveal-head{position:relative}
+.system-reveal-head:after{position:absolute;right:0;top:-48px;margin:0}
+.system-reveal-head:before{right:82px;top:-39px;margin:0}
+@media(max-width:900px){.system-reveal-head:after{display:none}}
+.demo-cockpit-link{border:0;border-top:1px solid var(--hairline);background:transparent;padding:16px 0 0;margin-top:2px;color:#7a6a58;font:inherit;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;display:flex;gap:16px;align-items:center;text-align:left}.demo-cockpit-link:hover{color:var(--wine)}
