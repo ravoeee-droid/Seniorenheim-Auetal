@@ -1,0 +1,28 @@
+/* === AUETAL GOLD V6.2 · HERO CLS FIX === */
+/* The home hero image shell must never participate in normal document flow. */
+.hero-home{position:relative;overflow:hidden;min-height:100svh}
+.hero-home .hero-media-main.image-shell{
+  position:absolute!important;
+  inset:0 0 0 43%!important;
+  width:auto!important;
+  height:auto!important;
+  min-height:0!important;
+  margin:0!important;
+  display:block!important;
+}
+.hero-home .hero-media-main.image-shell>img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  object-fit:cover!important;
+  display:block!important;
+}
+.hero-home .hero-media-wash{position:absolute!important;inset:0!important}
+.hero-home .hero-shell{position:relative!important;z-index:2!important}
+
+/* Tablet/mobile keeps the same fixed media canvas, only full-bleed. */
+@media(max-width:1100px){
+  .hero-home .hero-media-main.image-shell{inset:0!important}
+}
