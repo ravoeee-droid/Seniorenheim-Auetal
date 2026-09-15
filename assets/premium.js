@@ -2,7 +2,6 @@
   document.documentElement.classList.add('js-premium');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Official Lenis runtime is loaded before this file when online.
   if (!reduce && window.Lenis) {
     const lenis = new Lenis({ lerp: .095, smoothWheel: true, wheelMultiplier: .92 });
     const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
@@ -17,8 +16,11 @@
 
   requestAnimationFrame(() => document.body.classList.add('page-ready'));
 
-  // Premium reveal system. Existing .reveal nodes are promoted into the premium system.
-  document.querySelectorAll('.reveal').forEach((el) => { el.setAttribute('data-premium-reveal',''); if (el.classList.contains('delay-1')) el.dataset.delay='1'; if (el.classList.contains('delay-2')) el.dataset.delay='2'; });
+  document.querySelectorAll('.reveal').forEach((el) => {
+    el.setAttribute('data-premium-reveal','');
+    if (el.classList.contains('delay-1')) el.dataset.delay='1';
+    if (el.classList.contains('delay-2')) el.dataset.delay='2';
+  });
   const revealTargets = document.querySelectorAll('[data-premium-reveal]');
   if (reduce || !('IntersectionObserver' in window)) revealTargets.forEach(x => x.classList.add('is-visible'));
   else {
@@ -28,7 +30,6 @@
     revealTargets.forEach(x => ro.observe(x));
   }
 
-  // Sticky scrollytelling: swap real Auetal images as the narrative changes.
   const steps = [...document.querySelectorAll('[data-story-step]')];
   const layers = [...document.querySelectorAll('[data-story-layer]')];
   const setStory = id => {
@@ -39,11 +40,13 @@
     if (caption && active) caption.innerHTML = `<strong>${active.dataset.caption || active.querySelector('h3')?.textContent || ''}</strong><span>${active.dataset.kicker || 'Auetal'}</span>`;
   };
   if (steps.length && 'IntersectionObserver' in window) {
-    const sio = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) setStory(e.target.dataset.storyStep); }), { threshold: .58, rootMargin: '-12% 0px -30% 0px' });
-    steps.forEach(s => sio.observe(s)); setStory(steps[0].dataset.storyStep);
+    const sio = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) setStory(e.target.dataset.storyStep);
+    }), { threshold: .58, rootMargin: '-12% 0px -30% 0px' });
+    steps.forEach(s => sio.observe(s));
+    setStory(steps[0].dataset.storyStep);
   }
 
-  // Codrops-inspired lateral typography motion, implemented without GSAP to keep the page lightweight.
   const manifesto = document.querySelector('.career-manifesto');
   const lines = [...document.querySelectorAll('.manifesto-line')];
   let ticking = false;
@@ -64,11 +67,11 @@
       el.style.transform = `translate3d(0,${py * -18}px,0) scale(1.035)`;
     });
   };
-  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(updateScrollMotion); } }, { passive:true });
+  addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(updateScrollMotion); }
+  }, { passive:true });
   updateScrollMotion();
 
-  // Magic UI-inspired Animated Beam, adapted to plain SVG/JS for this static demo.
-  // It makes the actual recruiting system legible: Ad -> Career -> Match -> Cockpit.
   const buildSystemBeam = () => {
     document.querySelectorAll('.system-flow').forEach(flow => {
       const nodes = [...flow.querySelectorAll('.system-node')];
@@ -95,7 +98,10 @@
         const cx=(sx+ex)/2;
         const d=`M ${sx} ${sy} C ${cx} ${sy}, ${cx} ${ey}, ${ex} ${ey}`;
         ['system-beam-base','system-beam-live'].forEach(cls => {
-          const path=document.createElementNS(ns,'path'); path.setAttribute('d',d); path.setAttribute('pathLength','1'); path.setAttribute('class',cls); if(cls==='system-beam-live') path.style.animationDelay=`${i*.45}s`; svg.append(path);
+          const path=document.createElementNS(ns,'path');
+          path.setAttribute('d',d); path.setAttribute('pathLength','1'); path.setAttribute('class',cls);
+          if(cls==='system-beam-live') path.style.animationDelay=`${i*.45}s`;
+          svg.append(path);
         });
       });
       flow.prepend(svg);
@@ -108,7 +114,6 @@
   addEventListener('load', buildSystemBeam, {once:true});
   requestAnimationFrame(buildSystemBeam);
 
-  // Magnetic micro interaction on primary actions only.
   if (!reduce && matchMedia('(pointer:fine)').matches) {
     document.querySelectorAll('.btn').forEach(btn => {
       btn.dataset.magnetic = '';
@@ -121,24 +126,24 @@
       btn.addEventListener('pointerleave', () => btn.style.transform = '');
     });
 
-    const glow = document.createElement('div'); glow.className = 'pointer-glow'; document.body.append(glow);
-    addEventListener('pointermove', e => { glow.style.left = e.clientX+'px'; glow.style.top = e.clientY+'px'; glow.classList.add('on'); }, {passive:true});
+    const glow = document.createElement('div');
+    glow.className = 'pointer-glow';
+    glow.setAttribute('aria-hidden','true');
+    document.body.append(glow);
+    addEventListener('pointermove', e => {
+      glow.style.left = e.clientX+'px';
+      glow.style.top = e.clientY+'px';
+      glow.classList.add('on');
+    }, {passive:true});
   }
 
-  // Header hides only when scrolling down fast, returns immediately on intent to go up.
-  const header = document.querySelector('[data-header]');
-  let lastY = scrollY;
-  addEventListener('scroll', () => {
-    if (!header || scrollY < 120) { header?.classList.remove('header-hide'); lastY = scrollY; return; }
-    const delta = scrollY - lastY;
-    header.classList.toggle('header-hide', delta > 10);
-    if (delta < -5) header.classList.remove('header-hide');
-    lastY = scrollY;
-  }, {passive:true});
+  /* Gold rule: the navigation never auto-hides. Orientation beats decorative motion. */
+  document.querySelector('[data-header]')?.classList.remove('header-hide');
 })();
 
 // === V5 employer-attraction interactions ===
 (() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const switchData = {
     familie: {
       kicker:'FAMILIE',
@@ -181,6 +186,7 @@
       alt:'Team des Seniorenheims Auetal'
     }
   };
+
   const stage = document.getElementById('switchStage');
   const pills = [...document.querySelectorAll('[data-switch]')];
   if (stage && pills.length) {
@@ -188,10 +194,17 @@
     pills.forEach(btn => btn.addEventListener('click', () => {
       const d=switchData[btn.dataset.switch]; if(!d) return;
       pills.forEach(x=>x.classList.toggle('active',x===btn));
-      stage.animate([{opacity:.78,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:360,easing:'cubic-bezier(.2,.7,.2,1)'});
-      img.style.opacity='.2';
-      const pre=new Image(); pre.src=d.image; pre.onload=()=>{img.src=d.image;img.alt=d.alt;img.style.opacity='1'};
-      kicker.textContent=d.kicker; title.textContent=d.title; text.textContent=d.text; proof.textContent=d.proof;
+      if (!reduce && stage.animate) {
+        stage.animate([{opacity:.78,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:360,easing:'cubic-bezier(.2,.7,.2,1)'});
+      }
+      if (!reduce) img.style.opacity='.2';
+      const pre=new Image();
+      pre.src=d.image;
+      pre.onload=()=>{img.src=d.image;img.alt=d.alt;img.style.opacity='1'};
+      kicker.textContent=d.kicker;
+      title.textContent=d.title;
+      text.textContent=d.text;
+      proof.textContent=d.proof;
     }));
   }
 
@@ -202,18 +215,38 @@
     const progress=document.getElementById('builderProgress');
     const result=builder.querySelector('.builder-result');
     const labels=['Rolle','Umfang','Wichtigster Punkt','Kennenlernen'];
-    const render=()=>{ steps.forEach(x=>x.classList.toggle('active',Number(x.dataset.builderStep)===step)); if(progress) progress.textContent=`${Math.min(step,4)} / 4`; };
+    const render=()=>{
+      steps.forEach(x=>x.classList.toggle('active',Number(x.dataset.builderStep)===step));
+      if(progress) progress.textContent=`${Math.min(step,4)} / 4`;
+    };
     builder.querySelectorAll('.builder-options button').forEach(btn=>btn.addEventListener('click',()=>{
-      const current=btn.closest('[data-builder-step]'); const idx=Number(current.dataset.builderStep); answers[idx]=btn.dataset.value;
+      const current=btn.closest('[data-builder-step]');
+      const idx=Number(current.dataset.builderStep);
+      answers[idx]=btn.dataset.value;
       current.querySelectorAll('button').forEach(x=>x.classList.toggle('selected',x===btn));
-      if(idx<4){step=idx+1;render();}else{
-        steps.forEach(x=>x.classList.remove('active')); result.hidden=false; if(progress) progress.textContent='FERTIG';
+      if(idx<4){
+        step=idx+1;
+        render();
+        steps.find(x=>Number(x.dataset.builderStep)===step)?.querySelector('button')?.focus();
+      }else{
+        steps.forEach(x=>x.classList.remove('active'));
+        result.hidden=false;
+        if(progress) progress.textContent='FERTIG';
         document.getElementById('builderSummary').innerHTML=labels.map((l,i)=>`<span><b>${l}</b><strong>${answers[i+1]||'—'}</strong></span>`).join('');
-        const title=document.getElementById('builderTitle'); if(title) title.textContent=`${answers[1]||'Dein Job'} – aber passend zu deinem Leben.`;
+        const title=document.getElementById('builderTitle');
+        if(title) title.textContent=`${answers[1]||'Dein Job'} – aber passend zu deinem Leben.`;
         try{localStorage.setItem('auetalWishProfile',JSON.stringify(answers));}catch(e){}
+        result.querySelector('a,button')?.focus();
       }
     }));
-    document.getElementById('builderRestart')?.addEventListener('click',()=>{Object.keys(answers).forEach(k=>delete answers[k]);step=1;result.hidden=true;builder.querySelectorAll('button.selected').forEach(x=>x.classList.remove('selected'));render();});
+    document.getElementById('builderRestart')?.addEventListener('click',()=>{
+      Object.keys(answers).forEach(k=>delete answers[k]);
+      step=1;
+      result.hidden=true;
+      builder.querySelectorAll('button.selected').forEach(x=>x.classList.remove('selected'));
+      render();
+      steps[0]?.querySelector('button')?.focus();
+    });
     render();
   }
 })();
