@@ -22,4 +22,9 @@
     btn.textContent = '✓ Beispielkontakt eingegangen';
     setTimeout(() => btn.textContent = '+ Beispielkontakt simulieren', 1800);
   });
+
+  const copyFinalizer = document.createElement('script');
+  copyFinalizer.src = 'assets/copy-finalizer.js';
+  copyFinalizer.defer = true;
+  document.head.append(copyFinalizer);
 })();
