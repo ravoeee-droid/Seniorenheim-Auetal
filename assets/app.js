@@ -1,4 +1,45 @@
 (() => {
+  const REMOTE_MEDIA = 'https://seniorenheim-auetal.de/wp-content/uploads/';
+
+  const toLocalMedia = (src) => {
+    if (!src) return src;
+    try {
+      const absolute = new URL(src, window.location.href).href;
+      if (absolute.startsWith(REMOTE_MEDIA)) {
+        return `/media/${absolute.slice(REMOTE_MEDIA.length)}`;
+      }
+    } catch (_) {}
+    return src;
+  };
+
+  const proxyImage = (img) => {
+    if (!(img instanceof HTMLImageElement)) return;
+    const src = img.getAttribute('src');
+    const local = toLocalMedia(src);
+    if (local && local !== src) img.setAttribute('src', local);
+  };
+
+  document.querySelectorAll('img').forEach(proxyImage);
+
+  const mediaObserver = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type === 'attributes' && mutation.target instanceof HTMLImageElement) {
+        proxyImage(mutation.target);
+      }
+      mutation.addedNodes.forEach((node) => {
+        if (!(node instanceof Element)) return;
+        if (node instanceof HTMLImageElement) proxyImage(node);
+        node.querySelectorAll?.('img').forEach(proxyImage);
+      });
+    }
+  });
+  mediaObserver.observe(document.documentElement, {
+    subtree: true,
+    childList: true,
+    attributes: true,
+    attributeFilter: ['src']
+  });
+
   const header = document.querySelector('[data-header]');
   const progress = document.querySelector('#scrollProgress');
   const menuBtn = document.querySelector('[data-menu-toggle]');
@@ -42,22 +83,21 @@
     if (!image) return;
     const markMissing = () => shell.classList.add('is-missing');
     const markReady = () => shell.classList.remove('is-missing');
-    image.addEventListener('error', markMissing, { once: true });
+    image.addEventListener('error', markMissing);
     image.addEventListener('load', markReady);
-    if (image.complete) image.naturalWidth ? markReady() : markMissing();
-    else setTimeout(() => {
-      if (!image.complete || !image.naturalWidth) markMissing();
-    }, 1800);
+    if (image.complete) {
+      image.naturalWidth ? markReady() : markMissing();
+    }
   });
 
   const reveal = document.querySelectorAll('.reveal');
   if (reduceMotion || !('IntersectionObserver' in window)) {
     reveal.forEach((el) => el.classList.add('visible'));
   } else {
-    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
+    const io = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
       }
     }), { threshold: .12, rootMargin: '0px 0px -5% 0px' });
     reveal.forEach((el) => io.observe(el));
@@ -127,51 +167,54 @@
     });
   });
 
-  document.addEventListener('click', (e) => {
-    const closer = e.target.closest?.('[data-route-close]');
+  document.addEventListener('click', (event) => {
+    const closer = event.target.closest?.('[data-route-close]');
     if (!closer) return;
     closeModal({ restoreFocus: closer.tagName !== 'A' });
   });
 
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', (event) => {
     const modalOpen = modal?.classList.contains('open');
 
-    if (e.key === 'Escape') {
+    if (event.key === 'Escape') {
       if (modalOpen) {
-        e.preventDefault();
+        event.preventDefault();
         closeModal();
         return;
       }
       if (menu?.classList.contains('open')) {
-        e.preventDefault();
+        event.preventDefault();
         setMenuState(false);
         menuBtn?.focus();
       }
       return;
     }
 
-    if (e.key !== 'Tab' || !modalOpen) return;
+    if (event.key !== 'Tab' || !modalOpen) return;
 
     const items = focusablesInModal();
     if (!items.length) {
-      e.preventDefault();
+      event.preventDefault();
       modal.querySelector('.modal-close')?.focus();
       return;
     }
 
     const first = items[0];
     const last = items[items.length - 1];
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault();
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
       last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
       first.focus();
     }
   });
 
-  const copyFinalizer = document.createElement('script');
-  copyFinalizer.src = 'assets/copy-finalizer.js';
-  copyFinalizer.defer = true;
-  document.head.append(copyFinalizer);
+  if (!document.querySelector('script[data-copy-finalizer]')) {
+    const copyFinalizer = document.createElement('script');
+    copyFinalizer.src = 'assets/copy-finalizer.js';
+    copyFinalizer.defer = true;
+    copyFinalizer.dataset.copyFinalizer = 'true';
+    document.head.append(copyFinalizer);
+  }
 })();
