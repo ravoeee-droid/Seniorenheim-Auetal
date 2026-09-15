@@ -90,7 +90,7 @@
 
   const routeTemplates = {
     care: `<span class="modal-kicker">PFLEGE-ORIENTIERUNG</span><h2 id="routeTitle">Was brauchen Sie gerade?</h2><p>Kein langes Formular. Wählen Sie den Punkt, der Ihrer Situation am nächsten kommt.</p><div class="modal-options"><a href="#haeuser" data-route-close><strong>Ein dauerhaftes Zuhause</strong><span>Herrenwiese & Clausberg vergleichen →</span></a><a href="#pflege" data-route-close><strong>Kurzzeit- oder intensivere Pflege</strong><span>Pflegeangebote einordnen →</span></a><a href="#kontakt" data-route-close><strong>Ich möchte erst persönlich sprechen</strong><span>Direkt Kontakt aufnehmen →</span></a></div>`,
-    career: `<span class="modal-kicker">KARRIERE</span><h2 id="routeTitle">Du arbeitest in der Pflege?</h2><p>Dann ist die Karrierewelt der schnellste Weg: Arbeitgeber kennenlernen, offene Stellen sehen und in 60 Sekunden prüfen, ob ein Gespräch Sinn ergibt.</p><div class="modal-options"><a href="karriere.html"><strong>Karrierewelt öffnen</strong><span>Zum Job-Match →</span></a><a href="recruiting.html"><strong>Pflegeassistenz-Demo ansehen</strong><span>Social-Recruiting-Flow →</span></a></div>`
+    career: `<span class="modal-kicker">KARRIERE</span><h2 id="routeTitle">Du arbeitest in der Pflege?</h2><p>Lerne Auetal als Arbeitgeber kennen, sieh dir offene Stellen an und prüfe in wenigen Fragen, ob ein Gespräch für dich interessant sein könnte.</p><div class="modal-options"><a href="karriere.html"><strong>Karrierewelt öffnen</strong><span>Zum Job-Match →</span></a><a href="recruiting.html"><strong>Pflegeassistenz ansehen</strong><span>Stelle & Konditionen →</span></a></div>`
   };
 
   const backgroundNodes = () => [header, document.querySelector('main'), document.querySelector('.site-footer')]
@@ -169,4 +169,9 @@
       first.focus();
     }
   });
+
+  const copyFinalizer = document.createElement('script');
+  copyFinalizer.src = 'assets/copy-finalizer.js';
+  copyFinalizer.defer = true;
+  document.head.append(copyFinalizer);
 })();
