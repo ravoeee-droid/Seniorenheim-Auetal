@@ -1,0 +1,49 @@
+/* === AUETAL GOLD V6.4 · IMAGE-TEXT CONTRAST GATE === */
+/* Any light text placed on photography must sit on a predictable contrast layer. */
+.switch-stage-media:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg,
+      rgba(12,18,14,.28) 0%,
+      rgba(12,18,14,.42) 26%,
+      rgba(12,18,14,.74) 52%,
+      rgba(12,18,14,.94) 100%)!important;
+}
+.switch-stage-copy{
+  z-index:3!important;
+  max-width:760px!important;
+}
+.switch-stage-copy h3{
+  color:#fff!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.28)!important;
+}
+.switch-stage-copy p{
+  color:#fff!important;
+  opacity:1!important;
+  text-shadow:0 1px 12px rgba(0,0,0,.26)!important;
+}
+.switch-stage-copy small,
+.switch-proof{
+  color:#f6e6ca!important;
+  opacity:1!important;
+}
+.switch-proof{border-color:rgba(255,255,255,.32)!important}
+
+/* Never rely on the image itself for sufficient contrast. */
+.switch-stage-media img{
+  filter:saturate(.92) contrast(1.02) brightness(.82)!important;
+}
+
+@media(max-width:760px){
+  .switch-stage-media:after{
+    background:linear-gradient(180deg,
+      rgba(12,18,14,.36) 0%,
+      rgba(12,18,14,.56) 34%,
+      rgba(12,18,14,.88) 68%,
+      rgba(12,18,14,.97) 100%)!important;
+  }
+}
