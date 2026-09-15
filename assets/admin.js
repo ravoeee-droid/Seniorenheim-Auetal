@@ -2,7 +2,7 @@
   const btn = document.getElementById('simulateLead');
   const board = document.getElementById('pipelineBoard');
 
-  const addLead = ({ title='Demo-Lead', detail='Pflegefachkraft · Websystem Demo', time='Gerade eben', hot=false } = {}) => {
+  const addLead = ({ title='Beispielkontakt', detail='Pflegefachkraft · Beispielansicht', time='Gerade eben', hot=false } = {}) => {
     const col = board?.querySelector('[data-stage="new"]');
     if (!col) return;
     const card = document.createElement('div');
@@ -19,24 +19,7 @@
 
   btn?.addEventListener('click', () => {
     addLead();
-    btn.textContent = '✓ Demo-Lead eingegangen';
-    setTimeout(() => btn.textContent = '+ Demo-Lead simulieren', 1800);
+    btn.textContent = '✓ Beispielkontakt eingegangen';
+    setTimeout(() => btn.textContent = '+ Beispielkontakt simulieren', 1800);
   });
-
-  // Prospect-only bridge: complete Job-Match -> open Cockpit -> see that exact demo contact arrive.
-  try {
-    const raw = localStorage.getItem('auetalDemoLead');
-    if (raw) {
-      const lead = JSON.parse(raw);
-      addLead({
-        title: 'Job-Match Kontakt · Demo',
-        detail: [lead.role, lead.hours, 'Quelle: Karrierewelt'].filter(Boolean).join(' · '),
-        time: 'Gerade über den Job-Match eingegangen',
-        hot: true
-      });
-      localStorage.removeItem('auetalDemoLead');
-      const banner = document.querySelector('.admin-demo-banner span');
-      if (banner) banner.textContent = 'Der eben abgeschlossene Job-Match wurde als Demo-Kontakt in die Pipeline übernommen.';
-    }
-  } catch (_) {}
 })();
