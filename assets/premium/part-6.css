@@ -1,28 +1,149 @@
-/* === AUETAL GOLD V6.2 · HERO CLS FIX === */
-/* The home hero image shell must never participate in normal document flow. */
-.hero-home{position:relative;overflow:hidden;min-height:100svh}
+/* === AUETAL GOLD V6.3 · HERO + ACCESSIBILITY GATE === */
+
+/* Home hero: stable editorial split. Image never participates in layout. */
+.hero-home{
+  position:relative;
+  min-height:100svh;
+  overflow:hidden;
+  background:#f4ede3!important;
+}
+.hero-home .hero-media-main,
 .hero-home .hero-media-main.image-shell{
   position:absolute!important;
-  inset:0 0 0 43%!important;
+  inset:0 0 0 52%!important;
   width:auto!important;
   height:auto!important;
   min-height:0!important;
   margin:0!important;
   display:block!important;
+  z-index:0!important;
+  overflow:hidden!important;
+  background:#d9d0c3!important;
 }
-.hero-home .hero-media-main.image-shell>img{
+.hero-home .hero-media-main img{
   position:absolute!important;
   inset:0!important;
   width:100%!important;
   height:100%!important;
   max-width:none!important;
   object-fit:cover!important;
+  object-position:center 48%!important;
   display:block!important;
+  transform:none!important;
 }
-.hero-home .hero-media-wash{position:absolute!important;inset:0!important}
-.hero-home .hero-shell{position:relative!important;z-index:2!important}
+.hero-home .hero-media-wash{
+  position:absolute!important;
+  inset:0!important;
+  z-index:3!important;
+  pointer-events:none;
+  background:linear-gradient(90deg,#f4ede3 0%,rgba(244,237,227,.98) 8%,rgba(244,237,227,.78) 27%,rgba(244,237,227,.2) 50%,rgba(244,237,227,0) 70%)!important;
+}
+.hero-home .hero-shell{
+  position:relative!important;
+  z-index:5!important;
+  width:var(--wrap)!important;
+  min-height:100svh!important;
+  margin:0 auto!important;
+  padding:132px 0 92px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(280px,340px)!important;
+  gap:clamp(42px,5vw,72px)!important;
+  align-items:center!important;
+}
+.hero-home .hero-copy{
+  padding:0!important;
+  max-width:760px!important;
+  min-width:0!important;
+  align-self:center!important;
+}
+.hero-home .hero-copy .eyebrow{margin-bottom:20px!important}
+.hero-home h1{
+  max-width:760px!important;
+  margin:0!important;
+  font-size:clamp(4rem,5.7vw,7rem)!important;
+  line-height:.91!important;
+  letter-spacing:-.052em!important;
+  text-wrap:balance;
+}
+.hero-home .hero-lead{
+  max-width:650px!important;
+  margin:28px 0 30px!important;
+  font-size:clamp(1.12rem,1.55vw,1.42rem)!important;
+  color:#444943!important;
+}
+.hero-home .hero-proof{max-width:670px!important;margin-top:42px!important}
+.hero-home .hero-story-card{
+  width:min(100%,330px)!important;
+  max-width:330px!important;
+  justify-self:end!important;
+  align-self:end!important;
+  margin:0 0 10px!important;
+  background:rgba(255,255,255,.94)!important;
+  border:1px solid rgba(29,33,30,.1)!important;
+  box-shadow:0 28px 70px rgba(38,31,24,.16)!important;
+}
+.hero-home .story-photo{height:225px!important}
+.hero-home .hero-bottom-note{z-index:6!important}
 
-/* Tablet/mobile keeps the same fixed media canvas, only full-bleed. */
+/* Gold accessibility baseline. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible{
+  outline:3px solid #b89a69!important;
+  outline-offset:4px!important;
+  box-shadow:0 0 0 2px rgba(255,255,255,.9)!important;
+}
+button,.btn,.menu-toggle,.flow-options button,.care-options button,.builder-options button{min-height:44px}
+.desktop-nav a,.footer-links a{padding-block:8px}
+[id]{scroll-margin-top:110px}
+.skip-link:focus{top:16px!important;z-index:9999!important}
+
 @media(max-width:1100px){
-  .hero-home .hero-media-main.image-shell{inset:0!important}
+  .hero-home .hero-media-main,
+  .hero-home .hero-media-main.image-shell{inset:0 0 0 45%!important}
+  .hero-home .hero-media-wash{background:linear-gradient(90deg,#f4ede3 0%,rgba(244,237,227,.98) 22%,rgba(244,237,227,.8) 50%,rgba(244,237,227,.28) 78%,rgba(244,237,227,0) 100%)!important}
+  .hero-home .hero-shell{grid-template-columns:1fr!important;align-items:center!important;padding-top:126px!important}
+  .hero-home .hero-copy{max-width:700px!important}
+  .hero-home .hero-story-card{display:none!important}
+  .hero-home h1{font-size:clamp(3.8rem,8vw,6.4rem)!important;max-width:700px!important}
+}
+
+@media(max-width:760px){
+  .hero-home{min-height:auto!important;padding:0!important;background:#f4ede3!important}
+  .hero-home .hero-media-main,
+  .hero-home .hero-media-main.image-shell{
+    inset:0 0 auto 0!important;
+    height:41svh!important;
+    min-height:300px!important;
+  }
+  .hero-home .hero-media-main img{object-position:center 40%!important}
+  .hero-home .hero-media-wash{background:linear-gradient(180deg,rgba(244,237,227,.04) 0%,rgba(244,237,227,.12) 58%,#f4ede3 100%)!important}
+  .hero-home .hero-shell{
+    min-height:0!important;
+    padding:calc(41svh + 38px) 0 88px!important;
+    display:block!important;
+  }
+  .hero-home .hero-copy{max-width:none!important}
+  .hero-home h1{font-size:clamp(3.35rem,13vw,4.9rem)!important;line-height:.92!important;max-width:none!important}
+  .hero-home .hero-lead{font-size:1.08rem!important;margin:24px 0 26px!important}
+  .hero-home .hero-proof{margin-top:34px!important;gap:10px!important}
+  .hero-home .hero-proof strong{font-size:1.55rem!important}
+  .hero-home .hero-proof span{font-size:9px!important}
+}
+
+/* Motion must never be required to understand or operate the site. */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .promise-track,.career-signal i,.system-beam-live,.system-reveal-head:before{animation:none!important}
+  .manifesto-line,.hero-media-main img,.career-hero-media img,[data-parallax]{transform:none!important}
+  .pointer-glow{display:none!important}
 }
