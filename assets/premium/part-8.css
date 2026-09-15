@@ -1,0 +1,73 @@
+/* === AUETAL GOLD V6.5 · RECRUITING ACCESSIBILITY PASS === */
+/* Recruiting LP: readable by construction, never by luck. */
+body[data-page="recruiting"] .ad-landing-hero{
+  background:#f5eee4!important;
+  color:#1c211d!important;
+}
+body[data-page="recruiting"] .ad-copy>p{color:#4b514c!important}
+body[data-page="recruiting"] .ad-copy>small{color:#666d67!important;font-size:10px!important;line-height:1.55!important}
+body[data-page="recruiting"] .ad-facts div{background:#fff!important;border:1px solid rgba(28,33,29,.12)!important}
+body[data-page="recruiting"] .ad-facts span{color:#5d645e!important}
+
+/* Team image gets a stable media canvas; badge never sits directly on photo. */
+body[data-page="recruiting"] .ad-photo{position:relative!important;padding-bottom:54px!important}
+body[data-page="recruiting"] .ad-photo .media-frame{position:relative!important;overflow:hidden!important;background:#d8d0c5!important}
+body[data-page="recruiting"] .ad-photo .media-frame:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,15,12,.02) 0%,rgba(10,15,12,.08) 58%,rgba(10,15,12,.38) 100%)!important;
+}
+body[data-page="recruiting"] .ad-badge{
+  left:24px!important;
+  bottom:0!important;
+  max-width:min(390px,calc(100% - 48px))!important;
+  background:#8f1f32!important;
+  color:#fff!important;
+  border-radius:16px!important;
+  box-shadow:0 18px 45px rgba(70,19,30,.2)!important;
+}
+body[data-page="recruiting"] .ad-badge span,
+body[data-page="recruiting"] .ad-badge strong{color:#fff!important}
+body[data-page="recruiting"] .ad-badge span{opacity:.92!important}
+
+/* Dark recruiting sections: explicit accessible text palette. */
+body[data-page="recruiting"] .quickmatch-section,
+body[data-page="recruiting"] .system-reveal{color:#fff!important}
+body[data-page="recruiting"] .quickmatch-section .jobmatch-copy>p,
+body[data-page="recruiting"] .system-reveal-head>p{color:#d9e0da!important}
+body[data-page="recruiting"] .quickmatch-section h2,
+body[data-page="recruiting"] .system-reveal h2,
+body[data-page="recruiting"] .system-node strong{color:#fff!important}
+body[data-page="recruiting"] .system-node p{color:#d0d8d1!important}
+body[data-page="recruiting"] .system-node small{color:#bdc8bf!important}
+
+/* Recruiting flow itself uses a solid high-contrast card. */
+body[data-page="recruiting"] .flow-card{
+  background:#f8f4ec!important;
+  color:#17211b!important;
+  border:1px solid rgba(255,255,255,.28)!important;
+  backdrop-filter:none!important;
+}
+body[data-page="recruiting"] .flow-top,
+body[data-page="recruiting"] .flow-stage h3,
+body[data-page="recruiting"] .flow-options button{color:#17211b!important}
+body[data-page="recruiting"] .flow-kicker{color:#8f1f32!important}
+body[data-page="recruiting"] .flow-progress{background:#ddd6cb!important}
+body[data-page="recruiting"] .flow-options{border-color:rgba(23,33,27,.16)!important}
+body[data-page="recruiting"] .flow-options button{border-color:rgba(23,33,27,.16)!important}
+body[data-page="recruiting"] .flow-options button:hover{background:#17211b!important;color:#fff!important}
+body[data-page="recruiting"] .flow-nav{border-color:rgba(23,33,27,.16)!important}
+body[data-page="recruiting"] .flow-nav button{color:#4d554f!important}
+
+/* Prevent tiny low-contrast supporting copy. */
+body[data-page="recruiting"] .ad-life-proof p,
+body[data-page="recruiting"] .ad-story-grid p{color:#4d534e!important}
+body[data-page="recruiting"] .ad-proof-scenes small{color:#7c1b2c!important}
+
+@media(max-width:760px){
+  body[data-page="recruiting"] .ad-photo{padding-bottom:46px!important}
+  body[data-page="recruiting"] .ad-badge{left:14px!important;max-width:calc(100% - 28px)!important}
+  body[data-page="recruiting"] .ad-photo .media-frame{height:480px!important}
+}
