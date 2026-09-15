@@ -8,3 +8,90 @@
 .ad-life-proof{background:#f7f1e7}.ad-proof-scenes{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(23,33,27,.12);border:1px solid rgba(23,33,27,.12);border-radius:26px;overflow:hidden;margin-top:45px}.ad-proof-scenes article{background:#fff;padding:clamp(28px,4vw,52px);min-height:280px}.ad-proof-scenes small{font-size:9px;letter-spacing:.18em;color:#8f1f32;font-weight:900}.ad-proof-scenes h3{font-size:clamp(34px,4vw,54px);margin:12px 0}.ad-proof-scenes p{font-size:16px;line-height:1.65;color:#6f685f;max-width:540px}.ad-proof-scenes strong{display:block;margin-top:24px;color:#17211b}
 @media(max-width:1050px){.attraction-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:720px){.attraction-grid,.ad-proof-scenes{grid-template-columns:1fr}}
+
+/* === AUETAL GOLD V6.1 · VISUAL QA HOTFIX === */
+/* Header is a permanent orientation anchor. Never auto-hide it. */
+.site-header{z-index:1200!important;opacity:1!important;visibility:visible!important}
+.site-header.header-hide{transform:none!important}
+.site-header-dark{background:rgba(14,20,16,.94)!important;border-color:rgba(255,255,255,.2)!important}
+
+/* Above-the-fold content must never depend on an observer firing. */
+.hero-home .hero-copy,
+.hero-home .hero-story-card,
+.career-hero .career-hero-copy,
+.career-hero .career-openings{
+  opacity:1!important;
+  transform:none!important;
+  filter:none!important;
+}
+
+/* Career hero: readable before decorative. */
+.career-hero-media img{filter:saturate(.72) contrast(1.08) brightness(.62)!important}
+.career-hero-overlay{
+  background:linear-gradient(90deg,rgba(9,14,11,.98) 0%,rgba(9,14,11,.93) 38%,rgba(9,14,11,.76) 63%,rgba(9,14,11,.36) 100%)!important;
+}
+.career-hero-inner{grid-template-columns:minmax(0,1fr) minmax(280px,340px)!important;gap:clamp(36px,5vw,72px)!important}
+.career-hero-copy{max-width:790px!important;min-width:0}
+.career-hero h1{font-size:clamp(3.8rem,5.7vw,6.85rem)!important;line-height:.91!important;letter-spacing:-.05em!important;max-width:790px!important;text-wrap:balance}
+.career-hero h1 em{color:#f4c0ca!important}
+.career-hero-copy>p:not(.eyebrow){color:#eef2ee!important;max-width:650px!important}
+.career-signal,.career-hero .eyebrow{color:#fff!important;text-shadow:0 1px 16px rgba(0,0,0,.35)}
+.career-openings{background:rgba(8,13,10,.7)!important;border-color:rgba(255,255,255,.28)!important}
+
+/* Employer story: stop overlapping/cropping text and image on desktop. */
+@media(min-width:1101px){
+  .employer-story-grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)!important;gap:clamp(52px,6vw,90px)!important;align-items:center!important}
+  .employer-story-copy{min-width:0}
+  .employer-story-copy h2{font-size:clamp(3.55rem,4.9vw,6rem)!important;line-height:.91!important;letter-spacing:-.05em!important;text-wrap:balance}
+  .employer-story-visual{min-height:680px!important;display:grid!important;grid-template-rows:minmax(0,1fr) auto!important;align-items:end!important;overflow:visible!important;padding:0!important}
+  .employer-photo{position:relative!important;inset:auto!important;width:88%!important;height:560px!important;margin-left:auto!important;border-radius:0!important;overflow:hidden!important}
+  .employer-story-visual blockquote{position:relative!important;inset:auto!important;width:min(440px,78%)!important;margin:-88px 0 0 auto!important;z-index:4!important;padding:28px 30px!important}
+  .employer-story-visual blockquote strong{font-size:clamp(1.55rem,2.15vw,2.4rem)!important;line-height:1.08!important;overflow-wrap:anywhere}
+}
+
+/* Job Match: premium dark glass needs a complete light text system. */
+.jobmatch-section .flow-card{
+  background:#202a23!important;
+  color:#fff!important;
+  border:1px solid rgba(255,255,255,.24)!important;
+  backdrop-filter:none!important;
+}
+.jobmatch-section .flow-top{color:#eef2ee!important}
+.jobmatch-section .flow-progress{background:rgba(255,255,255,.2)!important}
+.jobmatch-section .flow-stage h3{color:#fff!important;text-wrap:balance}
+.jobmatch-section .flow-kicker{color:#f2a9b8!important}
+.jobmatch-section .flow-options{border-color:rgba(255,255,255,.18)!important}
+.jobmatch-section .flow-options button{color:#fff!important;border-color:rgba(255,255,255,.18)!important}
+.jobmatch-section .flow-options button span{color:#f0bdc7!important}
+.jobmatch-section .flow-options button:hover{color:#fff!important;background:rgba(255,255,255,.06)!important}
+.jobmatch-section .flow-nav{border-color:rgba(255,255,255,.18)!important}
+.jobmatch-section .flow-nav button{color:#d6ddd7!important}
+.jobmatch-section .flow-summary span{border-color:rgba(255,255,255,.24)!important;color:#fff!important}
+.jobmatch-section .flow-result p{color:#d6ddd7!important}
+.jobmatch-section .flow-result .text-link,
+.jobmatch-section .demo-cockpit-link{color:#fff!important;border-color:rgba(255,255,255,.18)!important}
+
+/* Basic contrast safety for light-on-image editorial moments. */
+.moment figcaption,.workday-visual-caption{ text-shadow:0 2px 18px rgba(0,0,0,.5) }
+
+@media(max-width:1100px){
+  .career-hero-inner{grid-template-columns:1fr!important}
+  .career-hero-copy{max-width:780px!important}
+  .career-hero h1{font-size:clamp(3.6rem,8.5vw,6.5rem)!important}
+  .career-openings{max-width:520px!important}
+}
+
+@media(max-width:760px){
+  .site-header{z-index:1200!important}
+  .career-hero-media img{brightness:.58}
+  .career-hero-overlay{background:linear-gradient(180deg,rgba(9,14,11,.82),rgba(9,14,11,.96))!important}
+  .career-hero h1{font-size:clamp(3.15rem,13vw,4.8rem)!important;line-height:.93!important}
+  .employer-story-copy h2{font-size:clamp(3rem,12vw,4.4rem)!important}
+  .jobmatch-section .flow-card{padding:22px!important}
+  .jobmatch-section .flow-stage h3{font-size:clamp(2.3rem,10vw,3.2rem)!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .site-header{transition:none!important}
+  .site-header.header-hide{transform:none!important}
+}
