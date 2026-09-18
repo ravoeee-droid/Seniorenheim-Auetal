@@ -212,8 +212,8 @@
       }
       .creative-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
       }
       .creative {
         min-width: 0;
@@ -260,6 +260,9 @@
       .creative-caption span {
         color: #7b666a;
         font-size: 12px;
+      }
+      .creative:last-child {
+        grid-column: 2;
       }
       .vacancy {
         padding: 100px 0;
@@ -532,6 +535,9 @@
         }
         .creative-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .creative:last-child {
+          grid-column: auto;
         }
         .difference-card:nth-child(2) {
           border-right: 0;
