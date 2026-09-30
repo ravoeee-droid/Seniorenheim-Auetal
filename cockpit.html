@@ -25,7 +25,7 @@ button,a{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:2
     <button data-view="patients"><span>＋</span>Patienten & Belegung</button>
     <button data-view="jobs"><span>▤</span>Stellenportal</button>
     <button data-view="reputation"><span>★</span>Arbeitgebermarke</button>
-    <button data-view="roi"><span>↗</span>ROI & Wachstum</button><a href="besetzungssteuerung.html" style="color:#cfc7c8;padding:11px 12px;text-decoration:none;display:block">⚙ Besetzungssteuerung</a><a href="seo-center.html" style="color:#cfc7c8;padding:11px 12px;text-decoration:none;display:block">⌕ SEO & Content</a><a href="angebot-konfigurator.html" style="color:#cfc7c8;padding:11px 12px;text-decoration:none;display:block">€ Angebot kalkulieren</a>
+    <button data-view="roi"><span>↗</span>ROI & Wachstum</button><button data-view="modules"><span>◫</span>Module & Vertrag</button><a href="besetzungssteuerung.html" style="color:#cfc7c8;padding:11px 12px;text-decoration:none;display:block">⚙ Besetzungssteuerung</a><a href="seo-center.html" style="color:#cfc7c8;padding:11px 12px;text-decoration:none;display:block">⌕ SEO & Content</a><a href="angebot-konfigurator.html" style="color:#cfc7c8;padding:11px 12px;text-decoration:none;display:block">€ Angebot kalkulieren</a>
   </nav>
   <div class="sidebar-foot">Powered by <b>Digitale Gewinner</b><br>Konzeptstand · 30.09.2026</div>
 </aside>
@@ -36,7 +36,7 @@ button,a{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:2
   <div class="top-actions"><span class="pill">● Systeme aktiv</span><span class="pill">Letzte 30 Tage</span><div class="avatar">GF</div></div>
 </header>
 <div class="mobile-nav">
-  <button class="active" data-view="overview">Übersicht</button><button data-view="recruiting">Recruiting</button><button data-view="patients">Patienten</button><button data-view="jobs">Jobs</button><button data-view="reputation">Reputation</button><button data-view="roi">ROI</button>
+  <button class="active" data-view="overview">Übersicht</button><button data-view="recruiting">Recruiting</button><button data-view="patients">Patienten</button><button data-view="jobs">Jobs</button><button data-view="reputation">Reputation</button><button data-view="roi">ROI</button><button data-view="modules">Module</button>
 </div>
 
 <div class="content">
@@ -149,6 +149,49 @@ button,a{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:2
   </div>
 </section>
 
+<section class="view" id="modules">
+  <div class="section-head"><div><h3>Module & monatliche Steuerung</h3><p>Der Geschäftsführer behält volle Kontrolle über aktive Leistungen, Budgets und monatliche Kosten.</p></div><a class="btn primary" href="angebot-konfigurator.html" style="text-decoration:none">Komplett neu konfigurieren</a></div>
+  <div class="grid">
+    <div class="card metric"><small>Aktive Module</small><strong id="activeModulesCount">4</strong><span class="delta">monatlich anpassbar</span></div>
+    <div class="card metric"><small>Betreuung / Monat</small><strong id="moduleMonthlyTotal">1.420 €</strong><span class="delta warn">zzgl. Werbebudget</span></div>
+    <div class="card metric"><small>Werbebudget / Monat</small><strong id="moduleAdsTotal">2.000 €</strong><span class="delta warn">Meta + Google</span></div>
+    <div class="card metric"><small>Monatlicher Gesamt-Cashflow</small><strong id="moduleCashTotal">3.420 €</strong><span class="delta">aktuelle Konfiguration</span></div>
+  </div>
+
+  <div class="section-head"><div><h3>Aktive & verfügbare Module</h3><p>Änderungen hier sind Demo-Self-Service. Im Live-System würden sie als Vertrags-/Serviceänderung bestätigt und protokolliert.</p></div></div>
+  <div class="card table-wrap">
+    <table class="table"><thead><tr><th>Modul</th><th>Status</th><th>Monatlich</th><th>Steuerung</th></tr></thead>
+    <tbody id="moduleTable">
+      <tr data-module-row data-price="290"><td><b>Growth Cockpit & Tracking</b><br><span class="sub">GF-Dashboard, Funnel, ROI, Alerts</span></td><td><span class="tag">Aktiv</span></td><td><b>290 €</b></td><td><button class="btn soft moduleToggle" data-on="1">Pausieren</button></td></tr>
+      <tr data-module-row data-price="190"><td><b>Karrierewelt</b><br><span class="sub">Employer Story, Jobs, Bewerber-Funnel</span></td><td><span class="tag">Aktiv</span></td><td><b>190 €</b></td><td><button class="btn soft moduleToggle" data-on="1">Pausieren</button></td></tr>
+      <tr data-module-row data-price="750"><td><b>Meta Recruiting</b><br><span class="sub">Creatives, Kampagnen, Optimierung</span></td><td><span class="tag">Aktiv</span></td><td><b>750 €</b></td><td><button class="btn soft moduleToggle" data-on="1">Pausieren</button></td></tr>
+      <tr data-module-row data-price="190"><td><b>Stellenportal Premium</b><br><span class="sub">Job-SEO, Talentpool, Premium-Veröffentlichung</span></td><td><span class="tag">Aktiv</span></td><td><b>190 €</b></td><td><button class="btn soft moduleToggle" data-on="1">Pausieren</button></td></tr>
+      <tr data-module-row data-price="750"><td><b>Google Patienten-Ads</b><br><span class="sub">Search Ads, Tracking, Optimierung</span></td><td><span class="tag amber">Verfügbar</span></td><td><b>750 €</b></td><td><button class="btn primary moduleToggle" data-on="0">Aktivieren</button></td></tr>
+      <tr data-module-row data-price="590"><td><b>SEO & Content Engine</b><br><span class="sub">Standortseiten, Ratgeber, Job-SEO</span></td><td><span class="tag amber">Verfügbar</span></td><td><b>590 €</b></td><td><button class="btn primary moduleToggle" data-on="0">Aktivieren</button></td></tr>
+      <tr data-module-row data-price="290"><td><b>Reputation Automation</b><br><span class="sub">Bewertungen, Monitoring, Arbeitgebervertrauen</span></td><td><span class="tag amber">Verfügbar</span></td><td><b>290 €</b></td><td><button class="btn primary moduleToggle" data-on="0">Aktivieren</button></td></tr>
+      <tr data-module-row data-price="1200"><td><b>Active Sourcing</b><br><span class="sub">Direkte Kandidatensuche als Eskalationsstufe</span></td><td><span class="tag amber">Verfügbar</span></td><td><b>1.200 €</b></td><td><button class="btn primary moduleToggle" data-on="0">Aktivieren</button></td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="twocol" style="margin-top:14px">
+    <div class="card">
+      <b style="font-size:13px">Werbebudgets</b>
+      <div class="funnel" style="margin-top:16px">
+        <div class="frow"><span>Meta Ads</span><input id="metaModuleBudget" type="number" value="1000" step="100" min="0" style="width:100%;padding:9px;border:1px solid var(--line);border-radius:10px"><b>€/Monat</b></div>
+        <div class="frow"><span>Google Ads</span><input id="googleModuleBudget" type="number" value="1000" step="100" min="0" style="width:100%;padding:9px;border:1px solid var(--line);border-radius:10px"><b>€/Monat</b></div>
+      </div>
+      <div class="callout"><b>Volle Kontrolle:</b> Budgetänderungen sollen im Live-System zum nächsten vereinbarten Abrechnungs-/Kampagnenzeitpunkt wirksam werden und sauber protokolliert sein.</div>
+    </div>
+    <div class="card">
+      <b style="font-size:13px">Änderungsübersicht</b>
+      <div class="tasks" style="margin-top:14px" id="moduleChangeLog">
+        <div class="task"><span class="dot green"></span><div><b>Keine offenen Änderungen</b><p>Die aktuelle Demo-Konfiguration ist aktiv.</p></div><time>Jetzt</time></div>
+      </div>
+      <div class="callout"><b>Wichtig:</b> Kündigungsfristen, Mindestlaufzeiten, Setup-Leistungen und Erfolgshonorare sollten nicht durch einen einfachen Toggle verschwinden. Das Cockpit zeigt deshalb künftig den frühestmöglichen Änderungszeitpunkt und verlangt eine Bestätigung.</div>
+    </div>
+  </div>
+</section>
+
 <section class="view" id="roi">
   <div class="section-head"><div><h3>ROI & Geschäftsführung</h3><p>Nicht Klicks reporten – sondern Kosten pro Einstellung und pro Neuaufnahme.</p></div></div>
   <div class="grid">
@@ -170,7 +213,7 @@ button,a{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:2
 </main>
 </div>
 <script>
-const titles={overview:'Geschäftsführer-Cockpit',recruiting:'Recruiting Engine',patients:'Patienten & Belegung',jobs:'Stellenportal',reputation:'Arbeitgebermarke',roi:'ROI & Wachstum'};
+const titles={overview:'Geschäftsführer-Cockpit',recruiting:'Recruiting Engine',patients:'Patienten & Belegung',jobs:'Stellenportal',reputation:'Arbeitgebermarke',roi:'ROI & Wachstum',modules:'Module & Vertrag'};
 function showView(id){
  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));
  document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===id));
@@ -178,6 +221,51 @@ function showView(id){
  window.scrollTo({top:0,behavior:'smooth'});
 }
 document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+
+function recalcModules(){
+  let monthly=0, active=0;
+  document.querySelectorAll('[data-module-row]').forEach(row=>{
+    const btn=row.querySelector('.moduleToggle');
+    if(btn && btn.dataset.on==='1'){monthly+=Number(row.dataset.price||0);active++;}
+  });
+  const meta=Number(document.getElementById('metaModuleBudget')?.value||0);
+  const google=Number(document.getElementById('googleModuleBudget')?.value||0);
+  const ads=meta+google;
+  const fmt=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);
+  const c1=document.getElementById('activeModulesCount'); if(c1)c1.textContent=String(active);
+  const c2=document.getElementById('moduleMonthlyTotal'); if(c2)c2.textContent=fmt(monthly);
+  const c3=document.getElementById('moduleAdsTotal'); if(c3)c3.textContent=fmt(ads);
+  const c4=document.getElementById('moduleCashTotal'); if(c4)c4.textContent=fmt(monthly+ads);
+}
+document.querySelectorAll('.moduleToggle').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const row=btn.closest('[data-module-row]');
+    const status=row.querySelector('.tag');
+    const turningOn=btn.dataset.on!=='1';
+    btn.dataset.on=turningOn?'1':'0';
+    btn.textContent=turningOn?'Pausieren':'Aktivieren';
+    btn.classList.toggle('primary',!turningOn);
+    btn.classList.toggle('soft',turningOn);
+    status.textContent=turningOn?'Aktiv':'Verfügbar';
+    status.className=turningOn?'tag':'tag amber';
+    const log=document.getElementById('moduleChangeLog');
+    if(log){
+      log.innerHTML='';
+      const d=document.createElement('div'); d.className='task';
+      const dot=document.createElement('span'); dot.className=turningOn?'dot green':'dot';
+      const body=document.createElement('div');
+      const b=document.createElement('b'); b.textContent=(turningOn?'Aktiviert: ':'Pausiert: ')+row.querySelector('b').textContent;
+      const p=document.createElement('p'); p.textContent='Demo-Änderung vorgemerkt. Im Live-System folgt Bestätigung und Wirksamkeitsdatum.';
+      const time=document.createElement('time'); time.textContent='Jetzt';
+      body.append(b,p); d.append(dot,body,time); log.appendChild(d);
+    }
+    recalcModules();
+  });
+});
+['metaModuleBudget','googleModuleBudget'].forEach(id=>{
+ const el=document.getElementById(id); if(el)el.addEventListener('input',recalcModules);
+});
+recalcModules();
 </script>
 </body>
 </html>
