@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Auetal Growth Cockpit · Demo</title>
+<style>
+:root{--bg:#f6f3ef;--card:#fff;--ink:#1e2320;--muted:#6c746f;--line:#e6e0d9;--brand:#8f1f32;--brand2:#b34859;--green:#2f7d5b;--amber:#b47c2b;--blue:#3f6e8f;--shadow:0 18px 50px rgba(34,31,27,.08);--r:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+button,a{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:250px 1fr}.sidebar{background:#201b1c;color:#fff;padding:24px 18px;position:sticky;top:0;height:100vh}.brand{display:flex;gap:12px;align-items:center;padding:4px 8px 24px}.mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--brand2),var(--brand));display:grid;place-items:center;font-weight:900}.brand small{display:block;color:#cfc5c7;font-size:11px;text-transform:uppercase;letter-spacing:.14em}.brand strong{font-size:17px}.demo{margin:0 8px 22px;padding:10px 12px;border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(255,255,255,.05);font-size:12px;color:#ddd0d2}.nav{display:grid;gap:6px}.nav button{border:0;background:transparent;color:#cfc7c8;padding:11px 12px;border-radius:12px;text-align:left;display:flex;gap:10px;align-items:center;cursor:pointer}.nav button.active,.nav button:hover{background:rgba(255,255,255,.09);color:#fff}.nav span{width:22px;text-align:center}.sidebar-foot{position:absolute;bottom:20px;left:18px;right:18px;border-top:1px solid rgba(255,255,255,.08);padding-top:16px;font-size:12px;color:#aa9fa1}.main{min-width:0}.topbar{display:flex;justify-content:space-between;align-items:center;padding:22px 30px;border-bottom:1px solid var(--line);background:rgba(246,243,239,.92);backdrop-filter:blur(14px);position:sticky;top:0;z-index:5}.topbar h1{font-size:21px;margin:0}.sub{font-size:12px;color:var(--muted);margin-top:3px}.top-actions{display:flex;gap:10px;align-items:center}.pill{padding:9px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:12px}.avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:#fff;font-weight:800}.content{padding:28px 30px 50px;max-width:1500px}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;margin-bottom:18px}.hero-main{background:linear-gradient(135deg,#fff 0,#f7ecee 100%);border:1px solid var(--line);border-radius:var(--r);padding:28px;box-shadow:var(--shadow)}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}.hero h2{font-size:34px;line-height:1.05;margin:10px 0 12px;max-width:700px}.hero p{color:var(--muted);max-width:700px}.hero-actions{display:flex;gap:10px;margin-top:20px}.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:750;cursor:pointer}.btn.primary{background:var(--brand);color:#fff}.btn.soft{background:#fff;border:1px solid var(--line)}.signal{background:#211d1e;color:#fff;border-radius:var(--r);padding:24px}.signal small{color:#baadaf}.score{font-size:54px;font-weight:900;margin:6px 0}.signal .bar{height:8px;background:#3a3234;border-radius:999px;overflow:hidden}.signal .bar i{display:block;width:82%;height:100%;background:linear-gradient(90deg,#d98d9b,#fff)}.signal ul{padding-left:18px;color:#ddd3d5;font-size:13px;line-height:1.8}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 22px rgba(30,30,30,.03)}.metric small{color:var(--muted);font-size:12px}.metric strong{font-size:28px;display:block;margin:6px 0}.delta{font-size:11px;color:var(--green);font-weight:700}.delta.warn{color:var(--amber)}.section-head{display:flex;justify-content:space-between;align-items:end;margin:28px 0 12px}.section-head h3{margin:0;font-size:19px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:12px}.twocol{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.funnel{display:grid;gap:10px}.frow{display:grid;grid-template-columns:140px 1fr 55px;gap:10px;align-items:center;font-size:12px}.track{height:10px;background:#f0ece7;border-radius:999px;overflow:hidden}.track i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--brand),#ca7b89)}.tasks{display:grid;gap:10px}.task{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;padding:12px;border:1px solid var(--line);border-radius:13px}.dot{width:10px;height:10px;border-radius:50%;background:var(--amber);margin-top:5px}.dot.green{background:var(--green)}.dot.red{background:var(--brand)}.task b{font-size:13px}.task p{font-size:11px;color:var(--muted);margin:3px 0 0}.task time{font-size:10px;color:var(--muted)}.table{width:100%;border-collapse:collapse;font-size:12px}.table th{text-align:left;color:var(--muted);font-weight:650;padding:10px;border-bottom:1px solid var(--line)}.table td{padding:12px 10px;border-bottom:1px solid #f0ece8}.tag{display:inline-block;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:750;background:#edf6f0;color:var(--green)}.tag.amber{background:#fbf1df;color:#94651f}.tag.red{background:#f8e8eb;color:var(--brand)}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-size:11px;cursor:pointer}.tabs button.active{background:#211d1e;color:#fff;border-color:#211d1e}.view{display:none}.view.active{display:block}.job-card{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}.job-card h4{margin:0 0 5px}.job-card p{margin:0;color:var(--muted);font-size:12px}.mini-kpis{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap}.mini-kpis span{font-size:11px;color:var(--muted)}.mini-kpis b{color:var(--ink)}.chart{height:180px;display:flex;align-items:end;gap:9px;padding-top:20px}.chart i{flex:1;background:linear-gradient(180deg,#c87483,var(--brand));border-radius:9px 9px 3px 3px;min-height:15px;opacity:.92}.legend{display:flex;gap:16px;color:var(--muted);font-size:11px;margin-top:8px}.legend b{color:var(--ink)}.callout{border:1px solid #e8d8db;background:#fff6f7;border-radius:16px;padding:16px;margin-top:14px;font-size:12px}.callout b{color:var(--brand)}.mobile-nav{display:none}
+@media(max-width:1050px){.app{grid-template-columns:1fr}.sidebar{display:none}.mobile-nav{display:flex;overflow:auto;gap:8px;padding:10px 16px;background:#211d1e;position:sticky;top:78px;z-index:4}.mobile-nav button{white-space:nowrap;border:0;border-radius:999px;padding:8px 11px;background:#342d2f;color:#ddd}.mobile-nav button.active{background:#fff;color:#211d1e}.grid{grid-template-columns:repeat(2,1fr)}.hero,.twocol{grid-template-columns:1fr}.topbar{padding:18px 16px}.content{padding:20px 16px 40px}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.hero h2{font-size:28px}.top-actions .pill{display:none}.frow{grid-template-columns:100px 1fr 45px}.table-wrap{overflow:auto}.content{padding-top:16px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="mark">A</div><div><small>Seniorenheim</small><strong>AUETAL</strong></div></div>
+  <div class="demo">Growth Cockpit · Demo<br><b>Beispieldaten für Präsentation</b></div>
+  <nav class="nav">
+    <button class="active" data-view="overview"><span>⌂</span>Übersicht</button>
+    <button data-view="recruiting"><span>◎</span>Recruiting</button>
+    <button data-view="patients"><span>＋</span>Patienten & Belegung</button>
+    <button data-view="jobs"><span>▤</span>Stellenportal</button>
+    <button data-view="reputation"><span>★</span>Arbeitgebermarke</button>
+    <button data-view="roi"><span>↗</span>ROI & Wachstum</button>
+  </nav>
+  <div class="sidebar-foot">Powered by <b>Digitale Gewinner</b><br>Konzeptstand · 30.09.2026</div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <div><h1 id="viewTitle">Geschäftsführer-Cockpit</h1><div class="sub">Seniorenheim Auetal · Echte</div></div>
+  <div class="top-actions"><span class="pill">● Systeme aktiv</span><span class="pill">Letzte 30 Tage</span><div class="avatar">GF</div></div>
+</header>
+<div class="mobile-nav">
+  <button class="active" data-view="overview">Übersicht</button><button data-view="recruiting">Recruiting</button><button data-view="patients">Patienten</button><button data-view="jobs">Jobs</button><button data-view="reputation">Reputation</button><button data-view="roi">ROI</button>
+</div>
+
+<div class="content">
+<section class="view active" id="overview">
+  <div class="hero">
+    <div class="hero-main">
+      <div class="eyebrow">Auetal Growth OS</div>
+      <h2>Personal, Auslastung und Arbeitgebermarke in einem System.</h2>
+      <p>Eine zentrale Sicht für die Geschäftsführung: Was läuft, wo entstehen Bewerber und Anfragen, wo verlieren wir Potenzial – und welcher nächste Schritt bringt den größten Hebel?</p>
+      <div class="hero-actions"><button class="btn primary" onclick="showView('recruiting')">Recruiting ansehen</button><button class="btn soft" onclick="showView('patients')">Patientengewinnung</button></div>
+    </div>
+    <div class="signal"><small>Growth Health Score</small><div class="score">82</div><div class="bar"><i></i></div>
+      <ul><li>Recruiting-Funnel gewinnt an Tempo</li><li>2 heiße Bewerber warten auf Rückruf</li><li>Google-Kampagne hat freie Kapazität</li></ul>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card metric"><small>Aktive Bewerbungen</small><strong>23</strong><span class="delta">↑ 18 % zum Vormonat</span></div>
+    <div class="card metric"><small>Interviews geplant</small><strong>7</strong><span class="delta">3 diese Woche</span></div>
+    <div class="card metric"><small>Patientenanfragen</small><strong>18</strong><span class="delta">↑ 6 neue</span></div>
+    <div class="card metric"><small>Geschätzter Cost per Hire</small><strong>2.380 €</strong><span class="delta">unter Zielwert 2.500 €</span></div>
+  </div>
+
+  <div class="section-head"><div><h3>Was jetzt Aufmerksamkeit braucht</h3><p>Das Cockpit priorisiert automatisch die nächsten Entscheidungen.</p></div></div>
+  <div class="twocol">
+    <div class="card tasks">
+      <div class="task"><span class="dot red"></span><div><b>2 qualifizierte Pflegefachkräfte heute zurückrufen</b><p>Beide haben Wechselbereitschaft „sofort / &lt; 4 Wochen“ angegeben.</p></div><time>Heute</time></div>
+      <div class="task"><span class="dot"></span><div><b>Creative für Nachtdienst tauschen</b><p>Cost per qualified applicant liegt 41 % über dem besten Creative.</p></div><time>Heute</time></div>
+      <div class="task"><span class="dot green"></span><div><b>Google-Kampagne „Pflegeplatz Echte“ skalieren</b><p>3 qualifizierte Anfragen bei guter Conversion – Budget kann kontrolliert erhöht werden.</p></div><time>Empfohlen</time></div>
+    </div>
+    <div class="card">
+      <b style="font-size:13px">Recruiting-Funnel</b>
+      <div class="funnel" style="margin-top:16px">
+        <div class="frow"><span>Ad-Klicks</span><div class="track"><i style="width:100%"></i></div><b>612</b></div>
+        <div class="frow"><span>Karrierewelt</span><div class="track"><i style="width:72%"></i></div><b>441</b></div>
+        <div class="frow"><span>Bewerbungen</span><div class="track"><i style="width:28%"></i></div><b>23</b></div>
+        <div class="frow"><span>Qualifiziert</span><div class="track"><i style="width:18%"></i></div><b>11</b></div>
+        <div class="frow"><span>Interviews</span><div class="track"><i style="width:12%"></i></div><b>7</b></div>
+        <div class="frow"><span>Einstellungen</span><div class="track"><i style="width:5%"></i></div><b>2</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="recruiting">
+  <div class="section-head"><div><h3>Recruiting Engine</h3><p>Meta Ads → Karrierewelt → Bewerbung → Qualifizierung → Gespräch → Einstellung</p></div><div class="tabs"><button class="active">30 Tage</button><button>90 Tage</button></div></div>
+  <div class="grid">
+    <div class="card metric"><small>Werbebudget</small><strong>1.240 €</strong><span class="delta warn">Meta Recruiting</span></div>
+    <div class="card metric"><small>Bewerbungen</small><strong>23</strong><span class="delta">53,91 € pro Bewerbung</span></div>
+    <div class="card metric"><small>Qualifiziert</small><strong>11</strong><span class="delta">47,8 % Qualität</span></div>
+    <div class="card metric"><small>Einstellungen</small><strong>2</strong><span class="delta">Demo-Ziel: 2–3 / Monat</span></div>
+  </div>
+  <div class="section-head"><div><h3>Bewerber-Pipeline</h3><p>Priorisiert nach Wechselbereitschaft und Passung.</p></div></div>
+  <div class="card table-wrap">
+    <table class="table"><thead><tr><th>Kandidat</th><th>Rolle</th><th>Quelle</th><th>Status</th><th>Priorität</th><th>Nächster Schritt</th></tr></thead>
+    <tbody>
+      <tr><td><b>Anna K.</b></td><td>Pflegefachkraft</td><td>Meta</td><td><span class="tag">Qualifiziert</span></td><td>94 %</td><td>Heute anrufen</td></tr>
+      <tr><td><b>Marco S.</b></td><td>Pflegefachkraft</td><td>Stellenportal</td><td><span class="tag amber">Neu</span></td><td>89 %</td><td>WhatsApp bestätigen</td></tr>
+      <tr><td><b>Lea M.</b></td><td>Pflegeassistenz</td><td>Meta</td><td><span class="tag">Interview</span></td><td>86 %</td><td>02.10 · 10:30</td></tr>
+      <tr><td><b>Daniel R.</b></td><td>Wohnbereichsleitung</td><td>Direktvermittlung</td><td><span class="tag red">Active Sourcing</span></td><td>82 %</td><td>Profil vorstellen</td></tr>
+    </tbody></table>
+  </div>
+  <div class="callout"><b>Direktvermittlung integriert:</b> Wenn eine Position über Ads nicht schnell genug besetzt wird, kann das System automatisch in Active Sourcing / Direktvermittlung wechseln – statt einfach mehr Werbebudget zu verbrennen.</div>
+</section>
+
+<section class="view" id="patients">
+  <div class="section-head"><div><h3>Patienten- & Belegungswachstum</h3><p>Google Ads fängt bestehende Nachfrage ab und führt sie direkt in die Aufnahmepipeline.</p></div></div>
+  <div class="grid">
+    <div class="card metric"><small>Google Ads</small><strong>1.000 €</strong><span class="delta warn">Monatsbudget Demo</span></div>
+    <div class="card metric"><small>Anfragen</small><strong>18</strong><span class="delta">55,56 € / Anfrage</span></div>
+    <div class="card metric"><small>Qualifiziert</small><strong>9</strong><span class="delta">50 %</span></div>
+    <div class="card metric"><small>Neuaufnahmen</small><strong>3</strong><span class="delta">333 € Ad Cost / Aufnahme</span></div>
+  </div>
+  <div class="twocol" style="margin-top:14px">
+    <div class="card"><b style="font-size:13px">Anfragen nach Suchintention</b><div class="chart"><i style="height:78%"></i><i style="height:55%"></i><i style="height:92%"></i><i style="height:45%"></i><i style="height:67%"></i><i style="height:84%"></i><i style="height:72%"></i></div><div class="legend"><span><b>Top:</b> „Pflegeplatz Echte“</span><span><b>2:</b> „Seniorenheim Kalefeld“</span></div></div>
+    <div class="card tasks">
+      <div class="task"><span class="dot green"></span><div><b>3 freie Kapazitäten aktiv bewerben</b><p>Budget nur auf Leistungs-/Standortseiten mit freier Kapazität lenken.</p></div><time>Live</time></div>
+      <div class="task"><span class="dot"></span><div><b>5 Anfragen nachfassen</b><p>Kein Kontakt innerhalb der letzten 24 Stunden dokumentiert.</p></div><time>Heute</time></div>
+      <div class="task"><span class="dot green"></span><div><b>Call-Tracking aktiv</b><p>Google-Anrufe und Formulare werden einer Kampagne zugeordnet.</p></div><time>OK</time></div>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="jobs">
+  <div class="section-head"><div><h3>Auetal im eigenen Stellenportal</h3><p>Hochwertige Jobseiten statt austauschbarer Stellenanzeigen – mit direkter Kurzbewerbung.</p></div><button class="btn primary">+ Neue Stelle veröffentlichen</button></div>
+  <div class="card job-card"><div><h4>Pflegefachkraft (m/w/d) · Echte</h4><p>Vollzeit / Teilzeit · Seniorenheim Auetal · Kurzbewerbung ohne Lebenslauf</p><div class="mini-kpis"><span><b>284</b> Aufrufe</span><span><b>17</b> Bewerbungsstarts</span><span><b>8</b> Bewerbungen</span><span><b>3</b> qualifiziert</span></div></div><span class="tag">Live</span></div>
+  <div class="card job-card" style="margin-top:10px"><div><h4>Pflegeassistenz (m/w/d) · Echte</h4><p>Flexible Arbeitszeit · Team-Einblicke · Arbeitgeberstory · WhatsApp-Bewerbung</p><div class="mini-kpis"><span><b>196</b> Aufrufe</span><span><b>12</b> Bewerbungsstarts</span><span><b>5</b> Bewerbungen</span><span><b>2</b> qualifiziert</span></div></div><span class="tag">Live</span></div>
+  <div class="callout"><b>Vision:</b> Jede Auetal-Stelle erscheint gleichzeitig in der eigenen Karrierewelt und im zentralen Pflege-Stellenportal. Daraus entsteht langfristig ein eigener Talentpool, der für neue Positionen reaktiviert werden kann.</div>
+</section>
+
+<section class="view" id="reputation">
+  <div class="section-head"><div><h3>Arbeitgeberattraktivität & Reputation</h3><p>Was Bewerber und Angehörige sehen, bevor sie Kontakt aufnehmen.</p></div></div>
+  <div class="grid">
+    <div class="card metric"><small>Reputation Score</small><strong>78 / 100</strong><span class="delta">Ziel 85+</span></div>
+    <div class="card metric"><small>Neue Bewertungen</small><strong>+12</strong><span class="delta">letzte 30 Tage · Demo</span></div>
+    <div class="card metric"><small>Antwortquote</small><strong>92 %</strong><span class="delta">Google Profil</span></div>
+    <div class="card metric"><small>Karrierewelt Score</small><strong>86 / 100</strong><span class="delta">Mobile & Conversion</span></div>
+  </div>
+  <div class="twocol" style="margin-top:14px">
+    <div class="card"><b style="font-size:13px">Employer Brand Bausteine</b><div class="tasks" style="margin-top:14px">
+      <div class="task"><span class="dot green"></span><div><b>Echte Team-Bilder & Arbeitgeberstory</b><p>Authentische Einblicke statt generischer Stock-Kommunikation.</p></div><time>Aktiv</time></div>
+      <div class="task"><span class="dot green"></span><div><b>GF / Führung sichtbar machen</b><p>Vertrauen entsteht vor der Bewerbung – nicht erst im Gespräch.</p></div><time>Aktiv</time></div>
+      <div class="task"><span class="dot"></span><div><b>Mitarbeiterstimmen ausbauen</b><p>3 weitere Kurzinterviews empfohlen.</p></div><time>Nächster Schritt</time></div>
+    </div></div>
+    <div class="card"><b style="font-size:13px">Automatisierter Review-Prozess</b><div class="funnel" style="margin-top:18px">
+      <div class="frow"><span>Anfragen</span><div class="track"><i style="width:100%"></i></div><b>64</b></div>
+      <div class="frow"><span>Geöffnet</span><div class="track"><i style="width:76%"></i></div><b>49</b></div>
+      <div class="frow"><span>Bewertet</span><div class="track"><i style="width:24%"></i></div><b>12</b></div>
+    </div></div>
+  </div>
+</section>
+
+<section class="view" id="roi">
+  <div class="section-head"><div><h3>ROI & Geschäftsführung</h3><p>Nicht Klicks reporten – sondern Kosten pro Einstellung und pro Neuaufnahme.</p></div></div>
+  <div class="grid">
+    <div class="card metric"><small>Marketing gesamt</small><strong>2.240 €</strong><span class="delta warn">Ads · Demo</span></div>
+    <div class="card metric"><small>Neue Einstellungen</small><strong>2</strong><span class="delta">+ Pipeline vorhanden</span></div>
+    <div class="card metric"><small>Neuaufnahmen</small><strong>3</strong><span class="delta">Google Ads</span></div>
+    <div class="card metric"><small>Growth Score</small><strong>82 / 100</strong><span class="delta">+9 Punkte</span></div>
+  </div>
+  <div class="twocol" style="margin-top:14px">
+    <div class="card"><b style="font-size:13px">Was das Cockpit beantwortet</b><div class="tasks" style="margin-top:14px">
+      <div class="task"><span class="dot green"></span><div><b>Welche Stelle kostet uns aktuell am meisten?</b><p>Budget und Qualität pro Position statt Bauchgefühl.</p></div></div>
+      <div class="task"><span class="dot green"></span><div><b>Welche Kampagne führt wirklich zu Einstellungen?</b><p>Von der Anzeige bis zum Hire durchgemessen.</p></div></div>
+      <div class="task"><span class="dot green"></span><div><b>Welche Patientenkampagne führt zu tatsächlichen Aufnahmen?</b><p>Google Ads nicht nach Klicks, sondern nach Aufnahmequalität bewerten.</p></div></div>
+    </div></div>
+    <div class="card"><b style="font-size:13px">Executive Summary</b><p style="color:var(--muted);line-height:1.7;font-size:13px">Recruiting entwickelt sich positiv. Zwei Kandidaten sollten heute priorisiert werden. Die Patienten-Kampagne zeigt ausreichende Qualität, um bei vorhandener Kapazität kontrolliert zu skalieren. Der größte nächste Hebel ist die Verknüpfung von Karrierewelt, Stellenportal, Direktvermittlung und Arbeitgeber-Reputation in einer gemeinsamen Datenbasis.</p><div class="callout"><b>Demo-Hinweis:</b> Alle Kennzahlen auf dieser Seite sind Präsentationswerte und keine echten Auetal-Performance-Daten.</div></div>
+  </div>
+</section>
+</div>
+</main>
+</div>
+<script>
+const titles={overview:'Geschäftsführer-Cockpit',recruiting:'Recruiting Engine',patients:'Patienten & Belegung',jobs:'Stellenportal',reputation:'Arbeitgebermarke',roi:'ROI & Wachstum'};
+function showView(id){
+ document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));
+ document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===id));
+ document.getElementById('viewTitle').textContent=titles[id]||'Cockpit';
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+</script>
+</body>
+</html>
