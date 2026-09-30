@@ -26,6 +26,7 @@ button,a{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:2
     <button data-view="patients"><span>＋</span>Patienten & Belegung</button>
     <button data-view="jobs"><span>▤</span>Stellenportal</button>
     <button data-view="reputation"><span>★</span>Arbeitgebermarke</button>
+    <button data-view="coach"><span>✦</span>Recruiting Coach</button>
     <button data-view="roi"><span>↗</span>ROI & Wachstum</button><button data-view="modules"><span>◫</span>Module & Vertrag</button><a href="besetzungssteuerung.html" style="color:#cfc7c8;padding:11px 12px;text-decoration:none;display:block">⚙ Besetzungssteuerung</a><a href="seo-center.html" style="color:#cfc7c8;padding:11px 12px;text-decoration:none;display:block">⌕ SEO & Content</a><a href="angebot-konfigurator.html" style="color:#cfc7c8;padding:11px 12px;text-decoration:none;display:block">€ Angebot kalkulieren</a>
   </nav>
   <div class="sidebar-foot">Powered by <b>Digitale Gewinner</b><br>Konzeptstand · 30.09.2026</div>
@@ -37,7 +38,7 @@ button,a{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:2
   <div class="top-actions"><span class="pill">● Systeme aktiv</span><span class="pill">Letzte 30 Tage</span><div class="avatar">GF</div></div>
 </header>
 <div class="mobile-nav">
-  <button class="active" data-view="overview">Übersicht</button><button data-view="recruiting">Recruiting</button><button data-view="patients">Patienten</button><button data-view="jobs">Jobs</button><button data-view="reputation">Reputation</button><button data-view="roi">ROI</button><button data-view="modules">Module</button>
+  <button class="active" data-view="overview">Übersicht</button><button data-view="recruiting">Recruiting</button><button data-view="patients">Patienten</button><button data-view="jobs">Jobs</button><button data-view="reputation">Reputation</button><button data-view="coach">Coach</button><button data-view="roi">ROI</button><button data-view="modules">Module</button>
 </div>
 
 <div class="content">
@@ -159,42 +160,13 @@ button,a{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:2
     <div class="card metric"><small>Monatlicher Gesamt-Cashflow</small><strong id="moduleCashTotal">3.420 €</strong><span class="delta">aktuelle Konfiguration</span></div>
   </div>
 
-  <div class="section-head"><div><h3>Abrechnungsmodell</h3><p>Auetal kann selbst wählen, wie Recruiting abgerechnet werden soll. Nur freigeschaltete Modelle werden im Live-System angeboten.</p></div><span class="model-badge" id="billingModelBadge">✓ Monatspauschale gewählt</span></div>
+  <div class="section-head"><div><h3>Abrechnung</h3><p>Einfach und verständlich: aktuelles Modell plus eine erfolgsabhängige Alternative.</p></div><span class="model-badge" id="billingModelBadge">✓ Monatliche Betreuung</span></div>
   <div class="card">
-    <div class="billing-models" id="billingModels">
-      <button class="billing-option active" type="button" data-billing="retainer"><span class="check">✓</span><b>Monatspauschale</b><p>Planbare Betreuung mit festen Modulen und transparenter Monatsrate.</p><span class="price">ab 1.420 € / Monat</span></button>
-      <button class="billing-option" type="button" data-billing="applicant"><span class="check">✓</span><b>Pay per Bewerber</b><p>Abrechnung nur für vorher klar definierte, qualifizierte Bewerberkontakte.</p><span class="price">z. B. 225 € / Bewerber</span></button>
-      <button class="billing-option" type="button" data-billing="hire"><span class="check">✓</span><b>Pay per Einstellung</b><p>Erfolgshonorar wird fällig, wenn eine definierte Einstellung tatsächlich zustande kommt.</p><span class="price">z. B. 2.500 € / Einstellung</span></button>
-      <button class="billing-option" type="button" data-billing="hybrid"><span class="check">✓</span><b>Hybrid</b><p>Kleinere Grundgebühr plus erfolgsabhängige Vergütung pro qualifiziertem Bewerber.</p><span class="price">z. B. 690 € + 149 € / Bewerber</span></button>
+    <div class="billing-models" id="billingModels" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <button class="billing-option active" type="button" data-billing="retainer"><span class="check">✓</span><b>Monatliche Betreuung</b><p>Planbare Betreuung, Cockpit, Recruiting-System und Optimierung. Werbebudget separat.</p><span class="price">Aktuelles Modell</span></button>
+      <button class="billing-option" type="button" data-billing="performance"><span class="check">✓</span><b>Erfolgsabhängige Abrechnung prüfen</b><p>Optional: geringere Grundgebühr plus Vergütung für qualifizierte Bewerber. Erst nach individueller Freigabe.</p><span class="price">Modell vergleichen</span></button>
     </div>
-    <div class="callout"><b>Freigabeprinzip:</b> Im Live-System legt Digitale Gewinner fest, welche Modelle für Auetal verfügbar sind. Ein Wechsel wird nicht sofort wirksam, sondern erhält Bestätigung, Wirksamkeitsdatum und Vertragsprotokoll.</div>
-  </div>
-
-  <div class="billing-config">
-    <div class="card">
-      <b style="font-size:13px">Konfiguration des gewählten Modells</b>
-      <div class="field-grid">
-        <div class="field"><label>Grundgebühr / Monat</label><input id="billingBase" type="number" value="1420" min="0" step="10"></div>
-        <div class="field"><label>Preis pro qualifiziertem Bewerber</label><input id="billingPerApplicant" type="number" value="0" min="0" step="10"></div>
-        <div class="field"><label>Preis pro Einstellung</label><input id="billingPerHire" type="number" value="0" min="0" step="50"></div>
-        <div class="field"><label>Inklusiv-Bewerber / Monat</label><input id="billingIncluded" type="number" value="0" min="0" step="1"></div>
-      </div>
-      <div class="callout" id="billingExplanation"><b>Monatspauschale:</b> Feste Betreuungskosten. Werbebudget wird separat gesteuert.</div>
-    </div>
-    <div class="card">
-      <b style="font-size:13px">Abrechnung diesen Monat</b>
-      <div class="billing-kpis">
-        <div class="billing-kpi"><small>Qualifizierte Bewerber</small><strong id="billingApplicants">11</strong></div>
-        <div class="billing-kpi"><small>Einstellungen</small><strong id="billingHires">2</strong></div>
-        <div class="billing-kpi"><small>Leistungsvergütung</small><strong id="billingPerformance">0 €</strong></div>
-      </div>
-      <div class="billing-kpis">
-        <div class="billing-kpi"><small>Grundgebühr</small><strong id="billingBaseKpi">1.420 €</strong></div>
-        <div class="billing-kpi"><small>Werbebudget</small><strong id="billingAdsKpi">2.000 €</strong></div>
-        <div class="billing-kpi"><small>Gesamt-Cashflow</small><strong id="billingGrandTotal">3.420 €</strong></div>
-      </div>
-      <div class="callout"><b>Transparenz:</b> Auetal sieht jederzeit, wofür bezahlt wird, welche Menge geliefert wurde und welcher Betrag daraus entsteht.</div>
-    </div>
+    <div class="callout" id="billingExplanation"><b>Aktuell:</b> Monatliche Betreuung. Ein Wechsel ist nur eine Anfrage und wird erst nach gemeinsamer Prüfung verbindlich.</div>
   </div>
 
   <div class="section-head"><div><h3>Aktive & verfügbare Module</h3><p>Änderungen hier sind Demo-Self-Service. Im Live-System würden sie als Vertrags-/Serviceänderung bestätigt und protokolliert.</p></div></div>
@@ -231,6 +203,84 @@ button,a{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:2
   </div>
 </section>
 
+<section class="view" id="coach">
+  <div class="section-head"><div><h3>Recruiting Coach</h3><p>Konkrete Hilfen für bessere Bewerbungsgespräche, attraktivere Stellen und höhere Abschlussquoten.</p></div><span class="model-badge">Marktimpulse 2025/26</span></div>
+
+  <div class="grid">
+    <div class="card metric"><small>Top-Wunsch im Gesundheitswesen</small><strong>75 %</strong><span class="delta">flexible Arbeitszeiten</span></div>
+    <div class="card metric"><small>Weiterbildung wichtig</small><strong>68 %</strong><span class="delta">Entwicklung sichtbar machen</span></div>
+    <div class="card metric"><small>Gesundheitsangebote</small><strong>58 %</strong><span class="delta">spürbare Entlastung</span></div>
+    <div class="card metric"><small>Mobilitätszuschuss</small><strong>55 %</strong><span class="delta">direkt im Alltag relevant</span></div>
+  </div>
+
+  <div class="section-head"><div><h3>Was Bewerber aktuell wirklich hören wollen</h3><p>Nicht nur „familiäres Team“ sagen – konkrete Arbeitsbedingungen beweisen.</p></div></div>
+  <div class="twocol">
+    <div class="card">
+      <b style="font-size:13px">Benefit-Prioritäten für Pflegekräfte</b>
+      <div class="tasks" style="margin-top:14px">
+        <div class="task"><span class="dot green"></span><div><b>1. Planbare & flexible Dienstzeiten</b><p>Wunschdienste, verlässliche Dienstpläne, Teilzeitmodelle und möglichst wenig kurzfristiges Einspringen konkret benennen.</p></div><time>Sehr stark</time></div>
+        <div class="task"><span class="dot green"></span><div><b>2. Faire Vergütung + echte Zuschläge</b><p>Grundgehalt, Nacht-/Sonn-/Feiertagszuschläge, Sonderzahlungen und ggf. Einspringprämien transparent machen.</p></div><time>Sehr stark</time></div>
+        <div class="task"><span class="dot green"></span><div><b>3. Weiterbildung & Entwicklung</b><p>Welche Fortbildungen bezahlt werden und welche Entwicklungsschritte realistisch möglich sind.</p></div><time>Stark</time></div>
+        <div class="task"><span class="dot"></span><div><b>4. Gesundheit & Entlastung</b><p>Springerregelung, echte Pausen, Gesundheitsangebote und Maßnahmen gegen dauerhafte Überlastung.</p></div><time>Stark</time></div>
+        <div class="task"><span class="dot"></span><div><b>5. Mobilität & Alltag</b><p>Fahrtkostenzuschuss, Parkplatz, Jobticket oder ähnliche Vorteile sind greifbarer als abstrakte Benefits.</p></div><time>Relevant</time></div>
+      </div>
+      <div class="callout"><b>Marktimpuls:</b> Stepstone nennt für Fachkräfte im Gesundheitswesen flexible Arbeitszeiten (75 %), Weiterbildung (68 %), Gesundheitsangebote (58 %) und Mobilitätszuschuss (55 %) als besonders gefragte Benefits.</div>
+    </div>
+    <div class="card">
+      <b style="font-size:13px">Auetal Benefit-Check</b>
+      <div class="funnel" style="margin-top:16px">
+        <div class="frow"><span>Dienstplan</span><div class="track"><i style="width:72%"></i></div><b>72</b></div>
+        <div class="frow"><span>Vergütung</span><div class="track"><i style="width:64%"></i></div><b>64</b></div>
+        <div class="frow"><span>Weiterbildung</span><div class="track"><i style="width:58%"></i></div><b>58</b></div>
+        <div class="frow"><span>Entlastung</span><div class="track"><i style="width:49%"></i></div><b>49</b></div>
+        <div class="frow"><span>Mobilität</span><div class="track"><i style="width:41%"></i></div><b>41</b></div>
+      </div>
+      <div class="callout"><b>Nächster Hebel:</b> Benefits nicht nur auflisten, sondern nach Zielgruppen-Relevanz priorisieren und mit echten Auetal-Beweisen ergänzen.</div>
+    </div>
+  </div>
+
+  <div class="section-head"><div><h3>Besseres Bewerbungsgespräch</h3><p>Das Gespräch soll dem Kandidaten Sicherheit geben und gleichzeitig die Passung sauber prüfen.</p></div></div>
+  <div class="twocol">
+    <div class="card">
+      <b style="font-size:13px">Empfohlener Gesprächsablauf · 25–35 Minuten</b>
+      <div class="tasks" style="margin-top:14px">
+        <div class="task"><span class="dot green"></span><div><b>1. Ankommen · 3 Min.</b><p>Locker starten: „Was hat Sie an der Stelle angesprochen?“ Keine Verhör-Atmosphäre.</p></div><time>03:00</time></div>
+        <div class="task"><span class="dot green"></span><div><b>2. Wechselmotiv verstehen · 5 Min.</b><p>„Was müsste bei Ihrem nächsten Arbeitgeber besser sein als heute?“ Daraus ergeben sich die echten Entscheidungskriterien.</p></div><time>08:00</time></div>
+        <div class="task"><span class="dot green"></span><div><b>3. Passung prüfen · 8 Min.</b><p>Erfahrung, gewünschte Stunden, Schichten, Startzeitpunkt, Fahrtweg und fachliche Anforderungen klären.</p></div><time>16:00</time></div>
+        <div class="task"><span class="dot"></span><div><b>4. Auetal passend vorstellen · 8 Min.</b><p>Nicht alle Benefits herunterbeten. Genau die 2–3 Punkte zeigen, die zum Wechselmotiv des Kandidaten passen.</p></div><time>24:00</time></div>
+        <div class="task"><span class="dot"></span><div><b>5. Konkreter nächster Schritt · 5 Min.</b><p>Hospitation, Probearbeiten oder Vertragsgespräch direkt terminieren. Kein „Wir melden uns irgendwann“.</p></div><time>29:00</time></div>
+      </div>
+    </div>
+    <div class="card">
+      <b style="font-size:13px">Die 7 stärksten Fragen</b>
+      <div class="tasks" style="margin-top:14px">
+        <div class="task"><span class="dot green"></span><div><b>„Warum denken Sie gerade über einen Wechsel nach?“</b><p>Zeigt den eigentlichen Schmerzpunkt.</p></div></div>
+        <div class="task"><span class="dot green"></span><div><b>„Was müsste ein Arbeitgeber bieten, damit Sie wirklich wechseln?“</b><p>Direkte Entscheidungskriterien statt Vermutungen.</p></div></div>
+        <div class="task"><span class="dot green"></span><div><b>„Wie sieht Ihr idealer Dienstplan aus?“</b><p>Arbeitszeit ist im Gesundheitswesen ein zentraler Wechselhebel.</p></div></div>
+        <div class="task"><span class="dot"></span><div><b>„Was hat Sie bei früheren Arbeitgebern am meisten gestört?“</b><p>Risiken und Erwartungen werden früh sichtbar.</p></div></div>
+        <div class="task"><span class="dot"></span><div><b>„Was brauchen Sie von einer guten Führungskraft?“</b><p>Hilft, Führung und Kultur passend zu erklären.</p></div></div>
+        <div class="task"><span class="dot"></span><div><b>„Was wäre für Sie ein Grund, nach sechs Monaten wieder zu gehen?“</b><p>Früher Retention-Check.</p></div></div>
+        <div class="task"><span class="dot"></span><div><b>„Wenn alles passt: Wann könnten Sie starten?“</b><p>Verbindlichkeit und Timing.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head"><div><h3>Gesprächs-Scorecard</h3><p>Nach jedem Interview in 60 Sekunden dokumentieren – damit Bauchgefühl nicht entscheidet.</p></div></div>
+  <div class="card table-wrap">
+    <table class="table"><thead><tr><th>Kriterium</th><th>Gewichtung</th><th>Prüffrage</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td><b>Fachliche Passung</b></td><td>25 %</td><td>Qualifikation & relevante Erfahrung</td><td><span class="tag">Pflicht</span></td></tr>
+      <tr><td><b>Schicht-/Stunden-Fit</b></td><td>20 %</td><td>Passt der tatsächliche Einsatz zur Erwartung?</td><td><span class="tag">Pflicht</span></td></tr>
+      <tr><td><b>Wechselmotivation</b></td><td>20 %</td><td>Ist ein echter Wechselgrund vorhanden?</td><td><span class="tag">Wichtig</span></td></tr>
+      <tr><td><b>Team & Haltung</b></td><td>15 %</td><td>Wie beschreibt die Person gute Zusammenarbeit?</td><td><span class="tag amber">Prüfen</span></td></tr>
+      <tr><td><b>Start & Erreichbarkeit</b></td><td>10 %</td><td>Startdatum, Kündigungsfrist, Fahrtweg</td><td><span class="tag">Klar</span></td></tr>
+      <tr><td><b>Abschlusswahrscheinlichkeit</b></td><td>10 %</td><td>Was fehlt noch für ein Ja?</td><td><span class="tag amber">Follow-up</span></td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="callout"><b>Nächste Ausbaustufe:</b> Aus Bewerberdaten automatisch einen Interview-Spickzettel erzeugen: Wechselmotiv, passende Auetal-Benefits, kritische Fragen, Einwände und empfohlener nächster Schritt.</div>
+</section>
+
 <section class="view" id="roi">
   <div class="section-head"><div><h3>ROI & Geschäftsführung</h3><p>Nicht Klicks reporten – sondern Kosten pro Einstellung und pro Neuaufnahme.</p></div></div>
   <div class="grid">
@@ -252,7 +302,7 @@ button,a{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:2
 </main>
 </div>
 <script>
-const titles={overview:'Geschäftsführer-Cockpit',recruiting:'Recruiting Engine',patients:'Patienten & Belegung',jobs:'Stellenportal',reputation:'Arbeitgebermarke',roi:'ROI & Wachstum',modules:'Module & Vertrag'};
+const titles={overview:'Geschäftsführer-Cockpit',recruiting:'Recruiting Engine',patients:'Patienten & Belegung',jobs:'Stellenportal',reputation:'Arbeitgebermarke',coach:'Recruiting Coach',roi:'ROI & Wachstum',modules:'Module & Vertrag'};
 function showView(id){
  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));
  document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===id));
@@ -302,47 +352,25 @@ document.querySelectorAll('.moduleToggle').forEach(btn=>{
   });
 });
 ['metaModuleBudget','googleModuleBudget'].forEach(id=>{
- const el=document.getElementById(id); if(el)el.addEventListener('input',()=>{recalcModules();recalcBilling();});
+ const el=document.getElementById(id); if(el)el.addEventListener('input',recalcModules);
 });
 
 const billingPresets={
- retainer:{label:'Monatspauschale',base:1420,applicant:0,hire:0,included:0,copy:'Feste Betreuungskosten. Werbebudget wird separat gesteuert.'},
- applicant:{label:'Pay per Bewerber',base:0,applicant:225,hire:0,included:0,copy:'Abgerechnet werden nur qualifizierte Bewerber nach den vereinbarten Kriterien.'},
- hire:{label:'Pay per Einstellung',base:0,applicant:0,hire:2500,included:0,copy:'Das Erfolgshonorar wird je dokumentierter Einstellung berechnet.'},
- hybrid:{label:'Hybrid',base:690,applicant:149,hire:0,included:0,copy:'Reduzierte Grundgebühr plus variable Vergütung pro qualifiziertem Bewerber.'}
+ retainer:{label:'Monatliche Betreuung',copy:'Monatliche Betreuung bleibt aktiv. Werbebudget wird separat gesteuert.'},
+ performance:{label:'Erfolgsabhängig prüfen',copy:'Unverbindliche Prüfung einer erfolgsabhängigen Variante. Konditionen werden individuell vereinbart.'}
 };
-let currentBilling='retainer';
-function recalcBilling(){
- const fmt=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);
- const applicants=11, hires=2;
- const base=Number(document.getElementById('billingBase')?.value||0);
- const perApplicant=Number(document.getElementById('billingPerApplicant')?.value||0);
- const perHire=Number(document.getElementById('billingPerHire')?.value||0);
- const included=Number(document.getElementById('billingIncluded')?.value||0);
- const billableApplicants=Math.max(0,applicants-included);
- const performance=(billableApplicants*perApplicant)+(hires*perHire);
- const meta=Number(document.getElementById('metaModuleBudget')?.value||0);
- const google=Number(document.getElementById('googleModuleBudget')?.value||0);
- const ads=meta+google;
- const total=base+performance+ads;
- const set=(id,val)=>{const el=document.getElementById(id);if(el)el.textContent=val;};
- set('billingApplicants',String(applicants)); set('billingHires',String(hires));
- set('billingPerformance',fmt(performance)); set('billingBaseKpi',fmt(base));
- set('billingAdsKpi',fmt(ads)); set('billingGrandTotal',fmt(total));
-}
 function chooseBilling(model){
- currentBilling=model;
  const p=billingPresets[model]; if(!p)return;
  document.querySelectorAll('.billing-option').forEach(x=>x.classList.toggle('active',x.dataset.billing===model));
- const setVal=(id,v)=>{const el=document.getElementById(id);if(el)el.value=v;};
- setVal('billingBase',p.base);setVal('billingPerApplicant',p.applicant);setVal('billingPerHire',p.hire);setVal('billingIncluded',p.included);
- const badge=document.getElementById('billingModelBadge');if(badge)badge.textContent='✓ '+p.label+' gewählt';
+ const badge=document.getElementById('billingModelBadge');if(badge)badge.textContent='✓ '+p.label;
  const exp=document.getElementById('billingExplanation');if(exp)exp.innerHTML='<b>'+p.label+':</b> '+p.copy;
  const log=document.getElementById('moduleChangeLog');
- if(log){
-   log.innerHTML='<div class="task"><span class="dot"></span><div><b>Abrechnungsmodell vorgemerkt: '+p.label+'</b><p>Demo-Auswahl. Im Live-System folgt Bestätigung, Vertragsprüfung und Wirksamkeitsdatum.</p></div><time>Jetzt</time></div>';
+ if(log && model==='performance'){
+   log.innerHTML='<div class="task"><span class="dot"></span><div><b>Erfolgsabhängige Abrechnung angefragt</b><p>Unverbindliche Prüfung vorgemerkt. Bestehendes Modell bleibt bis zur Bestätigung unverändert.</p></div><time>Jetzt</time></div>';
  }
- recalcBilling();
+}
+document.querySelectorAll('.billing-option').forEach(btn=>btn.addEventListener('click',()=>chooseBilling(btn.dataset.billing)));
+recalcModules();
 }
 document.querySelectorAll('.billing-option').forEach(btn=>btn.addEventListener('click',()=>chooseBilling(btn.dataset.billing)));
 ['billingBase','billingPerApplicant','billingPerHire','billingIncluded'].forEach(id=>{
