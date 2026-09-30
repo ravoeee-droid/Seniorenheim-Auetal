@@ -95,12 +95,12 @@ let current=0;
 const steps=[...document.querySelectorAll('.step')],dots=[...document.querySelectorAll('.stepdot')];
 const money=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n||0);
 
-document.querySelectorAll('.choice').forEach(c=>{
- const input=c.querySelector('input');
+document.querySelectorAll('.choice').forEach(card=>{
+ const input=card.querySelector('input');
  if(!input)return;
- c.addEventListener('click',e=>{
-   if(e.target!==input) input.checked=!input.checked;
-   c.classList.toggle('selected',input.checked);
+ card.classList.toggle('selected',input.checked);
+ input.addEventListener('change',()=>{
+   card.classList.toggle('selected',input.checked);
    calc();
  });
 });
