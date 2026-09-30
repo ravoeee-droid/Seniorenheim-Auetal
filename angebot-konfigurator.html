@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Digitale Gewinner · Angebots-Konfigurator</title>
+<style>
+:root{--bg:#f5f2ee;--card:#fff;--ink:#1f2321;--muted:#6f756f;--line:#e4ded6;--brand:#8f1f32;--green:#2f7d5b;--amber:#a66b16}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:1380px;margin:auto;padding:24px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px}.brand{display:flex;gap:12px;align-items:center}.mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#b54a5c,var(--brand));color:#fff;display:grid;place-items:center;font-weight:900}.brand small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.13em}.brand b{font-size:18px}.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:750;cursor:pointer;text-decoration:none}.primary{background:var(--brand);color:#fff}.soft{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.layout{display:grid;grid-template-columns:minmax(0,1.25fr) 380px;gap:16px}.panel,.summary{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 34px rgba(20,20,20,.05)}.panel{padding:24px}.summary{padding:22px;position:sticky;top:18px;height:max-content}.steps{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}.stepdot{font-size:11px;border:1px solid var(--line);padding:8px 10px;border-radius:999px;color:var(--muted)}.stepdot.active{background:#211d1e;color:#fff;border-color:#211d1e}.eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--brand)}h1{font-size:34px;line-height:1.08;margin:8px 0 10px}.lead{color:var(--muted);line-height:1.6;margin-bottom:24px}.step{display:none}.step.active{display:block}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.choice{border:1px solid var(--line);border-radius:16px;padding:15px;cursor:pointer;transition:.18s;background:#fff}.choice:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(30,30,30,.05)}.choice.selected{border-color:var(--brand);background:#fff7f8;box-shadow:0 0 0 2px rgba(143,31,50,.08)}.choice input{display:none}.choice b{display:block;font-size:14px;margin-bottom:4px}.choice p{margin:0;color:var(--muted);font-size:11px;line-height:1.45}.price{font-size:11px;color:var(--brand);font-weight:800;margin-top:9px}.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:11px;color:var(--muted);font-weight:750}.field input,.field select{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}.nav{display:flex;justify-content:space-between;gap:10px;margin-top:24px}.summary h2{margin:4px 0 14px;font-size:20px}.sumline{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid #f0ece8;font-size:12px}.sumline span{color:var(--muted)}.sumline b{text-align:right}.big{padding:14px 0}.big b{font-size:26px;color:var(--brand)}.note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:10px}.badge{display:inline-block;padding:6px 9px;border-radius:999px;background:#edf6f0;color:var(--green);font-size:10px;font-weight:800}.badge.warn{background:#fbf1df;color:var(--amber)}.rec{margin-top:16px;padding:14px;border-radius:14px;background:#f8f5f2;border:1px solid var(--line);font-size:11px;line-height:1.55}.rec b{color:var(--brand)}.breakdown{display:grid;gap:8px;margin-top:14px}.module{display:flex;justify-content:space-between;gap:10px;padding:9px 10px;border-radius:11px;background:#f8f6f3;font-size:11px}.module span{color:var(--muted)}.result{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.result .box{padding:16px;border-radius:16px;border:1px solid var(--line);background:#faf8f5}.result small{color:var(--muted)}.result strong{display:block;font-size:24px;margin-top:5px}.disclaimer{margin-top:14px;padding:12px;border-radius:12px;background:#fff6f7;border:1px solid #ead7db;color:#76545b;font-size:10px;line-height:1.5}
+@media(max-width:980px){.layout{grid-template-columns:1fr}.summary{position:static}.cards{grid-template-columns:1fr}.wrap{padding:16px}}
+@media(max-width:560px){.formgrid,.result{grid-template-columns:1fr}h1{font-size:29px}.top{align-items:flex-start;flex-direction:column}}
+</style></head><body>
+<div class="wrap">
+<header class="top"><div class="brand"><div class="mark">DG</div><div><small>Digitale Gewinner</small><b>Growth OS Angebots-Konfigurator</b></div></div><div><a class="btn soft" href="cockpit.html">Auetal Cockpit</a></div></header>
+<div class="layout">
+<section class="panel">
+<div class="steps"><span class="stepdot active">1 Ziele</span><span class="stepdot">2 Bedarf</span><span class="stepdot">3 Module</span><span class="stepdot">4 Budget</span><span class="stepdot">5 Angebot</span></div>
+
+<div class="step active" data-step="0">
+<div class="eyebrow">Schritt 1</div><h1>Was soll das System für Sie lösen?</h1><p class="lead">Gemeinsam auswählen. Das Angebot baut sich live aus den gewünschten Wachstumsmodulen auf.</p>
+<div class="cards">
+<label class="choice selected"><input type="checkbox" data-goal="recruiting" checked><b>Mitarbeiter gewinnen</b><p>Employer Branding, Karrierewelt, Meta Recruiting, Bewerberpipeline.</p></label>
+<label class="choice"><input type="checkbox" data-goal="patients"><b>Patienten / Bewohner gewinnen</b><p>Google Ads, lokale Landingpages, Anfrage- und Aufnahmepipeline.</p></label>
+<label class="choice"><input type="checkbox" data-goal="reputation"><b>Arbeitgeberattraktivität erhöhen</b><p>Google-Reputation, Mitarbeiterstimmen, Review-Automation.</p></label>
+<label class="choice"><input type="checkbox" data-goal="seo"><b>Organisch auf Google wachsen</b><p>SEO, Standortseiten, Job-SEO und hochwertige Ratgeber-Inhalte.</p></label>
+</div></div>
+
+<div class="step" data-step="1">
+<div class="eyebrow">Schritt 2</div><h1>Wie groß ist der aktuelle Bedarf?</h1><p class="lead">Diese Angaben steuern Komplexität, Betreuung und Recruiting-Intensität.</p>
+<div class="formgrid">
+<div class="field"><label>Standorte</label><select id="locations"><option value="1">1 Standort</option><option value="2">2 Standorte</option><option value="3">3 Standorte</option><option value="4">4+ Standorte</option></select></div>
+<div class="field"><label>Offene Stellen</label><select id="jobs"><option value="1">1–2 offene Stellen</option><option value="2">3–5 offene Stellen</option><option value="3">6–10 offene Stellen</option><option value="4">10+ offene Stellen</option></select></div>
+<div class="field"><label>Dringlichkeit</label><select id="urgency"><option value="1">Normal · 30–60 Tage</option><option value="2">Hoch · unter 30 Tage</option><option value="3">Kritisch · so schnell wie möglich</option></select></div>
+<div class="field"><label>Freie Pflegekapazität / Plätze</label><select id="capacity"><option value="0">Kein Fokus</option><option value="1">1–3 freie Plätze</option><option value="2">4–7 freie Plätze</option><option value="3">8+ freie Plätze</option></select></div>
+<div class="field full"><label>Wichtigstes Ziel</label><select id="primaryGoal"><option>Offene Stellen planbar besetzen</option><option>Auslastung / Neuaufnahmen erhöhen</option><option>Arbeitgebermarke stärken</option><option>Alles zentral steuern</option></select></div>
+</div></div>
+
+<div class="step" data-step="2">
+<div class="eyebrow">Schritt 3</div><h1>Welche Module sollen enthalten sein?</h1><p class="lead">Empfohlene Module sind vorausgewählt und können im Gespräch hinzugefügt oder entfernt werden.</p>
+<div class="cards" id="moduleCards">
+<label class="choice selected"><input type="checkbox" class="moduleCheck" data-name="Growth Cockpit & Tracking" data-setup="1500" data-monthly="290" checked><b>Growth Cockpit & Tracking</b><p>Zentrale GF-Ansicht, Funnel, ROI, Forecasts, Alerts.</p><div class="price">1.500 € Setup · 290 €/Monat</div></label>
+<label class="choice selected"><input type="checkbox" class="moduleCheck" data-name="Karrierewelt" data-setup="3900" data-monthly="190" checked><b>Premium Karrierewelt</b><p>Employer Story, Jobs, Bewerber-Funnel, Mobile Conversion.</p><div class="price">3.900 € Setup · 190 €/Monat</div></label>
+<label class="choice selected"><input type="checkbox" class="moduleCheck" data-name="Meta Recruiting Betreuung" data-setup="500" data-monthly="750" checked><b>Meta Recruiting</b><p>Creatives, Kampagnen, Testing, Bewerbergewinnung.</p><div class="price">500 € Setup · 750 €/Monat</div></label>
+<label class="choice"><input type="checkbox" class="moduleCheck" data-name="Google Patienten-Ads" data-setup="500" data-monthly="750"><b>Google Patienten-Ads</b><p>Search Ads, Leistungsseiten, Tracking und Optimierung.</p><div class="price">500 € Setup · 750 €/Monat</div></label>
+<label class="choice"><input type="checkbox" class="moduleCheck" data-name="SEO & Content Engine" data-setup="750" data-monthly="590"><b>SEO & Content Engine</b><p>Standortseiten, Ratgeber, Job-SEO, interne Verlinkung.</p><div class="price">750 € Setup · 590 €/Monat</div></label>
+<label class="choice"><input type="checkbox" class="moduleCheck" data-name="Reputation Automation" data-setup="390" data-monthly="290"><b>Reputation Automation</b><p>Bewertungsprozess, Monitoring und Arbeitgebervertrauen.</p><div class="price">390 € Setup · 290 €/Monat</div></label>
+<label class="choice"><input type="checkbox" class="moduleCheck" data-name="Stellenportal Premium" data-setup="0" data-monthly="190"><b>Premium Stellenportal</b><p>Hochwertige Veröffentlichung, Job-SEO und Talentpool-Aufbau.</p><div class="price">190 €/Monat</div></label>
+<label class="choice"><input type="checkbox" class="moduleCheck" data-name="Active Sourcing Retainer" data-setup="0" data-monthly="1200"><b>Active Sourcing</b><p>Gezielte Kandidatensuche als zusätzliche Besetzungsstufe.</p><div class="price">1.200 €/Monat · optional</div></label>
+</div></div>
+
+<div class="step" data-step="3">
+<div class="eyebrow">Schritt 4</div><h1>Wie aggressiv sollen wir wachsen?</h1><p class="lead">Werbebudget und Direktvermittlung werden separat kalkuliert, damit der GF die Kosten transparent sieht.</p>
+<div class="formgrid">
+<div class="field"><label>Meta Ads Budget / Monat</label><input id="metaBudget" type="number" value="1000" min="0" step="100"></div>
+<div class="field"><label>Google Ads Budget / Monat</label><input id="googleBudget" type="number" value="1000" min="0" step="100"></div>
+<div class="field"><label>Direktvermittlung bei Eskalation?</label><select id="placement"><option value="0">Nein / später entscheiden</option><option value="1">Ja · Erfolgshonorar</option></select></div>
+<div class="field"><label>Geschätztes Jahresbrutto der Zielrolle</label><input id="salary" type="number" value="48000" min="0" step="1000"></div>
+<div class="field"><label>Erfolgshonorar</label><select id="placementPct"><option value="15">15 %</option><option value="18" selected>18 %</option><option value="20">20 %</option><option value="25">25 %</option></select></div>
+<div class="field"><label>Mindestlaufzeit Betreuung</label><select id="months"><option value="3">3 Monate</option><option value="6" selected>6 Monate</option><option value="12">12 Monate</option></select></div>
+</div>
+<div class="disclaimer">Die Direktvermittlungsgebühr wird in diesem Rechner nur als potenzielles Erfolgshonorar ausgewiesen und fällt nur an, wenn sie vertraglich vereinbart wurde und die definierte erfolgreiche Vermittlung eintritt.</div>
+</div>
+
+<div class="step" data-step="4">
+<div class="eyebrow">Schritt 5</div><h1>Ihr konfiguriertes Growth System</h1><p class="lead">Die Kalkulation ist eine Gesprächsgrundlage. Module, Konditionen und Förderung können im finalen Angebot angepasst werden.</p>
+<div class="result">
+<div class="box"><small>Einmaliges Setup</small><strong id="resultSetup">0 €</strong></div>
+<div class="box"><small>Betreuung / Monat</small><strong id="resultMonthly">0 €</strong></div>
+<div class="box"><small>Werbebudget / Monat</small><strong id="resultAds">0 €</strong></div>
+<div class="box"><small>Monatlicher Gesamt-Cashflow</small><strong id="resultCash">0 €</strong></div>
+</div>
+<div class="rec" id="resultRecommendation"></div>
+<div class="disclaimer">Demo-Kalkulationsbasis für das Verkaufsgespräch. Alle Preise und Vertragsbestandteile müssen vor Versand eines verbindlichen Angebots geprüft und bestätigt werden.</div>
+</div>
+
+<div class="nav"><button class="btn soft" id="prevBtn" disabled>← Zurück</button><button class="btn primary" id="nextBtn">Weiter →</button></div>
+</section>
+
+<aside class="summary">
+<div class="eyebrow">Live-Kalkulation</div><h2>Ihr System</h2>
+<div id="summaryModules" class="breakdown"></div>
+<div class="sumline"><span>Setup</span><b id="sumSetup">0 €</b></div>
+<div class="sumline"><span>Betreuung / Monat</span><b id="sumMonthly">0 €</b></div>
+<div class="sumline"><span>Ads / Monat</span><b id="sumAds">2.000 €</b></div>
+<div class="sumline big"><span>Monatlicher Cashflow</span><b id="sumCash">0 €</b></div>
+<div class="sumline"><span>6-Monats-Invest inkl. Setup</span><b id="sumTerm">0 €</b></div>
+<div id="placementLine" class="sumline" style="display:none"><span>pot. Vermittlungserfolg</span><b id="sumPlacement">0 €</b></div>
+<div style="margin-top:14px"><span class="badge" id="packageBadge">Recruiting Growth</span></div>
+<div class="rec"><b>Ziel des Gesprächs:</b> Nicht Leistungen einzeln verkaufen, sondern gemeinsam bestimmen, welches System der Kunde tatsächlich braucht.</div>
+<p class="note">Werbebudgets werden separat an die Plattform gezahlt. Die hier verwendeten Modulpreise sind als konfigurierbare Kalkulationsbasis für die Demo angelegt.</p>
+</aside>
+</div></div>
+
+<script>
+let current=0;
+const steps=[...document.querySelectorAll('.step')],dots=[...document.querySelectorAll('.stepdot')];
+const money=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n||0);
+
+document.querySelectorAll('.choice').forEach(c=>{
+ const input=c.querySelector('input');
+ if(!input)return;
+ c.addEventListener('click',e=>{
+   if(e.target!==input) input.checked=!input.checked;
+   c.classList.toggle('selected',input.checked);
+   calc();
+ });
+});
+
+function calc(){
+ let setup=0, monthly=0, names=[];
+ document.querySelectorAll('.moduleCheck:checked').forEach(x=>{
+   setup+=Number(x.dataset.setup||0); monthly+=Number(x.dataset.monthly||0); names.push(x.dataset.name);
+ });
+ const loc=Number(document.getElementById('locations').value||1);
+ const jobs=Number(document.getElementById('jobs').value||1);
+ const urgency=Number(document.getElementById('urgency').value||1);
+ const complexitySetup=(loc-1)*350+(jobs-1)*250;
+ const complexityMonthly=(loc-1)*90+(jobs-1)*120+(urgency-1)*100;
+ setup+=complexitySetup; monthly+=complexityMonthly;
+
+ const meta=Number(document.getElementById('metaBudget').value||0);
+ const google=Number(document.getElementById('googleBudget').value||0);
+ const ads=meta+google;
+ const months=Number(document.getElementById('months').value||6);
+ const placementOn=Number(document.getElementById('placement').value||0);
+ const salary=Number(document.getElementById('salary').value||0);
+ const pct=Number(document.getElementById('placementPct').value||0);
+ const placement=placementOn?salary*pct/100:0;
+
+ document.getElementById('sumSetup').textContent=money(setup);
+ document.getElementById('sumMonthly').textContent=money(monthly);
+ document.getElementById('sumAds').textContent=money(ads);
+ document.getElementById('sumCash').textContent=money(monthly+ads);
+ document.getElementById('sumTerm').textContent=money(setup+(monthly+ads)*months);
+ document.getElementById('placementLine').style.display=placementOn?'flex':'none';
+ document.getElementById('sumPlacement').textContent=money(placement);
+
+ document.getElementById('resultSetup').textContent=money(setup);
+ document.getElementById('resultMonthly').textContent=money(monthly);
+ document.getElementById('resultAds').textContent=money(ads);
+ document.getElementById('resultCash').textContent=money(monthly+ads);
+
+ const sm=document.getElementById('summaryModules'); sm.innerHTML='';
+ names.forEach(n=>{const d=document.createElement('div');d.className='module';const a=document.createElement('span');a.textContent=n;const b=document.createElement('b');b.textContent='✓';d.append(a,b);sm.appendChild(d)});
+
+ const goals=[...document.querySelectorAll('[data-goal]:checked')].map(x=>x.dataset.goal);
+ let pack='Recruiting Growth';
+ if(goals.includes('recruiting')&&goals.includes('patients')) pack='Full Growth OS';
+ else if(goals.includes('patients')&&!goals.includes('recruiting')) pack='Patient Growth OS';
+ else if(goals.includes('seo')&&goals.length===1) pack='Organic Growth';
+ document.getElementById('packageBadge').textContent=pack;
+
+ let rec='<b>'+pack+':</b> ';
+ if(pack==='Full Growth OS') rec+='Empfohlen, wenn Auetal gleichzeitig Personalengpässe und Auslastung steuern will. Ein Cockpit verbindet Recruiting, Patienten, Reputation und ROI.';
+ else if(pack==='Patient Growth OS') rec+='Fokus auf qualifizierte Google-Nachfrage, Belegung und messbare Neuaufnahmen.';
+ else rec+='Fokus auf planbare Mitarbeitergewinnung mit Karrierewelt, Meta Recruiting, Stellenportal und Eskalation in Active Sourcing.';
+ if(placementOn) rec+=' Direktvermittlung ist als Eskalationsstufe mit '+pct+' % Erfolgshonorar kalkuliert.';
+ document.getElementById('resultRecommendation').innerHTML=rec;
+}
+
+function render(){
+ steps.forEach((s,i)=>s.classList.toggle('active',i===current));
+ dots.forEach((d,i)=>d.classList.toggle('active',i===current));
+ document.getElementById('prevBtn').disabled=current===0;
+ document.getElementById('nextBtn').textContent=current===steps.length-1?'Neu kalkulieren':'Weiter →';
+ calc(); window.scrollTo({top:0,behavior:'smooth'});
+}
+document.getElementById('nextBtn').addEventListener('click',()=>{if(current===steps.length-1)current=0;else current++;render()});
+document.getElementById('prevBtn').addEventListener('click',()=>{if(current>0)current--;render()});
+document.querySelectorAll('select,input[type=number]').forEach(x=>x.addEventListener('input',calc));
+calc();
+</script></body></html>
