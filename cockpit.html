@@ -371,13 +371,6 @@ function chooseBilling(model){
 }
 document.querySelectorAll('.billing-option').forEach(btn=>btn.addEventListener('click',()=>chooseBilling(btn.dataset.billing)));
 recalcModules();
-}
-document.querySelectorAll('.billing-option').forEach(btn=>btn.addEventListener('click',()=>chooseBilling(btn.dataset.billing)));
-['billingBase','billingPerApplicant','billingPerHire','billingIncluded'].forEach(id=>{
- const el=document.getElementById(id);if(el)el.addEventListener('input',recalcBilling);
-});
-recalcModules();
-recalcBilling();
 </script>
 </body>
 </html>
