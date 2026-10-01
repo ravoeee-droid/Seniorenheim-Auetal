@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Auetal · Websystem Auswahl</title>
+<style>
+:root{--bg:#f5f2ee;--card:#fff;--ink:#202522;--muted:#6f756f;--line:#e3ddd5;--brand:#8f1f32;--brand-soft:#fff5f7;--green:#2f7d5b;--shadow:0 18px 50px rgba(34,31,27,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{max-width:980px;margin:auto;padding:28px 18px 70px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px}
+.brand{display:flex;align-items:center;gap:12px}.mark{width:44px;height:44px;border-radius:14px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:900}.brand small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.12em}.brand b{font-size:17px}
+.hero,.section{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}
+.hero{padding:34px;margin-bottom:16px}.eyebrow{font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.14em;color:var(--brand)}h1{font-size:40px;line-height:1.05;margin:10px 0 14px}.hero p{color:var(--muted);font-size:15px;line-height:1.65;max-width:760px;margin:0}
+.progress{height:7px;background:#eee8e2;border-radius:99px;overflow:hidden;margin-top:22px}.progress i{display:block;width:10%;height:100%;background:var(--brand);transition:.25s}
+.section{padding:28px;margin:16px 0}.section h2{margin:0 0 8px;font-size:24px}.intro{color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.option{display:block;border:1px solid var(--line);border-radius:17px;padding:16px;cursor:pointer;background:#fff;transition:.18s}.option:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(30,30,30,.05)}.option:has(input:checked){border-color:var(--brand);background:var(--brand-soft);box-shadow:0 0 0 2px rgba(143,31,50,.07)}.option input{accent-color:var(--brand);margin-right:8px}.option b{font-size:14px}.option p{margin:7px 0 0 25px;color:var(--muted);font-size:12px;line-height:1.5}.problem{display:block;margin:8px 0 0 25px;font-size:11px;color:var(--brand);font-weight:750}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:750;color:#4e5550}.field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:13px;background:#fff;font:inherit;color:var(--ink)}.field textarea{min-height:110px;resize:vertical}.hint{font-size:11px;color:var(--muted)}
+.rank{display:grid;grid-template-columns:1fr 130px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #f1ece7}.rank:last-child{border-bottom:0}.rank select{padding:10px;border:1px solid var(--line);border-radius:11px;background:#fff}
+.notice{padding:15px 17px;border-radius:15px;background:#f7f5f2;color:#5e655f;font-size:12px;line-height:1.55}.notice b{color:var(--ink)}
+.submit{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:18px}.btn{appearance:none;border:0;border-radius:14px;background:var(--brand);color:#fff;padding:15px 22px;font-weight:850;font-size:14px;cursor:pointer}.btn:disabled{opacity:.55;cursor:not-allowed}.status{font-size:12px;color:var(--muted)}
+.counter{font-size:11px;color:var(--muted);margin-top:9px}.counter strong{color:var(--brand)}
+@media(max-width:720px){h1{font-size:31px}.grid,.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.section,.hero{padding:21px}.rank{grid-template-columns:1fr}.top{align-items:flex-start}.submit{align-items:stretch;flex-direction:column}.btn{width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand"><div class="mark">DG</div><div><small>Digitale Gewinner × MPP Recruit</small><b>Auetal Websystem</b></div></div>
+</header>
+
+<div class="hero">
+  <div class="eyebrow">Ihre persönliche System-Auswahl</div>
+  <h1>Was soll Ihnen im Alltag wirklich Arbeit abnehmen?</h1>
+  <p>Wir bauen das Auetal-System bewusst Schritt für Schritt auf. Wählen Sie nur die Bereiche aus, die für Sie interessant sind. Daraus priorisieren wir gemeinsam die erste Ausbaustufe – Sie müssen heute nicht alles beauftragen.</p>
+  <div class="progress"><i id="progress"></i></div>
+</div>
+
+<form id="form" action="https://formsubmit.co/digitalegewinner@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Auetal Websystem – neue Modulauswahl">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://seniorenheim-auetal.vercel.app/auswahl-danke.html">
+<input type="hidden" name="_captcha" value="false">
+<input type="text" name="_honey" style="display:none">
+<input type="hidden" name="Formular" value="Auetal Websystem Modulauswahl">
+
+<section class="section">
+  <h2>1. Kurz zu Ihnen</h2>
+  <p class="intro">Damit wir die Auswahl eindeutig zuordnen können.</p>
+  <div class="fields">
+    <div class="field"><label>Name</label><input name="Name" value="Frank Denecke" placeholder="Vor- und Nachname"></div>
+    <div class="field"><label>Funktion</label><input name="Funktion" placeholder="z. B. Geschäftsführung"></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>2. Was soll zuerst besser werden?</h2>
+  <p class="intro">Bitte maximal drei Prioritäten auswählen.</p>
+  <div class="grid" id="priorityGrid">
+    <label class="option"><input type="checkbox" name="Top-Prioritäten[]" value="Pflegefachkräfte gewinnen"><b>Pflegefachkräfte gewinnen</b><p>Mehr passende Fachkräfte erreichen und einstellen.</p></label>
+    <label class="option"><input type="checkbox" name="Top-Prioritäten[]" value="Dienstplanung vereinfachen"><b>Dienstplanung vereinfachen</b><p>Weniger manuelle Planung und Abstimmung.</p></label>
+    <label class="option"><input type="checkbox" name="Top-Prioritäten[]" value="Krankheitsausfälle auffangen"><b>Krankheitsausfälle auffangen</b><p>Ersatz schneller und automatisierter finden.</p></label>
+    <label class="option"><input type="checkbox" name="Top-Prioritäten[]" value="Mitarbeiter entlasten und halten"><b>Mitarbeiter entlasten & halten</b><p>Überlastung und Kündigungsrisiken früher erkennen.</p></label>
+    <label class="option"><input type="checkbox" name="Top-Prioritäten[]" value="Verwaltung reduzieren"><b>Verwaltung reduzieren</b><p>Wiederkehrende Arbeiten digitalisieren.</p></label>
+    <label class="option"><input type="checkbox" name="Top-Prioritäten[]" value="Geschäftsführung Überblick"><b>Mehr Überblick für die Geschäftsführung</b><p>Die wichtigsten Kennzahlen und Aufgaben an einem Ort.</p></label>
+  </div>
+  <div class="counter">Ausgewählt: <strong id="priorityCount">0</strong> / 3</div>
+</section>
+
+<section class="section">
+  <h2>3. Recruiting & Personal</h2>
+  <p class="intro">Welche Bausteine sollen wir für Sie prüfen?</p>
+  <div class="grid">
+    <label class="option"><input type="checkbox" name="Module[]" value="Recruiting Cockpit"><b>Recruiting Cockpit</b><p>Bewerber, Gespräche, Einstellungen und Kosten zentral.</p><span class="problem">Löst: verstreute Bewerberdaten & fehlenden Überblick</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Social Recruiting"><b>Social Recruiting</b><p>Gezielte Kampagnen für Pflegefachkräfte.</p><span class="problem">Löst: zu wenig qualifizierte Reichweite</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Active Sourcing"><b>Active Sourcing</b><p>Geeignete Fachkräfte direkt ansprechen.</p><span class="problem">Löst: nur auf aktive Bewerber warten</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Talentpool"><b>Talentpool</b><p>Interessante Kandidaten für später behalten.</p><span class="problem">Löst: gute Kontakte gehen verloren</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Bewerber Automation"><b>Bewerber-Automation</b><p>Bestätigung, Termine und Follow-ups automatisieren.</p><span class="problem">Löst: Kandidaten springen wegen langsamer Reaktion ab</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Interview Assistent"><b>Interview-Assistent</b><p>Fragen, Wechselmotive und passende Benefits vorbereiten.</p><span class="problem">Löst: uneinheitliche Bewerbungsgespräche</span></label>
+  </div>
+</section>
+
+<section class="section">
+  <h2>4. Dienstplanung & Ausfälle</h2>
+  <div class="grid">
+    <label class="option"><input type="checkbox" name="Module[]" value="Digitaler Dienstplan"><b>Digitaler Dienstplan</b><p>Schichten planen, anzeigen und zentral verwalten.</p><span class="problem">Löst: Excel, Papier & manuelle Abstimmung</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Wunschdienst System"><b>Wunschdienst-System</b><p>Mitarbeiter geben Wünsche und Verfügbarkeiten digital ab.</p><span class="problem">Löst: viele Rückfragen bei der Planung</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Krankheits Ausfall Automation"><b>Krankheits-/Ausfall-Automation</b><p>Passende Mitarbeiter bei Ausfällen automatisch anfragen.</p><span class="problem">Löst: zeitaufwendiges Abtelefonieren</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Schichtbörse"><b>Digitale Schichtbörse</b><p>Offene Schichten können freiwillig übernommen werden.</p><span class="problem">Löst: freie Schichten & Koordinationsaufwand</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Überstunden Warnsystem"><b>Überstunden-Warnsystem</b><p>Überlastung und kritische Arbeitszeiten früh anzeigen.</p><span class="problem">Löst: Belastung wird zu spät sichtbar</span></label>
+  </div>
+</section>
+
+<section class="section">
+  <h2>5. Mitarbeiterportal & Bindung</h2>
+  <div class="grid">
+    <label class="option"><input type="checkbox" name="Module[]" value="Mitarbeiterportal"><b>Mitarbeiterportal</b><p>Dienstplan, News, Dokumente, Aufgaben und Anfragen.</p><span class="problem">Löst: Informationen über viele Kanäle verteilt</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Digitales Onboarding"><b>Digitales Onboarding</b><p>Checklisten, Dokumente, Ansprechpartner und Feedback.</p><span class="problem">Löst: wiederkehrende Einarbeitungsarbeit</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Mitarbeiter Feedback"><b>Mitarbeiter-Feedback</b><p>Regelmäßige kurze Stimmungs-Checks.</p><span class="problem">Löst: Unzufriedenheit wird erst bei Kündigung sichtbar</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Mitarbeiter Bindung Frühwarnsystem"><b>Bindungs-Frühwarnsystem</b><p>Belastungs- und Feedbacksignale bündeln.</p><span class="problem">Löst: überraschende Kündigungen</span></label>
+  </div>
+</section>
+
+<section class="section">
+  <h2>6. Verwaltung automatisieren</h2>
+  <div class="grid">
+    <label class="option"><input type="checkbox" name="Module[]" value="Digitale Urlaubsanträge"><b>Digitale Urlaubsanträge</b><p>Beantragen, prüfen und freigeben.</p><span class="problem">Löst: Papier & Nachrichten-Chaos</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Aufgabenverwaltung"><b>Interne Aufgabenverwaltung</b><p>Aufgaben verteilen und Fortschritt sehen.</p><span class="problem">Löst: mündliche To-dos gehen verloren</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Dokumenten Center"><b>Dokumenten-Center</b><p>Wichtige Unterlagen zentral verfügbar.</p><span class="problem">Löst: verteilte Dokumente & Suchaufwand</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Fristen Zertifikate Wächter"><b>Fristen- & Zertifikats-Wächter</b><p>Automatisch an relevante Fristen erinnern.</p><span class="problem">Löst: manuelle Kontrolle & verpasste Termine</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Fortbildungs Manager"><b>Fortbildungs-Manager</b><p>Schulungen und Nachweise verwalten.</p><span class="problem">Löst: unübersichtliche Fortbildungsverwaltung</span></label>
+  </div>
+</section>
+
+<section class="section">
+  <h2>7. Außenwirkung, Website & KI</h2>
+  <div class="grid">
+    <label class="option"><input type="checkbox" name="Module[]" value="Premium Karrierewelt"><b>Premium Karrierewelt</b><p>Team, Benefits und Jobs modern präsentieren.</p><span class="problem">Löst: Arbeitgebervorteile überzeugen online nicht genug</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Google Bewertungsautomation"><b>Google-Bewertungsautomation</b><p>Zufriedene Angehörige automatisch um Bewertungen bitten.</p><span class="problem">Löst: gute Erfahrungen werden online zu selten sichtbar</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="KI Website Assistent"><b>KI Website-Assistent</b><p>Stellen, News und Änderungen einfacher veröffentlichen.</p><span class="problem">Löst: Abhängigkeit bei kleinen Website-Änderungen</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="SEO KI Content Engine"><b>SEO & KI Content Engine</b><p>Inhalte vorbereiten und Sichtbarkeit ausbauen.</p><span class="problem">Löst: Website wird statisch und veraltet</span></label>
+  </div>
+</section>
+
+<section class="section">
+  <h2>8. Geschäftsführung & Belegung</h2>
+  <div class="grid">
+    <label class="option"><input type="checkbox" name="Module[]" value="GF Dashboard"><b>GF-Dashboard</b><p>Personal, Recruiting, Aufgaben und Kennzahlen kompakt.</p><span class="problem">Löst: Informationen aus mehreren Systemen zusammensuchen</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="KI Geschäftsführer Assistent"><b>KI-Geschäftsführer-Assistent</b><p>„Was muss ich heute beachten?“ – kritische Punkte automatisch zusammenfassen.</p><span class="problem">Löst: wichtige Themen werden zu spät gesehen</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Belegungs Cockpit"><b>Belegungs-Cockpit</b><p>Freie Plätze, Anfragen und Kapazität zentral.</p><span class="problem">Löst: fehlenden Gesamtüberblick</span></label>
+    <label class="option"><input type="checkbox" name="Module[]" value="Wartelisten Manager"><b>Wartelisten-Manager</b><p>Anfragen strukturiert priorisieren und nachverfolgen.</p><span class="problem">Löst: Interessenten und Rückrufe gehen unter</span></label>
+  </div>
+</section>
+
+<section class="section">
+  <h2>9. Ihre Top 5</h2>
+  <p class="intro">Welche Bereiche hätten für Sie persönlich den größten Nutzen? 1 = höchste Priorität.</p>
+  <div class="rank"><b>Recruiting / Personalgewinnung</b><select name="Rang Recruiting"><option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+  <div class="rank"><b>Dienstplanung / Ausfälle</b><select name="Rang Dienstplanung"><option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+  <div class="rank"><b>Mitarbeiterportal / Bindung</b><select name="Rang Mitarbeiter"><option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+  <div class="rank"><b>Verwaltung / Automatisierung</b><select name="Rang Verwaltung"><option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+  <div class="rank"><b>Website / KI / Außenwirkung</b><select name="Rang Website KI"><option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+  <div class="rank"><b>Geschäftsführung / Übersicht</b><select name="Rang GF"><option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+</section>
+
+<section class="section">
+  <h2>10. Wo verlieren Sie heute am meisten Zeit?</h2>
+  <p class="intro">Oft entstehen die besten Module genau aus diesen Antworten.</p>
+  <div class="fields">
+    <div class="field full"><label>Welche wiederkehrende Aufgabe würden Sie am liebsten sofort vereinfachen oder automatisieren?</label><textarea name="Größter Zeitfresser" placeholder="z. B. Krankheitsvertretungen organisieren, Dienstplan, Dokumente, Bewerber nachfassen ..."></textarea></div>
+    <div class="field"><label>Wie häufig kommt das vor?</label><select name="Häufigkeit Zeitfresser"><option value="">Bitte auswählen</option><option>Täglich</option><option>Mehrmals pro Woche</option><option>Wöchentlich</option><option>Monatlich</option></select></div>
+    <div class="field"><label>Wer ist damit hauptsächlich beschäftigt?</label><input name="Betroffene Person Rolle" placeholder="z. B. PDL, Verwaltung, Geschäftsführung"></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>11. Wie möchten Sie starten?</h2>
+  <div class="grid">
+    <label class="option"><input type="radio" name="Startwunsch" value="Nur dringendste Module"><b>Nur mit den dringendsten Modulen</b><p>Klein starten und danach erweitern.</p></label>
+    <label class="option"><input type="radio" name="Startwunsch" value="Recruiting plus Websystem Basis"><b>Recruiting + Websystem-Basis</b><p>Personalproblem lösen und gleichzeitig Fundament schaffen.</p></label>
+    <label class="option"><input type="radio" name="Startwunsch" value="Mehrere Bereiche digitalisieren"><b>Direkt mehrere Bereiche digitalisieren</b><p>Mehrere Zeitfresser parallel angehen.</p></label>
+    <label class="option"><input type="radio" name="Startwunsch" value="Empfehlung erstellen" checked><b>Bitte Empfehlung erstellen</b><p>Wir priorisieren aus Ihrer Auswahl die sinnvollste Phase 1.</p></label>
+  </div>
+  <div class="field full" style="margin-top:18px"><label>Weitere Wünsche / Ideen</label><textarea name="Weitere Wünsche" placeholder="Gibt es etwas, bei dem Sie schon länger denken: Das müsste eigentlich einfacher gehen?"></textarea></div>
+</section>
+
+<section class="section">
+  <div class="notice"><b>Kein Auftrag durch Absenden:</b> Dieses Formular dient ausschließlich dazu, Ihre Anforderungen zu priorisieren. Aus Ihrer Auswahl erstellen wir anschließend eine konkrete Empfehlung für die nächste Ausbaustufe.</div>
+  <div class="submit"><span class="status" id="status">Ihre Auswahl wird direkt an Digitale Gewinner übermittelt.</span><button class="btn" type="submit">Auswahl absenden →</button></div>
+</section>
+</form>
+</div>
+<script>
+const priorityChecks=[...document.querySelectorAll('#priorityGrid input[type=checkbox]')];
+const count=document.getElementById('priorityCount');
+function updatePriority(){
+ const checked=priorityChecks.filter(x=>x.checked);
+ count.textContent=checked.length;
+ priorityChecks.forEach(x=>x.disabled=!x.checked&&checked.length>=3);
+}
+priorityChecks.forEach(x=>x.addEventListener('change',updatePriority)); updatePriority();
+
+const allInputs=[...document.querySelectorAll('input,select,textarea')];
+function progress(){
+ const meaningful=allInputs.filter(x=>!x.name.startsWith('_')&&x.type!=='hidden');
+ let touched=0;
+ meaningful.forEach(x=>{
+   if((x.type==='checkbox'||x.type==='radio')?x.checked:String(x.value||'').trim()) touched++;
+ });
+ document.getElementById('progress').style.width=Math.max(10,Math.min(100,(touched/18)*100))+'%';
+}
+allInputs.forEach(x=>{x.addEventListener('change',progress);x.addEventListener('input',progress)});progress();
+</script>
+</body>
+</html>
