@@ -154,33 +154,35 @@ button,a{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:2
 <section class="view" id="modules">
   <div class="section-head"><div><h3>Module & monatliche Steuerung</h3><p>Der Geschäftsführer behält volle Kontrolle über aktive Leistungen, Budgets und monatliche Kosten.</p></div><a class="btn primary" href="angebot-konfigurator.html" style="text-decoration:none">Komplett neu konfigurieren</a></div>
   <div class="grid">
-    <div class="card metric"><small>Aktive Module</small><strong id="activeModulesCount">4</strong><span class="delta">monatlich anpassbar</span></div>
-    <div class="card metric"><small>Betreuung / Monat</small><strong id="moduleMonthlyTotal">2.170 €</strong><span class="delta warn">zzgl. Werbebudget</span></div>
-    <div class="card metric"><small>Werbebudget / Monat</small><strong id="moduleAdsTotal">1.000 €</strong><span class="delta warn">Meta + Google</span></div>
-    <div class="card metric"><small>Monatlicher Gesamt-Cashflow</small><strong id="moduleCashTotal">3.170 €</strong><span class="delta">aktuelle Konfiguration</span></div>
+    <div class="card metric"><small>Aktive Module</small><strong id="activeModulesCount">2</strong><span class="delta">jederzeit ein- und ausschaltbar</span></div>
+    <div class="card metric"><small>Aufbau (einmalig)</small><strong>10.000 €</strong><span class="delta">System gehört Ihnen · Beispielpreis</span></div>
+    <div class="card metric"><small>Monatlich an Digitale Gewinner</small><strong id="moduleMonthlyTotal">500 €</strong><span class="delta" id="moduleBreakdown">500 € Plattform · keine Betreuung gebucht</span></div>
+    <div class="card metric"><small>Werbebudget / Monat</small><strong id="moduleAdsTotal">1.000 €</strong><span class="delta warn">zahlen Sie direkt an Meta &amp; Google</span></div>
   </div>
 
-  <div class="section-head"><div><h3>Abrechnung</h3><p>Einfach und verständlich: aktuelles Modell plus eine erfolgsabhängige Alternative.</p></div><span class="model-badge" id="billingModelBadge">✓ Monatliche Betreuung</span></div>
+  <div class="section-head"><div><h3>Abrechnung</h3><p>Einmal aufbauen, dann selbst steuern: Plattform fest, Betreuung nur bei Bedarf dazubuchen.</p></div><span class="model-badge" id="billingModelBadge">✓ Plattform + Module</span></div>
   <div class="card">
     <div class="billing-models" id="billingModels" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-      <button class="billing-option active" type="button" data-billing="retainer"><span class="check">✓</span><b>Monatliche Betreuung</b><p>Planbare Betreuung, Cockpit, Recruiting-System und Optimierung. Werbebudget separat.</p><span class="price">Aktuelles Modell</span></button>
+      <button class="billing-option active" type="button" data-billing="retainer"><span class="check">✓</span><b>Plattform + Module</b><p>Cockpit, Hosting, Updates und Support für eine feste Pauschale. Betreuung durch uns nur für die Bereiche, die Sie dazubuchen. Werbebudget zahlen Sie direkt an Meta und Google.</p><span class="price">Aktuelles Modell</span></button>
       <button class="billing-option" type="button" data-billing="performance"><span class="check">✓</span><b>Erfolgsabhängige Abrechnung prüfen</b><p>Optional: geringere Grundgebühr plus Vergütung für qualifizierte Bewerber. Erst nach individueller Freigabe.</p><span class="price">Modell vergleichen</span></button>
     </div>
-    <div class="callout" id="billingExplanation"><b>Aktuell:</b> Monatliche Betreuung. Ein Wechsel ist nur eine Anfrage und wird erst nach gemeinsamer Prüfung verbindlich.</div>
+    <div class="callout" id="billingExplanation"><b>Aktuell:</b> Plattform + Module. Ein Wechsel ist nur eine Anfrage und wird erst nach gemeinsamer Prüfung verbindlich.</div>
   </div>
 
-  <div class="section-head"><div><h3>Aktive & verfügbare Module</h3><p>Änderungen hier sind Demo-Self-Service. Im Live-System würden sie als Vertrags-/Serviceänderung bestätigt und protokolliert.</p></div></div>
+  <div class="section-head"><div><h3>Aktive & verfügbare Module</h3><p>Funktionen im Tool schalten Sie selbst ein und aus. Betreuung buchen Sie nur dazu, wenn Sie Unterstützung wollen. In der Demo-Ansicht nur simuliert.</p></div></div>
   <div class="card table-wrap">
-    <table class="table"><thead><tr><th>Modul</th><th>Status</th><th>Monatlich</th><th>Steuerung</th></tr></thead>
+    <table class="table"><thead><tr><th>Modul</th><th>Status</th><th>Preis / Monat</th><th>Steuerung</th></tr></thead>
     <tbody id="moduleTable">
-      <tr data-module-row data-price="290"><td><b>Growth Cockpit & Tracking</b><br><span class="sub">GF-Dashboard, Funnel, ROI, Alerts</span></td><td><span class="tag">Aktiv</span></td><td><b>290 €</b></td><td><button class="btn soft moduleToggle" data-on="1">Pausieren</button></td></tr>
-      <tr data-module-row data-price="190"><td><b>Karrierewelt</b><br><span class="sub">Employer Story, Jobs, Bewerber-Funnel</span></td><td><span class="tag">Aktiv</span></td><td><b>190 €</b></td><td><button class="btn soft moduleToggle" data-on="1">Pausieren</button></td></tr>
-      <tr data-module-row data-price="1500"><td><b>Meta Recruiting</b><br><span class="sub">Creatives, Kampagnen, Optimierung</span></td><td><span class="tag">Aktiv</span></td><td><b>1.500 €</b></td><td><button class="btn soft moduleToggle" data-on="1">Pausieren</button></td></tr>
-      <tr data-module-row data-price="190"><td><b>Stellenportal Premium</b><br><span class="sub">Job-SEO, Talentpool, Premium-Veröffentlichung</span></td><td><span class="tag">Aktiv</span></td><td><b>190 €</b></td><td><button class="btn soft moduleToggle" data-on="1">Pausieren</button></td></tr>
-      <tr data-module-row data-price="750"><td><b>Google Patienten-Ads</b><br><span class="sub">Search Ads, Tracking, Optimierung</span></td><td><span class="tag amber">Verfügbar</span></td><td><b>750 €</b></td><td><button class="btn primary moduleToggle" data-on="0">Aktivieren</button></td></tr>
-      <tr data-module-row data-price="590"><td><b>SEO & Content Engine</b><br><span class="sub">Standortseiten, Ratgeber, Job-SEO</span></td><td><span class="tag amber">Verfügbar</span></td><td><b>590 €</b></td><td><button class="btn primary moduleToggle" data-on="0">Aktivieren</button></td></tr>
-      <tr data-module-row data-price="290"><td><b>Reputation Automation</b><br><span class="sub">Bewertungen, Monitoring, Arbeitgebervertrauen</span></td><td><span class="tag amber">Verfügbar</span></td><td><b>290 €</b></td><td><button class="btn primary moduleToggle" data-on="0">Aktivieren</button></td></tr>
-      <tr data-module-row data-price="1200"><td><b>Active Sourcing</b><br><span class="sub">Direkte Kandidatensuche als Eskalationsstufe</span></td><td><span class="tag amber">Verfügbar</span></td><td><b>1.200 €</b></td><td><button class="btn primary moduleToggle" data-on="0">Aktivieren</button></td></tr>
+      <tr><td colspan="4" style="background:#faf8f6;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brand)">Im Tool enthalten · Sie steuern selbst</td></tr>
+      <tr data-module-row data-price="0"><td><b>Growth Cockpit &amp; Tracking</b><br><span class="sub">GF-Dashboard, Funnel, ROI, Alerts</span></td><td><span class="tag">Aktiv</span></td><td><b>inklusive</b></td><td><button class="btn soft moduleToggle" data-on="1">Ausschalten</button></td></tr>
+      <tr data-module-row data-price="0"><td><b>Karrierewelt &amp; Stellenportal</b><br><span class="sub">Employer Story, Jobs, Kurzbewerbung, Talentpool</span></td><td><span class="tag">Aktiv</span></td><td><b>inklusive</b></td><td><button class="btn soft moduleToggle" data-on="1">Ausschalten</button></td></tr>
+      <tr data-module-row data-price="0"><td><b>Bewertungs-Automation</b><br><span class="sub">Google-Bewertungen anfragen, Monitoring, Antwortvorschläge</span></td><td><span class="tag amber">Aus</span></td><td><b>inklusive</b></td><td><button class="btn primary moduleToggle" data-on="0">Einschalten</button></td></tr>
+      <tr data-module-row data-price="0"><td><b>Social-Recruiting-Steuerung</b><br><span class="sub">Kampagnen, Budgets und Creatives selbst verwalten</span></td><td><span class="tag amber">Aus</span></td><td><b>inklusive</b></td><td><button class="btn primary moduleToggle" data-on="0">Einschalten</button></td></tr>
+      <tr><td colspan="4" style="background:#faf8f6;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brand)">Betreuung durch Digitale Gewinner · optional, je Bereich · Beispielpreise</td></tr>
+      <tr data-module-row data-price="1500"><td><b>Meta Recruiting – Betreuung</b><br><span class="sub">Creatives, Kampagnen, laufende Optimierung</span></td><td><span class="tag amber">Selbst gesteuert</span></td><td><b>1.500 €</b></td><td><button class="btn primary moduleToggle" data-on="0">Dazubuchen</button></td></tr>
+      <tr data-module-row data-price="750"><td><b>Google Patienten-Ads – Betreuung</b><br><span class="sub">Search Ads, Tracking, Optimierung</span></td><td><span class="tag amber">Selbst gesteuert</span></td><td><b>750 €</b></td><td><button class="btn primary moduleToggle" data-on="0">Dazubuchen</button></td></tr>
+      <tr data-module-row data-price="590"><td><b>SEO &amp; Content – Betreuung</b><br><span class="sub">Standortseiten, Ratgeber, Job-SEO</span></td><td><span class="tag amber">Selbst gesteuert</span></td><td><b>590 €</b></td><td><button class="btn primary moduleToggle" data-on="0">Dazubuchen</button></td></tr>
+      <tr data-module-row data-price="1200"><td><b>Active Sourcing / Vermittlung</b><br><span class="sub">Direkte Kandidatensuche als Eskalationsstufe</span></td><td><span class="tag amber">Selbst gesteuert</span></td><td><b>1.200 €</b></td><td><button class="btn primary moduleToggle" data-on="0">Dazubuchen</button></td></tr>
     </tbody></table>
   </div>
 
@@ -311,20 +313,21 @@ function showView(id){
 }
 document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
 
+const PLATFORM=500;
 function recalcModules(){
-  let monthly=0, active=0;
+  let monthly=0, active=0, care=0;
   document.querySelectorAll('[data-module-row]').forEach(row=>{
     const btn=row.querySelector('.moduleToggle');
-    if(btn && btn.dataset.on==='1'){monthly+=Number(row.dataset.price||0);active++;}
+    if(btn && btn.dataset.on==='1'){const pr=Number(row.dataset.price||0);care+=pr;if(pr===0)active++;}
   });
   const meta=Number(document.getElementById('metaModuleBudget')?.value||0);
   const google=Number(document.getElementById('googleModuleBudget')?.value||0);
   const ads=meta+google;
   const fmt=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);
   const c1=document.getElementById('activeModulesCount'); if(c1)c1.textContent=String(active);
-  const c2=document.getElementById('moduleMonthlyTotal'); if(c2)c2.textContent=fmt(monthly);
+  monthly=PLATFORM+care; const c2=document.getElementById('moduleMonthlyTotal'); if(c2)c2.textContent=fmt(monthly); const bd=document.getElementById('moduleBreakdown'); if(bd)bd.textContent=fmt(PLATFORM)+' Plattform'+(care?' + '+fmt(care)+' Betreuung':' · keine Betreuung gebucht');
   const c3=document.getElementById('moduleAdsTotal'); if(c3)c3.textContent=fmt(ads);
-  const c4=document.getElementById('moduleCashTotal'); if(c4)c4.textContent=fmt(monthly+ads);
+  
 }
 document.querySelectorAll('.moduleToggle').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -332,10 +335,10 @@ document.querySelectorAll('.moduleToggle').forEach(btn=>{
     const status=row.querySelector('.tag');
     const turningOn=btn.dataset.on!=='1';
     btn.dataset.on=turningOn?'1':'0';
-    btn.textContent=turningOn?'Pausieren':'Aktivieren';
+    const isTool=row.dataset.price==='0'; btn.textContent=turningOn?(isTool?'Ausschalten':'Pausieren'):(isTool?'Einschalten':'Dazubuchen');
     btn.classList.toggle('primary',!turningOn);
     btn.classList.toggle('soft',turningOn);
-    status.textContent=turningOn?'Aktiv':'Verfügbar';
+    status.textContent=turningOn?'Aktiv':(isTool?'Aus':'Selbst gesteuert');
     status.className=turningOn?'tag':'tag amber';
     const log=document.getElementById('moduleChangeLog');
     if(log){
@@ -343,7 +346,7 @@ document.querySelectorAll('.moduleToggle').forEach(btn=>{
       const d=document.createElement('div'); d.className='task';
       const dot=document.createElement('span'); dot.className=turningOn?'dot green':'dot';
       const body=document.createElement('div');
-      const b=document.createElement('b'); b.textContent=(turningOn?'Aktiviert: ':'Pausiert: ')+row.querySelector('b').textContent;
+      const b=document.createElement('b'); b.textContent=(turningOn?(isTool?'Eingeschaltet: ':'Dazugebucht: '):(isTool?'Ausgeschaltet: ':'Pausiert: '))+row.querySelector('b').textContent;
       const p=document.createElement('p'); p.textContent='Demo-Änderung vorgemerkt. Im Live-System folgt Bestätigung und Wirksamkeitsdatum.';
       const time=document.createElement('time'); time.textContent='Jetzt';
       body.append(b,p); d.append(dot,body,time); log.appendChild(d);
@@ -356,7 +359,7 @@ document.querySelectorAll('.moduleToggle').forEach(btn=>{
 });
 
 const billingPresets={
- retainer:{label:'Monatliche Betreuung',copy:'Monatliche Betreuung bleibt aktiv. Werbebudget wird separat gesteuert.'},
+ retainer:{label:'Plattform + Module',copy:'Plattform-Pauschale bleibt aktiv, Betreuungsmodule nach Bedarf. Werbebudget wird separat gesteuert.'},
  performance:{label:'Erfolgsabhängig prüfen',copy:'Unverbindliche Prüfung einer erfolgsabhängigen Variante. Konditionen werden individuell vereinbart.'}
 };
 function chooseBilling(model){
