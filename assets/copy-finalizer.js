@@ -67,11 +67,11 @@
     text('.family-proof strong', 'Familienfreundlichkeit wird im Auetal seit Jahren gelebt.');
     text('.employer-story-visual blockquote small', 'Was im Alltag einen Unterschied machen kann');
 
-    html('.pay-copy .eyebrow', '<span></span> Pflegeassistenz · konkrete Konditionen');
+    html('.pay-copy .eyebrow', '<span></span> Examinierte Pflegefachkräfte · Konditionen im Gespräch');
     text('.pay-note strong', 'Konkrete Konditionen');
     text('.pay-note span', 'für eine konkrete ausgeschriebene Stelle');
     const payLink = qs('.pay-copy a[href="recruiting.html"]');
-    if (payLink) payLink.innerHTML = 'Pflegeassistenz im Detail ansehen <span>↗</span>';
+    if (payLink) { payLink.href = '#jobmatch'; payLink.innerHTML = 'Unverbindlich kennenlernen <span>↗</span>'; }
 
     html('.system-reveal-head .eyebrow', '<span></span> Dein Weg zu Auetal');
     html('.system-reveal-head h2', 'Vom ersten Eindruck bis zum <em>Kennenlernen</em> – ohne Umwege.');
@@ -100,7 +100,7 @@
 
     text('.site-footer .footer-grid > p', 'Karriere im Seniorenheim Auetal. Konditionen und Arbeitsmodelle können je Stelle unterschiedlich sein.');
     const recruitingFooter = qs('.site-footer a[href="recruiting.html"]');
-    if (recruitingFooter) recruitingFooter.textContent = 'Pflegeassistenz';
+    if (recruitingFooter) recruitingFooter.textContent = 'Weitere Stellen';
     remove('.site-footer a[href="admin.html"]');
   }
 
