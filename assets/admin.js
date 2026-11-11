@@ -1,7 +1,7 @@
 /* Auetal protected applicant cockpit. No sample contacts, localStorage or browser-side credentials. */
 (() => {
  'use strict';
- const gate=document.getElementById('adminGate'),content=document.getElementById('adminContent');
+ const gate=document.getElementById('adminGate'),content=document.getElementById('adminContent'),sidebar=document.getElementById('adminSidebar');
  if(!gate||!content)return;
  const gateStatus=document.getElementById('gateStatus'),form=document.getElementById('adminLoginForm');
  const password=document.getElementById('adminPassword'),board=document.getElementById('pipelineBoard');
@@ -17,7 +17,7 @@
    return data;
  };
  const lock=(msg='Bitte melde dich an.')=>{
-   authenticated=false;content.hidden=true;gate.hidden=false;
+   authenticated=false;content.hidden=true;if(sidebar)sidebar.hidden=true;gate.hidden=false;
    all=[];lastTotal=null;
    if(msg)gateStatus.textContent=msg;
  };
@@ -142,7 +142,7 @@
    }finally{busy=false;}
  };
  const unlock=()=>{
-   authenticated=true;gate.hidden=true;content.hidden=false;
+   authenticated=true;gate.hidden=true;content.hidden=false;if(sidebar)sidebar.hidden=false;
    load();
  };
  const check=async()=>{
