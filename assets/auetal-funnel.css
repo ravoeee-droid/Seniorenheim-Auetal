@@ -1,0 +1,40 @@
+/* Auetal funnel: same premium wine-colored Job-Match, now with secure contact stage */
+body.career-page .jobmatch-section .flow-card{height:auto!important;min-height:530px!important}
+body.career-page .jobmatch-section .flow-result.auetal-candidate{width:100%;max-width:100%}
+body.career-page .jobmatch-section .auetal-candidate h3{font-size:clamp(1.85rem,2.8vw,2.65rem)!important;line-height:1.18!important;color:#fff!important}
+body.career-page .jobmatch-section .auetal-candidate .flow-intro,
+body.career-page .jobmatch-section .auetal-candidate .contact-hint{color:#e9ede5!important;font-size:.91rem;line-height:1.65!important;margin:15px 0!important}
+body.career-page .jobmatch-section .auetal-candidate .flow-summary{margin:18px 0 21px;display:flex;flex-wrap:wrap;gap:8px}
+body.career-page .jobmatch-section .auetal-candidate .flow-summary span{color:#fff!important;border:1px solid rgba(255,255,255,.38);padding:7px 12px;border-radius:999px;font-size:.78rem;line-height:1.4}
+body.career-page .jobmatch-section .auetal-candidate-form{display:block;width:100%}
+body.career-page .jobmatch-section .auetal-input{margin:0 0 15px}
+body.career-page .jobmatch-section .auetal-input label{display:block;color:#f8f4ee;font-size:.89rem;font-weight:750;margin:0 0 7px;line-height:1.5}
+body.career-page .jobmatch-section .auetal-input input,
+body.career-page .jobmatch-section .auetal-input textarea{
+ display:block;width:100%;min-height:50px;box-sizing:border-box;
+ padding:13px 14px;border:1px solid #c6d0c4;border-radius:9px;
+ background:#fff;color:#263229;font:inherit;font-size:1rem;line-height:1.45;
+}
+body.career-page .jobmatch-section .auetal-input input::placeholder,
+body.career-page .jobmatch-section .auetal-input textarea::placeholder{color:#637366}
+body.career-page .jobmatch-section .auetal-input textarea{min-height:90px;resize:vertical}
+body.career-page .jobmatch-section .auetal-input input:focus-visible,
+body.career-page .jobmatch-section .auetal-input textarea:focus-visible{outline:3px solid #ffe09d!important;outline-offset:2px!important}
+body.career-page .jobmatch-section .auetal-consent{display:flex;align-items:flex-start;gap:12px;font-size:.83rem;line-height:1.65;color:#f3f5ef;cursor:pointer;margin:17px 0}
+body.career-page .jobmatch-section .auetal-consent input{flex:0 0 20px;height:20px;width:20px;margin-top:2px;accent-color:#bd526b}
+body.career-page .jobmatch-section .auetal-consent a{color:#ffdeba!important;text-decoration:underline;text-underline-offset:3px;font-weight:750}
+body.career-page .jobmatch-section .auetal-candidate-form>button[type="submit"]{
+ background:#fff4ed!important;color:#62213b!important;border:1px solid #fff4ed!important;
+ font-size:1rem;min-height:55px;width:100%;justify-content:center;margin:15px 0 0;
+}
+body.career-page .jobmatch-section .auetal-candidate-form>button:disabled{opacity:.63!important;cursor:not-allowed}
+body.career-page .jobmatch-section .auetal-contact-feedback{color:#f9f2ee!important;font-weight:650;line-height:1.65;font-size:.88rem;min-height:1.5em;margin:12px 0}
+body.career-page .jobmatch-section .auetal-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;opacity:0}
+body.career-page .jobmatch-section .flow-result-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px}
+body.career-page .jobmatch-section .flow-result-actions .text-link{font-size:.86rem;line-height:1.5;color:#fff!important;text-decoration:underline;text-underline-offset:4px}
+body.career-page .jobmatch-section .flow-result .flow-clarification{color:#e8eae4!important;font-size:.81rem;line-height:1.55;margin-top:15px}
+@media(max-width:640px){
+ body.career-page .jobmatch-section .auetal-candidate h3{font-size:clamp(1.7rem,5.9vw,2.2rem)!important}
+ body.career-page .jobmatch-section .flow-result-actions{flex-direction:column;align-items:flex-start}
+ body.career-page .jobmatch-section .auetal-candidate-form input{font-size:16px}
+}
