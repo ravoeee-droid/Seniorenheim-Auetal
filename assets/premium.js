@@ -166,7 +166,7 @@
       title:'Wenn weniger Papierkram wieder mehr Pflege bedeutet.',
       text:'Auetal kommuniziert elektronische Dokumentation ausdrücklich als Mittel, den bürokratischen Aufwand zu reduzieren. Genau so wird aus Technik ein Arbeitgeberargument.',
       proof:'Digitalisierung als Zeitgewinn erzählen – nicht als Software-Feature',
-      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_58-e1542718141382.jpg',
+      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_33.jpg',
       alt:'Alltag im Seniorenheim Auetal'
     },
     sicherheit: {
@@ -182,7 +182,7 @@
       title:'Wenn du nicht nach einer Website entscheiden musst.',
       text:'Auetal bietet potenziellen Mitarbeitern Probearbeiten an. Statt sofortiger Bewerbung kann der nächste Schritt deshalb ein ehrliches Kennenlernen sein.',
       proof:'Probearbeiten senkt das gefühlte Wechselrisiko',
-      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_58-1.jpg',
+      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_5.jpg',
       alt:'Einblick in die Einrichtung des Seniorenheims Auetal'
     }
   };
