@@ -152,8 +152,8 @@
     familie: {
       kicker:'FAMILIE',
       title:'Wenn dein Kind nicht gegen deinen Beruf arbeiten muss.',
-      text:'Die Betriebskinderkrippe Krabbelkäfer kann berufstätige Eltern unterstützen. Welche Betreuungsplätze aktuell verfügbar sind, besprechen wir persönlich.',
-      proof:'Kinderbetreuung bei Auetal kennenlernen',
+      text:'Auetal hat die eigene Kinderkrippe Krabbelkäfer. Verfügbare Plätze, Betreuungszeiten und mögliche Kosten klären wir im persönlichen Gespräch.',
+      proof:'Kinderkrippe · Bedingungen persönlich klären',
       image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_4-e1542806489732.jpg',
       alt:'Kinderbereich in der betriebseigenen Kinderbetreuung des Auetal'
     },
