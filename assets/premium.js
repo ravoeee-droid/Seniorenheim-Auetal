@@ -195,6 +195,7 @@
   const pills = [...document.querySelectorAll('[data-switch]')];
   if (stage && pills.length) {
     const img=document.getElementById('switchImage'), kicker=document.getElementById('switchKicker'), title=document.getElementById('switchTitle'), text=document.getElementById('switchText'), proof=document.getElementById('switchProof');
+    let switchImageRequestId=0;
     pills.forEach((btn) => {
       btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
       btn.addEventListener('click', () => {
@@ -207,11 +208,25 @@
       if (!reduce && stage.animate) {
         stage.animate([{opacity:.78,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:360,easing:'cubic-bezier(.2,.7,.2,1)'});
       }
-      if (!reduce) img.style.opacity='.2';
-      const pre=new Image();
-      pre.onload=()=>{img.src=d.image;img.alt=d.alt;img.style.opacity='1'};
-      pre.onerror=()=>{img.style.opacity='1'};
-      pre.src=d.image;
+      // Keep the current picture visible until the next one is fully decoded.
+      // A slow WordPress response must not make the page look blank.
+      const requestId=++switchImageRequestId;
+      if (img.getAttribute('src') !== d.image) {
+        const pre=new Image();
+        pre.decoding='async';
+        pre.onload=()=>{
+          if (requestId!==switchImageRequestId) return;
+          const display=()=>{img.src=d.image;img.alt=d.alt;img.style.opacity='1';};
+          if (pre.decode) pre.decode().then(display,display);
+          else display();
+        };
+        pre.onerror=()=>{
+          if (requestId===switchImageRequestId) img.style.opacity='1';
+        };
+        pre.src=d.image;
+      } else {
+        img.style.opacity='1';
+      }
       kicker.textContent=d.kicker;
       title.textContent=d.title;
       text.textContent=d.text;
