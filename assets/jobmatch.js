@@ -11,7 +11,7 @@
   let step = 0;
   const data = {};
   const steps = [
-    {k:'role', kicker:'Dein Hintergrund', q:'Was beschreibt dich am besten?', o:['Pflegefachkraft','Pflegeassistenz / Pflegehilfe','Quereinstieg / Ausbildung','Andere Rolle im Haus']},
+    {k:'role', kicker:'Deine Qualifikation', q:'Was beschreibt dich am besten?', o:['Examinierte Pflegefachkraft','Examinierte Pflegefachkraft – Wiedereinstieg','Pflegefachkraft mit Zusatzqualifikation','Noch unsicher – erst kennenlernen']},
     {k:'priority', kicker:'Was soll besser werden?', q:'Was ist dir bei einem neuen Arbeitgeber am wichtigsten?', o:['Familie & Arbeitszeit besser verbinden','Ein gutes Team und verlässliche Führung','Entwicklung & Weiterbildung','Weniger Bürokratie / mehr Zeit für Menschen']},
     {k:'hours', kicker:'Dein Arbeitsmodell', q:'Was passt aktuell zu deinem Leben?', o:['Vollzeit','Teilzeit','Nachtdienst interessant','Noch offen – erst sprechen']},
     {k:'timing', kicker:'Nur zur Einordnung', q:'Wann wäre ein Kennenlernen interessant?', o:['Möglichst bald','In den nächsten Wochen','Später – ich informiere mich','Erst einmal unverbindlich sprechen']},
