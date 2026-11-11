@@ -1,0 +1,12 @@
+{
+  "name": "seniorenheim-auetal",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Auetal candidate and privacy-protected cockpit",
+  "dependencies": {
+    "@neondatabase/serverless": "1.2.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
