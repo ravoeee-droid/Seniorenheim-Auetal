@@ -6,7 +6,11 @@ const workAllowed=new Set(['Vollzeit','Teilzeit','Nachtdienst interessant','Noch
 const timingAllowed=new Set(['Möglichst bald','In den nächsten Wochen','Später – ich informiere mich','Erst einmal unverbindlich sprechen']);
 const priorityAllowed=new Set(['Familie & Arbeitszeit besser verbinden','Ein gutes Team und verlässliche Führung','Entwicklung & Weiterbildung','Weniger Bürokratie / mehr Zeit für Menschen']);
 module.exports=async(req,res)=>{
- if(req.method==='GET')return send(res,200,{ready:ACCEPTING()});
+ if(req.method==='GET'){
+   let ready=ACCEPTING();
+   if(ready){try{const rows=await sql().query("SELECT to_regclass('public.auetal_applicants') AS table_name");ready=Boolean(rows[0]?.table_name);}catch{ready=false;}}
+   return send(res,200,{ready});
+ }
  if(req.method!=='POST'){res.setHeader('Allow','GET, POST');return send(res,405,{error:'method_not_allowed'});}
  if(!ACCEPTING())return send(res,503,{error:'application_delivery_not_ready'});
  if(!goodOrigin(req))return send(res,403,{error:'origin_denied'});
