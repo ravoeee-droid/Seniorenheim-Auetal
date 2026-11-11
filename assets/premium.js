@@ -34,7 +34,11 @@
   const layers = [...document.querySelectorAll('[data-story-layer]')];
   const setStory = id => {
     steps.forEach(s => s.classList.toggle('active', s.dataset.storyStep === id));
-    layers.forEach(l => l.classList.toggle('active', l.dataset.storyLayer === id));
+    layers.forEach(l => {
+      const selected = l.dataset.storyLayer === id;
+      l.classList.toggle('active', selected);
+      l.setAttribute('aria-hidden', String(!selected));
+    });
     const active = steps.find(s => s.dataset.storyStep === id);
     const caption = document.querySelector('[data-story-caption]');
     if (caption && active) caption.innerHTML = `<strong>${active.dataset.caption || active.querySelector('h3')?.textContent || ''}</strong><span>${active.dataset.kicker || 'Auetal'}</span>`;
@@ -191,9 +195,15 @@
   const pills = [...document.querySelectorAll('[data-switch]')];
   if (stage && pills.length) {
     const img=document.getElementById('switchImage'), kicker=document.getElementById('switchKicker'), title=document.getElementById('switchTitle'), text=document.getElementById('switchText'), proof=document.getElementById('switchProof');
-    pills.forEach(btn => btn.addEventListener('click', () => {
+    pills.forEach((btn) => {
+      btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
+      btn.addEventListener('click', () => {
       const d=switchData[btn.dataset.switch]; if(!d) return;
-      pills.forEach(x=>x.classList.toggle('active',x===btn));
+      pills.forEach(x=>{
+        const selected=x===btn;
+        x.classList.toggle('active',selected);
+        x.setAttribute('aria-pressed',String(selected));
+      });
       if (!reduce && stage.animate) {
         stage.animate([{opacity:.78,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:360,easing:'cubic-bezier(.2,.7,.2,1)'});
       }
@@ -201,11 +211,13 @@
       const pre=new Image();
       pre.src=d.image;
       pre.onload=()=>{img.src=d.image;img.alt=d.alt;img.style.opacity='1'};
+      pre.onerror=()=>{img.style.opacity='1'};
       kicker.textContent=d.kicker;
       title.textContent=d.title;
       text.textContent=d.text;
       proof.textContent=d.proof;
-    }));
+      });
+    });
   }
 
   const builder=document.getElementById('workplaceBuilder');
@@ -216,7 +228,12 @@
     const result=builder.querySelector('.builder-result');
     const labels=['Rolle','Umfang','Wichtigster Punkt','Kennenlernen'];
     const render=()=>{
-      steps.forEach(x=>x.classList.toggle('active',Number(x.dataset.builderStep)===step));
+      steps.forEach(x=>{
+        const selected=Number(x.dataset.builderStep)===step;
+        x.classList.toggle('active',selected);
+        x.setAttribute('aria-hidden',String(!selected));
+        x.inert=!selected;
+      });
       if(progress) progress.textContent=`${Math.min(step,4)} / 4`;
     };
     builder.querySelectorAll('.builder-options button').forEach(btn=>btn.addEventListener('click',()=>{
@@ -236,7 +253,8 @@
         const title=document.getElementById('builderTitle');
         if(title) title.textContent=`${answers[1]||'Dein Job'} – aber passend zu deinem Leben.`;
         try{localStorage.setItem('auetalWishProfile',JSON.stringify(answers));}catch(e){}
-        result.querySelector('a,button')?.focus();
+        const resultTitle=result.querySelector('h3');
+        if(resultTitle){resultTitle.tabIndex=-1;resultTitle.focus();}
       }
     }));
     document.getElementById('builderRestart')?.addEventListener('click',()=>{
