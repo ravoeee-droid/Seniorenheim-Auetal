@@ -150,16 +150,16 @@
       title:'Wenn dein Kind nicht gegen deinen Beruf arbeiten muss.',
       text:'Auetal betreibt eine kostenfreie Kinderkrippe für Mitarbeiter und Wiedereinsteiger. Auf aktuellen Jobseiten wird die Betreuung eigener Kinder von 0–3 Jahren ausdrücklich genannt.',
       proof:'Belegt auf der Auetal-Arbeitgeber- und Jobseite',
-      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/img_content4.jpg',
-      alt:'Kind in der betriebseigenen Kinderkrippe Krabbelkäfer'
+      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_4-e1542806489732.jpg',
+      alt:'Kinderbereich in der betriebseigenen Kinderbetreuung des Auetal'
     },
     entwicklung: {
       kicker:'ENTWICKLUNG',
       title:'Wenn ein Wechsel nicht Stillstand bedeutet.',
       text:'Auetal nennt Fortbildungen, Seminare, Trainings und Aufstiegsmöglichkeiten. Für die aktuelle Pflegeassistenz-Stelle wird zusätzlich ein individueller Karriereplan kommuniziert.',
       proof:'Konkrete Entwicklung statt „Weiterbildung möglich“',
-      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/ausbildung_img.png',
-      alt:'Mitarbeiterin im Seniorenheim Auetal'
+      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_48-3.jpg',
+      alt:'Alltag und Mitarbeiterangebote im Seniorenheim Auetal'
     },
     entlastung: {
       kicker:'ENTLASTUNG',
@@ -174,16 +174,16 @@
       title:'Wenn gute Arbeit auch ein solides Paket braucht.',
       text:'Auetal nennt betriebliche Altersvorsorge. Die aktuelle Pflegeassistenz-Stelle ist unbefristet und veröffentlicht zudem konkretes Einstiegsgehalt, Urlaubstage und Jahresbonus.',
       proof:'Konkrete Konditionen immer rollenspezifisch ausspielen',
-      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/team_img.png',
-      alt:'Team des Seniorenheims Auetal'
+      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_52-1.jpg',
+      alt:'Einblicke in das Leben im Seniorenheim Auetal'
     },
     kennenlernen: {
       kicker:'VERTRAUEN',
       title:'Wenn du nicht nach einer Website entscheiden musst.',
       text:'Auetal bietet potenziellen Mitarbeitern Probearbeiten an. Statt sofortiger Bewerbung kann der nächste Schritt deshalb ein ehrliches Kennenlernen sein.',
       proof:'Probearbeiten senkt das gefühlte Wechselrisiko',
-      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/team_img.png',
-      alt:'Team des Seniorenheims Auetal'
+      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_58-1.jpg',
+      alt:'Einblick in die Einrichtung des Seniorenheims Auetal'
     }
   };
 
