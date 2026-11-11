@@ -160,7 +160,7 @@
     entwicklung: {
       kicker:'ENTWICKLUNG',
       title:'Wenn ein Wechsel nicht Stillstand bedeutet.',
-      text:'Auetal nennt Fortbildungen, Seminare, Trainings und Aufstiegsmöglichkeiten. Für die aktuelle Pflegeassistenz-Stelle wird zusätzlich ein individueller Karriereplan kommuniziert.',
+      text:'Auetal unterstützt Fachkräfte mit Fortbildungen, Seminaren und Entwicklungsmöglichkeiten. Welche zusätzlichen Qualifikationen zu deiner Stelle passen, klären wir im Gespräch.',
       proof:'Konkrete Entwicklung statt „Weiterbildung möglich“',
       image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_48-3.jpg',
       alt:'Alltag und Mitarbeiterangebote im Seniorenheim Auetal'
@@ -176,8 +176,8 @@
     sicherheit: {
       kicker:'SICHERHEIT',
       title:'Wenn gute Arbeit auch ein solides Paket braucht.',
-      text:'Auetal nennt betriebliche Altersvorsorge. Die aktuelle Pflegeassistenz-Stelle ist unbefristet und veröffentlicht zudem konkretes Einstiegsgehalt, Urlaubstage und Jahresbonus.',
-      proof:'Konkrete Konditionen immer rollenspezifisch ausspielen',
+      text:'Für examinierte Pflegefachkräfte wurden im Arbeitgeberworkshop 25,50 € pro Stunde und 35 Urlaubstage genannt. Auch Nachtzuschläge und betriebliche Altersvorsorge sind Themen. Alle Konditionen werden vor Veröffentlichung freigegeben.',
+      proof:'Die tatsächlichen Konditionen deiner Pflegefachkraftstelle besprechen',
       image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_52-1.jpg',
       alt:'Einblicke in das Leben im Seniorenheim Auetal'
     },
