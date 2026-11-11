@@ -216,3 +216,83 @@ body.career-page p,body.career-page h1,body.career-page h2,body.career-page h3{
 body.career-page :is(.life-benefit,.workday-step,.career-questions article,.builder-panel,.flow-card){
   overflow-wrap:anywhere;
 }
+
+
+/* Final candidate-first polish: preserve premium composition; no old assistant salary watermark. */
+body.career-page .pay-highlight::before{
+  content:"AUETAL"!important;
+  font-size:clamp(7rem,17vw,16rem)!important;
+  top:1.5rem!important;
+  right:-.1em!important;
+  letter-spacing:-.085em!important;
+  color:rgba(255,255,255,.07)!important;
+  pointer-events:none!important;
+}
+body.career-page .pay-copy .fact-note{
+  color:#f2e7e9!important;
+  font-size:.87rem!important;
+  line-height:1.65!important;
+  max-width:650px!important;
+}
+body.career-page .pay-copy h2{
+  font-size:clamp(2.75rem,4.65vw,4.85rem)!important;
+  line-height:1.14!important;
+  letter-spacing:-.045em!important;
+}
+body.career-page .employer-proof-list .proof-award a{
+  display:inline!important;
+  font-size:inherit!important;
+  font-weight:750!important;
+  color:#76203a!important;
+  text-decoration:underline!important;
+  text-underline-offset:3px!important;
+}
+body.career-page .employer-proof-list .proof-award a:hover{
+  color:#4d1528!important;
+}
+body.career-page .jobmatch-section .flow-result-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+body.career-page .jobmatch-section .flow-result-actions .text-link{
+  color:#fff!important;
+  text-decoration:underline!important;
+  text-underline-offset:4px;
+}
+body.career-page .career-final .final-actions strong{
+  font-size:clamp(1.15rem,1.9vw,1.5rem);
+  overflow-wrap:anywhere;
+}
+body.career-page .career-final .final-actions a{
+  min-height:70px;
+  display:grid;
+  align-items:center;
+  color:#262f27;
+}
+body.career-page .career-final .final-actions a:focus-visible{
+  outline-color:#8c233b!important;
+}
+body.career-page .job-row a{
+  white-space:normal;
+  text-align:center;
+}
+@media(max-width:760px){
+  body.career-page .pay-copy h2{
+    font-size:clamp(2.2rem,6.8vw,3.3rem)!important;
+    line-height:1.17!important;
+  }
+  body.career-page .pay-highlight::before{
+    font-size:21vw!important;
+    top:1rem!important;
+  }
+  body.career-page .career-final .final-actions a{
+    padding:20px 18px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  body.career-page .auetal-teamstimmen .teamstimme-photo img{
+    transition:none!important;
+    transform:none!important;
+  }
+}
