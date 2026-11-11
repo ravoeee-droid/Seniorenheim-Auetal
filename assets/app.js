@@ -64,6 +64,7 @@
     menuBtn.setAttribute('aria-expanded', String(open));
     menuBtn.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
     menu.setAttribute('aria-hidden', String(!open));
+    menu.inert = !open;
     menu.classList.toggle('open', open);
   };
 
@@ -71,6 +72,16 @@
     setMenuState(false);
     menuBtn.addEventListener('click', () => {
       setMenuState(menuBtn.getAttribute('aria-expanded') !== 'true');
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+        setMenuState(false);
+        menuBtn.focus();
+      }
+    });
+    document.addEventListener('pointerdown', (event) => {
+      if (menuBtn.getAttribute('aria-expanded') === 'true' &&
+          !menu.contains(event.target) && !menuBtn.contains(event.target)) setMenuState(false);
     });
   }
 
