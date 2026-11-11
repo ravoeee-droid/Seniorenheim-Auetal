@@ -152,8 +152,8 @@
     familie: {
       kicker:'FAMILIE',
       title:'Wenn dein Kind nicht gegen deinen Beruf arbeiten muss.',
-      text:'Auetal betreibt eine kostenfreie Kinderkrippe für Mitarbeiter und Wiedereinsteiger. Auf aktuellen Jobseiten wird die Betreuung eigener Kinder von 0–3 Jahren ausdrücklich genannt.',
-      proof:'Belegt auf der Auetal-Arbeitgeber- und Jobseite',
+      text:'Die Betriebskinderkrippe Krabbelkäfer kann berufstätige Eltern unterstützen. Welche Betreuungsplätze aktuell verfügbar sind, besprechen wir persönlich.',
+      proof:'Kinderbetreuung bei Auetal kennenlernen',
       image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_4-e1542806489732.jpg',
       alt:'Kinderbereich in der betriebseigenen Kinderbetreuung des Auetal'
     },
@@ -161,15 +161,15 @@
       kicker:'ENTWICKLUNG',
       title:'Wenn ein Wechsel nicht Stillstand bedeutet.',
       text:'Auetal unterstützt Fachkräfte mit Fortbildungen, Seminaren und Entwicklungsmöglichkeiten. Welche zusätzlichen Qualifikationen zu deiner Stelle passen, klären wir im Gespräch.',
-      proof:'Konkrete Entwicklung statt „Weiterbildung möglich“',
+      proof:'Fortbildung und berufliche Entwicklung für Pflegefachkräfte',
       image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_48-3.jpg',
       alt:'Alltag und Mitarbeiterangebote im Seniorenheim Auetal'
     },
     entlastung: {
       kicker:'ENTLASTUNG',
       title:'Wenn weniger Papierkram wieder mehr Pflege bedeutet.',
-      text:'Auetal kommuniziert elektronische Dokumentation ausdrücklich als Mittel, den bürokratischen Aufwand zu reduzieren. Genau so wird aus Technik ein Arbeitgeberargument.',
-      proof:'Digitalisierung als Zeitgewinn erzählen – nicht als Software-Feature',
+      text:'Im Haus Clausberg arbeiten Pflege und Service eng zusammen. Elektronische Dokumentation soll den organisatorischen Aufwand reduzieren und Zeit für persönliche Pflege ermöglichen.',
+      proof:'Pflege und Service arbeiten zusammen',
       image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_33.jpg',
       alt:'Alltag im Seniorenheim Auetal'
     },
@@ -177,15 +177,15 @@
       kicker:'SICHERHEIT',
       title:'Wenn gute Arbeit auch ein solides Paket braucht.',
       text:'Für examinierte Pflegefachkräfte wurden im Arbeitgeberworkshop 25,50 € pro Stunde und 35 Urlaubstage genannt. Auch Nachtzuschläge und betriebliche Altersvorsorge sind Themen. Alle Konditionen werden vor Veröffentlichung freigegeben.',
-      proof:'Die tatsächlichen Konditionen deiner Pflegefachkraftstelle besprechen',
+      proof:'Stelle, Arbeitszeit und Konditionen offen besprechen',
       image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_52-1.jpg',
       alt:'Einblicke in das Leben im Seniorenheim Auetal'
     },
     kennenlernen: {
       kicker:'VERTRAUEN',
       title:'Wenn du nicht nach einer Website entscheiden musst.',
-      text:'Auetal bietet potenziellen Mitarbeitern Probearbeiten an. Statt sofortiger Bewerbung kann der nächste Schritt deshalb ein ehrliches Kennenlernen sein.',
-      proof:'Probearbeiten senkt das gefühlte Wechselrisiko',
+      text:'Du musst nicht sofort kündigen oder dich festlegen. Ein Gespräch oder eine Hospitation hilft dir herauszufinden, ob du dich bei uns wohlfühlst.',
+      proof:'Hospitation ist auf Wunsch möglich',
       image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_5.jpg',
       alt:'Einblick in die Einrichtung des Seniorenheims Auetal'
     }
@@ -209,9 +209,9 @@
       }
       if (!reduce) img.style.opacity='.2';
       const pre=new Image();
-      pre.src=d.image;
       pre.onload=()=>{img.src=d.image;img.alt=d.alt;img.style.opacity='1'};
       pre.onerror=()=>{img.style.opacity='1'};
+      pre.src=d.image;
       kicker.textContent=d.kicker;
       title.textContent=d.title;
       text.textContent=d.text;
@@ -240,19 +240,18 @@
       const current=btn.closest('[data-builder-step]');
       const idx=Number(current.dataset.builderStep);
       answers[idx]=btn.dataset.value;
-      current.querySelectorAll('button').forEach(x=>x.classList.toggle('selected',x===btn));
+      current.querySelectorAll('button').forEach(x=>{const chosen=x===btn;x.classList.toggle('selected',chosen);x.setAttribute('aria-pressed',String(chosen));});
       if(idx<4){
         step=idx+1;
         render();
         steps.find(x=>Number(x.dataset.builderStep)===step)?.querySelector('button')?.focus();
       }else{
-        steps.forEach(x=>x.classList.remove('active'));
+        steps.forEach(x=>{x.classList.remove('active');x.setAttribute('aria-hidden','true');x.inert=true;});
         result.hidden=false;
         if(progress) progress.textContent='FERTIG';
         document.getElementById('builderSummary').innerHTML=labels.map((l,i)=>`<span><b>${l}</b><strong>${answers[i+1]||'—'}</strong></span>`).join('');
         const title=document.getElementById('builderTitle');
         if(title) title.textContent=`${answers[1]||'Dein Job'} – aber passend zu deinem Leben.`;
-        try{localStorage.setItem('auetalWishProfile',JSON.stringify(answers));}catch(e){}
         const resultTitle=result.querySelector('h3');
         if(resultTitle){resultTitle.tabIndex=-1;resultTitle.focus();}
       }
@@ -261,7 +260,7 @@
       Object.keys(answers).forEach(k=>delete answers[k]);
       step=1;
       result.hidden=true;
-      builder.querySelectorAll('button.selected').forEach(x=>x.classList.remove('selected'));
+      builder.querySelectorAll('button.selected').forEach(x=>{x.classList.remove('selected');x.setAttribute('aria-pressed','false');});
       render();
       steps[0]?.querySelector('button')?.focus();
     });
