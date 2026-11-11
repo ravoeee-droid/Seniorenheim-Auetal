@@ -11,7 +11,7 @@
   const remove = (sel) => qsa(sel).forEach(el => el.remove());
 
   const visitorNodes = [
-    ['Belegt auf der Auetal-Arbeitgeber- und Jobseite', 'Kostenfreie Kinderkrippe für Mitarbeitende und Wiedereinsteiger.'],
+    ['Belegt auf der Auetal-Arbeitgeber- und Jobseite', 'Eigene Kinderkrippe; Plätze, Zeiten und mögliche Kosten im Gespräch klären.'],
     ['Konkrete Entwicklung statt „Weiterbildung möglich“', 'Fortbildungen, Seminare, Trainings und Aufstiegsmöglichkeiten.'],
     ['Digitalisierung als Zeitgewinn erzählen – nicht als Software-Feature', 'Elektronische Dokumentation soll Bürokratie reduzieren.'],
     ['Konkrete Konditionen immer rollenspezifisch ausspielen', 'Konkrete Konditionen werden je Stelle transparent genannt.'],
