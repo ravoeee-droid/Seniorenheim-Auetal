@@ -1,0 +1,66 @@
+/* Auetal Recruiting Cockpit · locked until server authenticated */
+body.admin-page{background:#f6f3ed;color:#243026;font-family:Arial,Helvetica,sans-serif}
+body.admin-page [hidden]{display:none!important}
+.admin-main{min-height:100svh}
+.auetal-admin-gate{max-width:540px;margin:clamp(80px,12vh,160px) auto;padding:20px}
+.auetal-gate-card{background:#fff;border:1px solid #e5ded8;border-radius:24px;padding:clamp(25px,5vw,45px);box-shadow:0 22px 75px rgba(34,21,29,.075)}
+.auetal-gate-card .eyebrow{color:#85233b;font-weight:850;font-size:.8rem;letter-spacing:.14em}
+.auetal-gate-card h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.9rem);font-weight:400;margin:18px 0;line-height:1.14;color:#28362b}
+.auetal-gate-card p{font-size:.97rem;line-height:1.7;color:#4c554b}
+.auetal-gate-card label{display:block;font-weight:750;font-size:.86rem;margin:25px 0 8px}
+.auetal-gate-card input{width:100%;min-height:51px;box-sizing:border-box;font:inherit;padding:13px 15px;border:1px solid #a8b3a6;border-radius:9px;color:#202a22;background:#fff}
+.auetal-gate-card button,.auetal-admin-btn{border:0;background:#92243b;color:#fff;min-height:48px;padding:12px 21px;font:inherit;font-weight:750;border-radius:8px;cursor:pointer}
+.auetal-gate-card button{width:100%;margin-top:15px}
+.auetal-gate-card button:disabled{opacity:.5;cursor:not-allowed}
+.auetal-error{border-left:3px solid #8c2538;background:#fbebef;color:#651a2d!important;padding:10px 14px;margin-top:12px}
+.auetal-admin-topbar{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.auetal-admin-topbar .admin-btn{min-height:44px}
+.auetal-admin-topbar .admin-btn.secondary{color:#71213a;background:#fff;border:1px solid #d8c2c7}
+.admin-side-note{background:#ece8e1;border:1px solid #d3ccc5}
+.admin-side-note span{color:#82203a;font-weight:750}
+.admin-user{display:flex;gap:10px;align-items:center}
+.auetal-admin-help{margin-top:16px;padding:15px 18px;border:1px solid #e0d6cc;border-radius:12px;background:#fff;color:#505d50;line-height:1.6;font-size:.88rem}
+.auetal-dashboard .metric-grid strong{font-size:clamp(2.3rem,3.8vw,3.7rem)}
+.auetal-dashboard .metric-grid small{line-height:1.5}
+.auetal-board{display:grid;grid-template-columns:repeat(5,minmax(235px,1fr));gap:14px;overflow-x:auto;padding:6px 4px 22px;margin-right:-18px}
+.auetal-board .pipeline-col{min-height:320px;background:#f3f0ea;padding:15px;border:1px solid #e2ddd4;border-radius:14px}
+.auetal-board .pipeline-col header{display:flex;justify-content:space-between;align-items:center;margin-bottom:19px}
+.auetal-board .pipeline-col header b{background:#e6d8dc;color:#802139;padding:4px 9px;border-radius:99px;min-width:16px;text-align:center}
+.auetal-board .lead-card{cursor:pointer;min-height:0;background:#fff;border-radius:12px;margin-bottom:12px;border:1px solid #e5dbd5;padding:15px;transition:border-color .15s,box-shadow .15s}
+.auetal-board .lead-card:hover{border-color:#9e455b;box-shadow:0 4px 16px rgba(75,29,40,.09)}
+.auetal-board .lead-card strong{display:block;font-size:.97rem;line-height:1.35;overflow-wrap:anywhere;color:#242a25}
+.auetal-board .lead-card small{display:block;margin-top:8px;font-size:.77rem;color:#526053;line-height:1.55}
+.auetal-board .lead-card span{display:block;color:#67716b;font-size:.73rem;margin-top:12px}
+.auetal-board .empty-col{font-size:.79rem;color:#758076;margin-top:20px;line-height:1.6}
+.auetal-dashboard .admin-section{margin-bottom:35px}
+.auetal-dashboard .admin-section-head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.auetal-dashboard .admin-section-head h2{font-size:clamp(1.7rem,2.9vw,2.45rem);line-height:1.22}
+.auetal-dashboard .admin-section-head .admin-btn{min-height:45px}
+.auetal-candidate-panel{padding:25px;background:#fff;border:1px solid #dfd5cd;border-radius:17px;margin:20px 0 30px}
+.auetal-candidate-panel h3{font-family:Georgia,serif;font-size:2rem;font-weight:400;line-height:1.2;margin:6px 0 13px}
+.auetal-candidate-panel .detail-info{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;padding:16px 0;border-block:1px solid #ebe4dd}
+.auetal-candidate-panel .detail-info>div{overflow-wrap:anywhere}
+.auetal-candidate-panel .detail-info small{display:block;color:#657064;font-size:.75rem;margin-bottom:4px}
+.auetal-candidate-panel .detail-info strong{font-size:.95rem;line-height:1.5}
+.auetal-candidate-panel label{display:block;font-weight:700;font-size:.86rem;margin:17px 0 7px}
+.auetal-candidate-panel select,.auetal-candidate-panel textarea,.auetal-candidate-panel input{box-sizing:border-box;width:100%;background:#fff;color:#283329;border:1px solid #a5b2a7;border-radius:9px;padding:12px;font:inherit;min-height:46px}
+.auetal-candidate-panel textarea{min-height:105px;resize:vertical}
+.auetal-panel-actions{display:flex;justify-content:flex-start;flex-wrap:wrap;gap:10px;margin-top:19px}
+.auetal-panel-actions button{min-height:46px;border:1px solid #ded1cf;border-radius:8px;padding:10px 15px;background:#fff;color:#7b2740;cursor:pointer;font-weight:750}
+.auetal-panel-actions .save{background:#92243b;color:#fff;border-color:#92243b}
+.auetal-panel-actions .danger{margin-left:auto;color:#8c1e35}
+.auetal-status{font-size:.86rem;color:#4b554e;line-height:1.65}
+.auetal-secondary-panel{background:#fff;border:1px solid #e4ddd6;border-radius:14px;padding:25px;margin-top:20px}
+.auetal-secondary-panel h3{font-family:Georgia,serif;font-size:1.6rem;font-weight:400}
+.auetal-secondary-panel p{line-height:1.65;color:#4d584e;font-size:.92rem}
+.auetal-secondary-panel a{color:#81243b;text-decoration:underline}
+body.admin-page :focus-visible{outline:3px solid #b83d5a!important;outline-offset:3px!important}
+@media(max-width:1100px){.auetal-board{grid-template-columns:repeat(5,minmax(245px,1fr))}}
+@media(max-width:780px){
+ .auetal-admin-gate{margin:65px auto;padding:18px}
+ .auetal-candidate-panel .detail-info{grid-template-columns:1fr}
+ .auetal-dashboard .admin-section-head{align-items:start}
+ .auetal-dashboard .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .auetal-candidate-panel{padding:18px}
+ .auetal-admin-topbar{align-items:flex-start}
+}
