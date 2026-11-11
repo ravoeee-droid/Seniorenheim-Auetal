@@ -185,3 +185,34 @@ body.career-page p,body.career-page h1,body.career-page h2,body.career-page h3{
   body.career-page .switch-pill[aria-pressed="true"]{outline:2px solid Highlight;}
   body.career-page .builder-options button.selected{outline:2px solid Highlight;}
 }
+
+
+/* Reflow safeguard: the image-story remains a card on phones, but text
+   occupies natural height instead of being clipped by absolute positioning. */
+@media(max-width:480px){
+  body.career-page .switch-stage{
+    height:auto!important;
+    min-height:0!important;
+    overflow:hidden!important;
+    display:block!important;
+  }
+  body.career-page .switch-stage-media{position:absolute!important;inset:0!important;}
+  body.career-page .switch-stage-copy{
+    position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;
+    padding:clamp(230px,72vw,320px) 20px 26px!important;
+    max-width:100%!important;
+  }
+  body.career-page .switch-stage-copy h3{font-size:clamp(1.55rem,6.5vw,2.15rem)!important;}
+  body.career-page .switch-stage-copy p{font-size:1rem!important;}
+  body.career-page .flow-card .flow-stage,
+  body.career-page .builder-panel,
+  body.career-page .employer-story-visual{min-width:0!important;}
+  body.career-page .flow-result-actions,
+  body.career-page .builder-actions{flex-wrap:wrap;}
+  body.career-page .flow-result-actions a,
+  body.career-page .builder-actions a{max-width:100%;white-space:normal;text-align:center;}
+}
+/* Text spacing preference: avoid clipping when readers increase line spacing. */
+body.career-page :is(.life-benefit,.workday-step,.career-questions article,.builder-panel,.flow-card){
+  overflow-wrap:anywhere;
+}
