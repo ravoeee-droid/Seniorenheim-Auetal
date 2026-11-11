@@ -1,92 +1,13 @@
-<!doctype html>
-<html lang="de">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow,noarchive">
-<meta name="referrer" content="no-referrer">
-<meta name="theme-color" content="#951d31">
-<title>Auetal · Geschütztes Recruiting-Dashboard</title>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/styles-1.css">
-<link rel="stylesheet" href="assets/styles-2.css">
-<link rel="stylesheet" href="assets/styles-3.css">
-<link rel="stylesheet" href="assets/styles-4.css">
-<link rel="stylesheet" href="assets/styles-5.css">
-<link rel="stylesheet" href="assets/premium.css">
-<link rel="stylesheet" href="assets/auetal-dashboard.css">
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><title>Auetal Recruiting Cockpit · Bewerberverwaltung</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/styles-1.css"><link rel="stylesheet" href="assets/styles-2.css"><link rel="stylesheet" href="assets/styles-3.css"><link rel="stylesheet" href="assets/styles-4.css"><link rel="stylesheet" href="assets/styles-5.css">  <link rel="stylesheet" href="assets/premium.css" /><link rel="stylesheet" href="assets/auetal-dashboard.css">
 </head>
 <body class="admin-page" data-page="admin">
-<aside class="admin-sidebar">
-  <a class="brand admin-brand" href="index.html" aria-label="Seniorenheim Auetal Startseite">
-    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="25"/><path d="M20 43 32 16l12 27M25 34h14"/></svg></span>
-    <span class="brand-copy"><small>AUETAL</small><strong>RECRUITING</strong></span>
-  </a>
-  <nav aria-label="Dashboard-Menü">
-    <a class="active" href="#overview">Übersicht</a><a href="#pipeline">Bewerberpipeline</a><a href="#details">Bewerberdetails</a><a href="#insights">Quellen & Hinweise</a>
-  </nav>
-  <div class="admin-side-note"><span>Geschützter Bereich</span><p>Nur für autorisierte Auetal-Verantwortliche. Bewerberdaten werden nicht öffentlich dargestellt.</p></div>
-</aside>
-<div id="adminGate" class="auetal-admin-gate">
-  <section class="auetal-gate-card" aria-labelledby="adminGateTitle">
-    <p class="eyebrow">AUETAL · SICHERER ZUGRIFF</p>
-    <h2 id="adminGateTitle">Dein Bewerber-Dashboard.</h2>
-    <p>Hier landen neue Kontaktanfragen aus der Karriereseite, sobald der sichere Bewerbungsversand aktiviert ist. Bewerberdaten sind nur nach Anmeldung sichtbar.</p>
-    <form id="adminLoginForm" hidden>
-      <label for="adminPassword">Dashboard-Passwort</label>
-      <input id="adminPassword" type="password" autocomplete="current-password" required minlength="12" placeholder="Dein Passwort">
-      <button type="submit">Sicher anmelden <span aria-hidden="true">↗</span></button>
-    </form>
-    <p class="auetal-status" id="gateStatus" role="status" aria-live="polite">Sicherheitsstatus wird geprüft …</p>
-  </section>
-</div>
-<main class="admin-main auetal-dashboard" id="adminContent" hidden>
-  <header class="admin-top auetal-admin-topbar">
-    <div><small>Seniorenheim Auetal · vertraulich</small><h1>Bewerber & Recruiting</h1></div>
-    <div><button class="admin-btn secondary" id="adminLogout" type="button">Abmelden <span aria-hidden="true">↗</span></button></div>
-  </header>
-  <section class="admin-section" id="overview" aria-labelledby="overviewTitle">
-    <div class="admin-section-head"><div><span>Aktueller Stand</span><h2 id="overviewTitle">Alle Bewerbungen im Blick.</h2></div><button class="admin-btn secondary" type="button" id="adminRefresh">Jetzt aktualisieren</button></div>
-    <div class="metric-grid">
-      <article><span>Alle Kontakte</span><strong id="metricTotal" aria-live="polite">0</strong><small>Gespeicherte Anfragen</small></article>
-      <article><span>Neue Bewerbungen</span><strong id="metricNew">0</strong><small>Neu eingegangen</small></article>
-      <article><span>Im Gespräch</span><strong id="metricTalk">0</strong><small>Kontakt & Gespräche</small></article>
-      <article class="metric-accent"><span>Hospitationen</span><strong id="metricTrial">0</strong><small>Zum Kennenlernen geplant</small></article>
-    </div>
-    <p class="auetal-status" id="adminStatus" role="status" aria-live="polite">Bewerbungen werden geladen …</p>
-  </section>
-  <section class="admin-section" id="pipeline" aria-labelledby="pipelineTitle">
-    <div class="admin-section-head"><div><span>Bewerberpipeline</span><h2 id="pipelineTitle">Vom ersten Kontakt bis zur Einstellung.</h2></div><p class="auetal-status">Aktualisiert sich bei geöffnetem Dashboard alle 30 Sekunden.</p></div>
-    <div class="pipeline auetal-board" id="pipelineBoard" role="region" aria-label="Bewerber nach Bearbeitungsstatus" tabindex="0">
-      <div class="pipeline-col" data-stage="neu"><header><span>Neu</span><b>0</b></header><div class="lead-list"></div></div>
-      <div class="pipeline-col" data-stage="kontakt"><header><span>Kontakt</span><b>0</b></header><div class="lead-list"></div></div>
-      <div class="pipeline-col" data-stage="gespraech"><header><span>Gespräch</span><b>0</b></header><div class="lead-list"></div></div>
-      <div class="pipeline-col" data-stage="hospitation"><header><span>Hospitation</span><b>0</b></header><div class="lead-list"></div></div>
-      <div class="pipeline-col" data-stage="eingestellt"><header><span>Eingestellt</span><b>0</b></header><div class="lead-list"></div></div>
-      <div class="pipeline-col" data-stage="other"><header><span>Abgesagt / Archiviert</span><b>0</b></header><div class="lead-list"></div></div>
-    </div>
-    <p class="auetal-admin-help">Alle Phasen einschließlich Absagen und Archivierung sind sichtbar. Die Darstellung zeigt ausschließlich echte Bewerbungen aus der geschützten Auetal-Datenbank.</p>
-  </section>
-  <section class="admin-section" id="details" aria-labelledby="detailsTitle">
-    <div class="admin-section-head"><div><span>Einzelne Bewerbungen</span><h2 id="detailsTitle">Persönlich nachfassen.</h2></div></div>
-    <div id="candidateDetail" class="auetal-candidate-panel" role="region" aria-label="Bewerberdetails">
-      <p>Wähle eine Bewerbung aus der Pipeline aus, um Kontaktdaten, Wünsche, Notizen und den nächsten Schritt zu bearbeiten.</p>
-    </div>
-  </section>
-  <section class="admin-section" id="insights" aria-labelledby="insightsTitle">
-    <div class="admin-section-head"><div><span>Orientierung</span><h2 id="insightsTitle">Herkunft und nächste Schritte.</h2></div></div>
-    <div class="auetal-secondary-panel">
-      <h3>Woher kommen die Anfragen?</h3>
-      <p id="sourceSummary">Noch keine gespeicherten Kontakte. Anzeigen- und Seitenbesucherzahlen werden erst angezeigt, wenn ein datenschutzkonformes Tracking eingerichtet ist.</p>
-      <p>Die Karriereseite übermittelt bei erfolgreichem Versand optional vorhandene UTM-Kampagnenparameter. Bewerberdaten werden nicht an Werbepixel gesendet.</p>
-    </div>
-    <div class="auetal-secondary-panel">
-      <h3>Was gehört zur täglichen Arbeit?</h3>
-      <p>Neue Kontakte zeitnah sichten, persönlich nachfassen, Gespräch und Hospitation vereinbaren und den Bearbeitungsstatus im Dashboard aktualisieren.</p>
-      <p><a href="karriere.html" target="_blank" rel="noopener noreferrer">Karrierewelt ansehen</a> · <a href="https://seniorenheim-auetal.de/datenschutz/" target="_blank" rel="noopener noreferrer">Datenschutz</a></p>
-    </div>
-  </section>
-</main>
-<script src="assets/admin.js" defer></script>
-</body>
-</html>
+<aside class="admin-sidebar" id="adminSidebar" hidden><a class="brand admin-brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="25"/><path d="M20 43 32 16l12 27M25 34h14"/></svg></span><span class="brand-copy"><small>AUETAL</small><strong>RECRUITING</strong></span></a><nav><a class="active" href="#overview">Übersicht</a><a href="#pipeline">Bewerber</a><a href="#jobs">Jobs</a><a href="#campaigns">Kampagnen</a><a href="#content">Website</a></nav><div class="admin-side-note"><span>Geschützter Bereich</span><p>Nur für autorisierte Auetal-Verantwortliche. Personenbezogene Bewerberdaten bleiben vertraulich.</p></div></aside>
+<div id="adminGate" class="auetal-admin-gate"><section class="auetal-gate-card" aria-labelledby="adminGateTitle"><p class="eyebrow">AUETAL · GESCHÜTZTER ZUGRIFF</p><h2 id="adminGateTitle">Bewerberverwaltung</h2><p>Das bestehende Auetal-Cockpit ist nur für berechtigte Personen zugänglich. Echte Bewerbungen werden ausschließlich nach sicherer Aktivierung angenommen.</p><form id="adminLoginForm" hidden><label for="adminPassword">Dashboard-Passwort</label><input id="adminPassword" type="password" autocomplete="current-password" minlength="12" required placeholder="Dein Passwort"><button type="submit">Sicher anmelden ↗</button></form><p id="gateStatus" role="status" aria-live="polite" class="auetal-status">Verbindung prüfen …</p></section></div><main class="admin-main auetal-dashboard" id="adminContent" hidden><div class="admin-demo-banner"><strong>Echte Daten</strong><span>Kontakte und Status kommen ausschließlich aus der geschützten Auetal-Datenbank. Kampagnenstatistiken werden erst nach Freigabe angebunden.</span></div><header class="admin-top"><div><small>Seniorenheim Auetal</small><h1>Mitarbeitergewinnung</h1></div><div class="admin-user"><span>FD</span><div><strong>Auetal Leitung</strong><small>Geschützter Zugang</small></div></div><button id="adminLogout" class="admin-btn secondary" type="button">Abmelden</button></header>
+<section class="admin-section" id="overview"><div class="admin-section-head"><div><span>Diese Woche</span><h2>Was das System gerade leistet.</h2></div><a href="karriere.html" target="_blank">Karriere-Seite öffnen ↗</a></div><div class="metric-grid"><article><span>Kontakte insgesamt</span><strong id="metricTotal">0</strong><small>Gespeicherte Bewerbungen</small></article><article><span>Neue Bewerbungen</span><strong id="metricNew">0</strong><small>Noch nicht kontaktiert</small></article><article><span>Im Kontakt & Gespräch</span><strong id="metricTalk">0</strong><small>Im laufenden Austausch</small></article><article class="metric-accent"><span>Hospitation</span><strong id="metricTrial">0</strong><small>In dieser Phase</small></article></div><p class="auetal-status" id="adminStatus" aria-live="polite" role="status">Bewerbungen werden geladen …</p></section>
+<section class="admin-section" id="attractiveness"><div class="admin-section-head"><div><span>Arbeitgeberattraktivität</span><h2>Nicht nur Bewerber zählen. Gründe zum Wechseln stärken.</h2></div><a href="karriere.html#wechselgrund" target="_blank">Candidate Experience öffnen ↗</a></div><div class="attraction-grid"><article class="attraction-card strong"><small>STARKER HEBEL</small><h3>Familie</h3><strong>Kinderkrippe</strong><p>Kostenfreie Betriebskinderkrippe und Betreuung eigener Kinder 0–3 werden öffentlich kommuniziert.</p><span>früh in Ads & Karriere zeigen</span></article><article class="attraction-card strong"><small>STARKER HEBEL</small><h3>Entwicklung</h3><strong>Karriereplan & Mentoring</strong><p>Fortbildungen, Schulungen und individuelle Entwicklungsmöglichkeiten für examinierte Pflegefachkräfte.</p><span>als Zukunftsbild erzählen</span></article><article class="attraction-card strong"><small>STARKER HEBEL</small><h3>Konditionen</h3><strong>Konkrete Zahlen</strong><p>Für examinierte Pflegefachkräfte wurden im Workshop 25,50 €/Stunde und 35 Urlaubstage genannt – Veröffentlichung erst nach Freigabe.</p><span>immer rollenspezifisch ausspielen</span></article><article class="attraction-card opportunity"><small>CONTENT-POTENZIAL</small><h3>Führung</h3><strong>Gesichter zeigen</strong><p>„Immer ansprechbare Vorgesetzte“ wird genannt. Im nächsten Schritt: echte Leitungsbotschaft statt Claim.</p><span>30-Sekunden-Leitungsvideo aufnehmen</span></article><article class="attraction-card opportunity"><small>CONTENT-POTENZIAL</small><h3>Team</h3><strong>Echte Stimmen</strong><p>Teamzusammenhalt wird kommuniziert. Im Live-System sollten echte Mitarbeitergeschichten die Behauptung beweisen.</p><span>3 Team-Statements sammeln</span></article><article class="attraction-card clarify"><small>IM GESPRÄCH KLÄREN</small><h3>Arbeitsmodelle</h3><strong>Wünsche erfassen</strong><p>Voll- und Teilzeit sind für einzelne Rollen ausgeschrieben. Wunschdienst oder spezielle Modelle werden nicht erfunden.</p><span>Kandidatenwunsch → persönliches Gespräch</span></article></div></section><section class="admin-section" id="pipeline"><div class="admin-section-head"><div><span>Bewerberpipeline</span><h2>Von Interesse bis Kennenlernen.</h2></div><button class="admin-btn secondary" id="adminRefresh" type="button">Aktualisieren ↻</button></div><div class="pipeline auetal-board" id="pipelineBoard" role="region" tabindex="0" aria-label="Bewerberpipeline"><div class="pipeline-col" data-stage="neu"><header><span>Neu</span><b>0</b></header><div class="lead-list"></div></div><div class="pipeline-col" data-stage="kontakt"><header><span>Kontakt</span><b>0</b></header><div class="lead-list"></div></div><div class="pipeline-col" data-stage="gespraech"><header><span>Gespräch</span><b>0</b></header><div class="lead-list"></div></div><div class="pipeline-col" data-stage="hospitation"><header><span>Hospitation</span><b>0</b></header><div class="lead-list"></div></div><div class="pipeline-col" data-stage="eingestellt"><header><span>Eingestellt</span><b>0</b></header><div class="lead-list"></div></div><div class="pipeline-col" data-stage="other"><header><span>Abgesagt / Archiviert</span><b>0</b></header><div class="lead-list"></div></div></div></section>
+<section class="admin-section" id="details"><div class="admin-section-head"><div><span>Persönliche Bearbeitung</span><h2>Bewerberdetails & nächste Schritte.</h2></div></div><div class="auetal-candidate-panel" id="candidateDetail" aria-label="Bewerberdetails" role="region"><p>Wähle eine Bewerbung in der Pipeline aus. Hier kannst du Kontaktdaten einsehen, den Status ändern und einen Rückruf planen.</p></div></section>
+<section class="admin-section admin-two" id="campaigns"><article class="admin-panel"><div class="panel-head"><div><span>Kampagnen</span><h3>Aktuelle Quellen</h3></div><b class="status-live">Noch nicht verbunden</b></div><div class="funnel-bars"><div><span>Impressions</span><i style="--w:0%"></i><b>—</b></div><div><span>Klicks</span><i style="--w:0%"></i><b>—</b></div><div><span>Job-Match</span><i style="--w:0%"></i><b>—</b></div><div><span>Kontakte</span><i style="--w:0%"></i><b>—</b></div></div><p class="auetal-status" id="sourceSummary">Noch keine Bewerberquellen verfügbar.</p></article><article class="admin-panel"><div class="panel-head"><div><span>Arbeitgebervorteil</span><h3>Kinderbetreuung</h3></div></div><div class="insight-card"><strong>Familie</strong><p>Eigene Kinderbetreuung als konkreter Vorteil – Verfügbarkeit individuell klären.</p></div><div class="insight-card"><strong>Entwicklung</strong><p>Fortbildung und persönliche Begleitung für Pflegefachkräfte.</p></div></article></section>
+<section class="admin-section" id="jobs"><div class="admin-section-head"><div><span>Offene Stellen</span><h2>Unsere Stellen im Überblick.</h2></div><button class="admin-btn secondary" type="button" disabled title="Stellenbearbeitung folgt nach Freigabe">Stellenverwaltung in Vorbereitung</button></div><div class="admin-table"><div class="tr th"><span>Stelle</span><span>Haus</span><span>Status</span><span>Kontakte</span></div><div class="tr"><strong>Pflegefachkraft Tagdienst</strong><span>Clausberg</span><span>Zu bestätigen</span><b>—</b></div><div class="tr"><strong>Pflegefachkraft Nachtdienst</strong><span>Clausberg</span><span>Zu bestätigen</span><b>—</b></div><div class="tr"><strong>Pflegefachkraft Tagdienst</strong><span>Herrenwiese</span><span>Zu bestätigen</span><b>—</b></div><div class="tr"><strong>Wiedereinstieg Pflegefachkraft</strong><span>Nach Absprache</span><span>Persönlich klären</span><b>—</b></div></div></section>
+<section class="admin-section" id="content"><div class="admin-section-head"><div><span>Website-Inhalte</span><h2>Inhalte und Freigaben im Überblick.</h2></div><a href="index.html" target="_blank">Website öffnen ↗</a></div><div class="admin-table"><div class="tr th"><span>Bereich</span><span>Zuletzt geändert</span><span>Status</span><span></span></div><div class="tr"><strong>Arbeitgeber-Benefits</strong><span>Aktuelle Freigabeversion</span><span>In Prüfung</span><b>↗</b></div><div class="tr"><strong>Offene Stellen</strong><span>Fachkraftstellen</span><span>Freigabe offen</span><b>↗</b></div><div class="tr"><strong>Ansprechpartner</strong><span>Frank Denecke</span><span>Kontaktdaten prüfen</span><b>↗</b></div></div></section></main><script src="assets/admin.js" defer></script>  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script src="assets/premium.js"></script>
+</body></html>
