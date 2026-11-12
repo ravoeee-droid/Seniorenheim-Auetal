@@ -1,5 +1,29 @@
 'use strict';
 const {ACCEPTING,sql,short,requestBody,send,goodOrigin,rateLimit}=require('../lib/auetal');
+const nodemailer=require('nodemailer');
+
+// Bewerberdaten bleiben ausschließlich in der geschützten Auetal-Datenbank.
+// Die interne Benachrichtigung enthält absichtlich KEINE personenbezogenen Angaben.
+async function notifyAuetal() {
+ const user=(process.env.AUETAL_MAIL_USER||'').trim();
+ const pass=process.env.AUETAL_MAIL_PASSWORD||'';
+ if(!user||!pass||process.env.AUETAL_NOTIFY_APPLICATIONS==='false')return;
+ const transport=nodemailer.createTransport({
+   host:'mail.polarismedia.de',port:465,secure:true,
+   auth:{user,pass},connectionTimeout:7000,greetingTimeout:7000,socketTimeout:8000,
+   tls:{minVersion:'TLSv1.2',rejectUnauthorized:true}
+ });
+ try {
+   await transport.sendMail({
+     from:user,to:user,subject:'Neue Bewerbung – Auetal Karrierewelt',
+     text:'Eine neue Kontaktanfrage ist in der geschützten Auetal-Bewerberverwaltung eingegangen.\\n\\nBitte melde dich im Auetal-Dashboard an und prüfe die neue Bewerbung.\\n\\nDiese Nachricht enthält aus Datenschutzgründen keine Bewerberdaten.'
+   });
+ } catch (_) {
+   // Die Bewerbung ist bereits sicher gespeichert: E-Mail-Fehler dürfen nie zur
+   // falschen Meldung "nicht eingegangen" oder zu Doppelbewerbungen führen.
+   console.error('auetal_application_notification_failed');
+ } finally {transport.close();}
+}
 const emailValid=e=>!e||/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
 const roleAllowed=new Set(['Examinierte Pflegefachkraft','Examinierte Pflegefachkraft – Wiedereinstieg','Pflegefachkraft mit Zusatzqualifikation','Noch unsicher – erst kennenlernen']);
 const workAllowed=new Set(['Vollzeit','Teilzeit','Nachtdienst interessant','Noch offen – erst sprechen']);
@@ -33,6 +57,9 @@ module.exports=async(req,res)=>{
      'INSERT INTO auetal_applicants(name,email,telephone,role,preferred_job,priority,worktime,timing,message,source,utm_source,utm_medium,utm_campaign,utm_content) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14) RETURNING id',
      [name,email,telephone,role,preferredJob,priority,worktime,timing,message,source,utmSource,utmMedium,utmCampaign,utmContent]
    );
+   // Bestätige dem Bewerber nur dauerhaft gespeicherte Datensätze.
+   // Eine optionale interne Benachrichtigung darf das erfolgreiche Speichern nicht rückgängig machen.
+   await notifyAuetal();
    return send(res,201,{success:true,reference:rows[0]?.id});
  }catch(err){console.error('auetal_application_submission_failed');return send(res,503,{error:'service_unavailable'});}
 };
