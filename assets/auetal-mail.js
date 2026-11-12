@@ -5,6 +5,9 @@ let selected=null;
 let messages=[];
 const status=(message)=>{$('status').textContent=message;};
 const note=(message)=>{$('notice').hidden=false;$('notice').textContent=message;};
+const clearNote=()=>{$('notice').hidden=true;$('notice').textContent='';};
+const showLogin=()=>{$('app').hidden=true;$('loginPanel').hidden=false;status('Anmeldung erforderlich');};
+const hideLogin=()=>{$('loginPanel').hidden=true;$('loginError').textContent='';};
 const displayDate=value=>value?new Date(value).toLocaleString('de-DE',{dateStyle:'medium',timeStyle:'short'}):'';
 const fetchJSON=async(url,opts={})=>{
  const response=await fetch(url,{credentials:'same-origin',cache:'no-store',...opts});
@@ -69,15 +72,37 @@ $('composer').addEventListener('submit',async event=>{
  }catch(e){$('sendStatus').textContent='Versand fehlgeschlagen. Prüfe die Verbindung.';}
  finally{btn.disabled=false;}
 });
-(async()=>{
+async function initializeMailbox(){
+ clearNote();
  try{
    const state=await fetchJSON(mailUrl('status'));
-   if(!state.configured){note('Das E-Mail-Modul ist vorbereitet. Die Zugangsdaten des neuen Postfachs müssen noch sicher in Vercel hinterlegt werden.');status('Wartet auf E-Mail-Zugangsdaten');return;}
-   $('app').hidden=false;status('Verbunden mit '+state.address);await refresh();
+   hideLogin();
+   if(!state.configured){
+     $('app').hidden=true;
+     note('Dashboard-Anmeldung erfolgreich. Zum Abrufen der E-Mails fehlt noch das Postfach-Passwort von Polaris in der geschützten Vercel-Konfiguration.');
+     status('E-Mail-Zugangsdaten fehlen');
+     return;
+   }
+   $('app').hidden=false;
+   status('Verbunden mit '+state.address);
+   await refresh();
  }catch(e){
-   if(e.status===401)note('Bitte zuerst im geschützten Auetal-Dashboard anmelden. Danach diese Seite erneut öffnen.');
-   else note('Das Postfach ist zurzeit nicht verfügbar.');
-   status('Zugriff nicht möglich');
+   if(e.status===401){showLogin();return;}
+   if(e.status===503){note('Der Dashboard-Zugang ist noch nicht konfiguriert. Bitte die geschützte Vorschau-Konfiguration prüfen.');}
+   else{note('Das Postfach ist zurzeit nicht verfügbar.');}
+   status('Zugriff derzeit nicht möglich');
  }
-})();
+}
+$('loginForm').addEventListener('submit',async event=>{
+ event.preventDefault();
+ const btn=$('loginSubmit');btn.disabled=true;$('loginError').textContent='';
+ try{
+  await fetchJSON('/api/admin/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:$('loginPassword').value})});
+  $('loginPassword').value='';
+  await initializeMailbox();
+ }catch(e){
+  $('loginError').textContent=e.status===401?'Passwort nicht korrekt.':e.status===429?'Zu viele Versuche. Versuche es später erneut.':e.status===503?'Die Anmeldung ist serverseitig noch nicht bereit.':'Anmeldung fehlgeschlagen. Bitte versuche es erneut.';
+ }finally{btn.disabled=false;}
+});
+initializeMailbox();
 })();
