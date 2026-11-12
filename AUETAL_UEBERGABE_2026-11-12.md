@@ -4,11 +4,14 @@
 ## Technisch umgesetzt (Preview)
 - Domain karriere.seniorenheim-auetal.de bei Vercel verifiziert; DNS CNAME bei ns1/ns2.antagus.de korrekt. Lokale Windows-DNS-Caches können dennoch NXDOMAIN liefern. Kein unbestätigter DNS-Wechsel.
 - Eigenständige Karrierewelt auf Branch `auetal-karriere-freigabe-2026-11-11`. Am 12.11. `karriere.html` aus vier Fragmenten in vollständig serverseitig lieferbares HTML umgebaut; keine JS-Fragment-Ladeabhängigkeit mehr.
+- Qualitätssicherung: 32/32 geprüfte HTML-Ressourcen (Bilder/CSS/JS) HTTP 200. Zwei fiktive Teamzitate durch faktische Originaleinblicke ersetzt; unbestätigte Gründungsjahres-, Gehalts- und Urlaubsaussagen aus der Freigabeseite entfernt.
 - 60-Sekunden-Job-Match in `assets/jobmatch.js` mit 4 Auswahlfragen, Kontaktformular, Einwilligungscheck und sicherer API `POST /api/bewerbung`.
+- Aktueller Build am 12.11.2026: Commit `81d8dec28fc11a09c61df5471d7e93a37be04b71`, Vercel-Preview READY, `karriere.html` HTTP 200 mit vollständigem HTML, `/api/bewerbung` HTTP 200 `ready:true`.
 - Vorschau-API getestet: `GET /api/bewerbung` => HTTP 200 `ready:true`; invalider synthetischer POST => HTTP 422 `invalid_fields` (keine Bewerberdaten gespeichert). **Noch KEIN erfolgreicher vollständiger E2E-Eintrag inklusive anschließender Löschung getestet.**
 - Bewerber-Dashboard auf geschützter Preview, separate Auetal-Datenbank und Admin-Authentifizierung. Kein produktiver Nachweis der Bewerber-Speichern/Löschen-Kette.
 - `marketing@seniorenheim-auetal.de` als geschütztes Postfach im Dashboard; Nutzer hat Abruf als funktionierend bestätigt. SMTP-Versand nicht separat verifiziert.
 - Produktionsdomain zeigt noch ältere `main`-Version: `/api/bewerbung` dort 404. **Nicht als fertigen neuen Bewerbungsfunnel kommunizieren.**
+- Entwurf-E-Mail an Herr Denecke mit vier konkreten Freigabepunkten in Gmail gespeichert, nicht versendet.
 - Drei redaktionelle Karussellkonzepte siehe `AUETAL_SOCIAL_PINNED_POSTS.md`.
 
 ## Bis zur faktischen Einrichtung/Abnahme
