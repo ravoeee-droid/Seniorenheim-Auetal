@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "description": "Auetal candidate and privacy-protected cockpit",
   "dependencies": {
-    "@neondatabase/serverless": "1.2.0"
+    "@neondatabase/serverless": "1.2.0",
+    "imapflow": "2.11.0",
+    "mailparser": "3.14.3",
+    "nodemailer": "10.5.0"
   },
   "engines": {
     "node": ">=22"

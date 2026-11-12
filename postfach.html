@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer">
+<title>Auetal · Geschütztes Postfach</title>
+<style>
+:root{color-scheme:light;--ink:#252020;--burgundy:#8f1f32;--line:#e9e3de;--muted:#77716d;--paper:#f8f6f3}
+*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--paper)}
+header{padding:20px clamp(18px,5vw,60px);display:flex;align-items:center;gap:14px;background:#231d1e;color:#fff}
+header strong{letter-spacing:.08em}header a{margin-left:auto;color:#fff;font-size:13px}
+main{max-width:1300px;padding:28px 20px 65px;margin:auto}
+h1{font-size:clamp(29px,4vw,40px);margin:0 0 3px}h2{font-size:18px;margin:0}
+.muted{color:var(--muted)}.eyebrow{font-size:11px;letter-spacing:.15em;font-weight:800;color:var(--burgundy)}
+#status{margin:18px 0;font-size:13px}.layout{display:grid;grid-template-columns:minmax(260px,380px) minmax(0,1fr);gap:18px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 8px 35px #211b1b08}
+.panel-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:9px;padding:9px 13px}
+button.primary{background:var(--burgundy);border-color:var(--burgundy);color:#fff;font-weight:700}
+button:disabled{opacity:.5;cursor:not-allowed}
+#messageList{max-height:650px;overflow-y:auto}.message{width:100%;display:block;text-align:left;border:0;border-bottom:1px solid #f0e9e6;border-radius:0;padding:13px 18px;background:#fff}
+.message:hover,.message.selected{background:#fcf2f3}
+.message strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.message small{display:block;color:#716a68;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dot{display:inline-block;width:7px;height:7px;background:var(--burgundy);border-radius:50%;margin-right:6px}
+.content{padding:22px;min-height:320px}
+.mail-body{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.65 system-ui;max-height:580px;overflow:auto}
+.row{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+input,textarea{display:block;width:100%;font:inherit;padding:11px;border:1px solid #d9d0ca;border-radius:10px;background:#fff;margin:4px 0 14px}
+textarea{resize:vertical;min-height:170px}label{font-size:13px;font-weight:700}
+.form{border-top:1px solid var(--line);padding:20px}#composer[hidden],#messageView[hidden],#app[hidden]{display:none}
+.notice{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin:20px 0}
+@media(max-width:760px){.layout{grid-template-columns:1fr}#messageList{max-height:280px}main{padding:18px 12px}.content{min-height:230px}}
+</style></head>
+<body><header><strong>SENIORENHEIM AUETAL</strong><a href="admin.html">← Zur Bewerberverwaltung</a></header>
+<main><p class="eyebrow">RECRUITING · INTERNER BEREICH</p><h1>E-Mail-Postfach</h1>
+<p class="muted">marketing@seniorenheim-auetal.de · sicherer Zugriff über das Dashboard-Login</p>
+<div id="status" role="status" aria-live="polite">Verbindung wird geprüft …</div>
+<div id="notice" class="notice" hidden></div>
+<div id="app" hidden>
+<div class="layout"><section class="panel"><div class="panel-head"><h2>Posteingang</h2>
+<div class="row"><button type="button" id="refresh">↻ Aktualisieren</button><button type="button" class="primary" id="new">+ Neu</button></div></div>
+<div id="messageList"><p class="content muted">Nachrichten werden geladen …</p></div></section>
+<section class="panel"><div class="panel-head"><h2 id="detailTitle">Nachricht auswählen</h2><button type="button" id="reply" hidden>↶ Antworten</button></div>
+<div class="content" id="messageView"><p class="muted">Wähle links eine E-Mail, um den Inhalt zu lesen.</p></div>
+<form id="composer" class="form" hidden><h2 style="margin:0 0 16px">Neue E-Mail schreiben</h2>
+<label for="to">Empfänger</label><input type="email" id="to" required autocomplete="off" maxlength="254">
+<label for="subject">Betreff</label><input id="subject" required maxlength="180">
+<label for="body">Nachricht</label><textarea id="body" required maxlength="10000"></textarea>
+<div class="row"><button class="primary" id="send" type="submit">Nachricht senden</button><button type="button" id="cancel">Abbrechen</button></div>
+<p id="sendStatus" role="status" aria-live="polite"></p>
+</form></section></div></div></main>
+<script src="assets/auetal-mail.js" defer></script></body></html>
