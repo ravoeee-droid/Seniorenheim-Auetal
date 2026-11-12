@@ -221,7 +221,8 @@
     }
   });
 
-  if (!document.querySelector('script[data-copy-finalizer]')) {
+  // Die Karrierewelt trägt ihre finalen Texte direkt im HTML; kein nachträgliches Umschreiben per Skript.
+  if (document.body?.dataset.page !== 'career' && !document.querySelector('script[data-copy-finalizer]')) {
     const copyFinalizer = document.createElement('script');
     copyFinalizer.src = 'assets/copy-finalizer.js';
     copyFinalizer.defer = true;

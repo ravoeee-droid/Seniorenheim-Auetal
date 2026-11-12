@@ -63,7 +63,7 @@
    const root=el('div','flow-result auetal-candidate');
    root.append(el('span','flow-kicker','Fast geschafft · persönlicher Kontakt'));
    root.append(el('h3','','Wie können wir dich erreichen?'));
-   root.append(el('p','flow-intro','Deine vier Antworten sind gespeichert – bisher nur in dieser Seite. Erst wenn du deine Kontaktanfrage ausdrücklich absendest, wird ein Bewerberdatensatz angelegt.'));
+   root.append(el('p','flow-intro','Sag uns kurz, wie wir dich erreichen können. Wir melden uns persönlich bei dir – ohne Lebenslauf, ohne Anschreiben.'));
    const selected=el('div','flow-summary');for(const v of [data.role,data.preferred_job,data.worktime,data.priority,data.timing].filter(Boolean))selected.append(el('span','',v));root.append(selected);
    const form=el('form','auetal-candidate-form');form.noValidate=true;
    const name=input('text','auetalCandidateName','Dein Name *',true);
@@ -81,16 +81,16 @@
    link.target='_blank';link.rel='noopener noreferrer';agreement.append(link,' gelesen. Auetal darf mich wegen dieser Anfrage kontaktieren. *');
    consent.append(checked,agreement);form.append(consent);
    const trap=el('input','auetal-honeypot');trap.type='text';trap.name='website';trap.tabIndex=-1;trap.autocomplete='off';trap.setAttribute('aria-hidden','true');form.append(trap);
-   const submit=el('button','btn btn-primary','Kontakt unverbindlich senden ↗');submit.type='submit';submit.disabled=true;
+   const submit=el('button','btn btn-primary','Unverbindlich Kontakt aufnehmen ↗');submit.type='submit';submit.disabled=true;
    form.append(submit);
    const feedback=el('p','auetal-contact-feedback');feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');form.append(feedback);
-   form.append(el('p','flow-clarification','Nur wenn der gesicherte Versand aktiviert ist, wird eine Bewerbung im Auetal-Dashboard gespeichert. Kein Lebenslauf nötig.'));
+   form.append(el('p','flow-clarification','Deine Angaben gehen ausschließlich an Auetal und werden nur für diese Kontaktaufnahme genutzt.'));
    root.append(form,simpleContact());stage.append(root);
    fetch('/api/bewerbung',{cache:'no-store'}).then(r=>r.ok?r.json():{ready:false}).then(v=>{
      submit.disabled=v.ready!==true;
-     if(!v.ready)feedback.textContent='Der direkte Versand wird noch eingerichtet. Du kannst uns bis dahin über die Links unten kontaktieren.';
-     else feedback.textContent='Deine Daten werden erst bei Klick auf „Kontakt unverbindlich senden“ übertragen.';
-   }).catch(()=>{feedback.textContent='Direkter Versand derzeit nicht erreichbar – nutze bitte Telefon, E-Mail oder das offizielle Bewerbungsformular.';});
+     if(!v.ready)feedback.textContent='Die Kontaktaufnahme über diese Seite ist gerade nicht verfügbar. Ruf uns gern an oder nutze die Links unten.';
+     else feedback.textContent='';
+   }).catch(()=>{feedback.textContent='Die Kontaktaufnahme über diese Seite ist gerade nicht erreichbar. Ruf uns gern an oder schreib uns eine E-Mail.';});
    form.addEventListener('submit',async event=>{
      event.preventDefault();
      if(submit.disabled)return;
@@ -114,7 +114,7 @@
          el('p','flow-intro','Deine Kontaktanfrage ist sicher bei Auetal eingegangen. Wir melden uns persönlich bei dir.'));
        root.append(href('Noch Fragen? Jetzt anrufen ↗','tel:+49555399430'));
        stage.dispatchEvent(new CustomEvent('auetal:application-received',{bubbles:true}));
-     }catch(_){feedback.textContent='Die Übertragung hat nicht funktioniert. Es wurde keine Bestätigung gespeichert. Bitte versuche es später erneut oder nutze Telefon/E-Mail.';submit.disabled=false;submit.textContent='Kontakt erneut senden ↗';}
+     }catch(_){feedback.textContent='Die Übertragung hat nicht funktioniert. Es wurde keine Bestätigung gespeichert. Bitte versuche es später erneut oder nutze Telefon/E-Mail.';submit.disabled=false;submit.textContent='Erneut versuchen ↗';}
    });
  };
  back?.addEventListener('click',()=>{if(step>0){step--;render(true);}});
@@ -125,4 +125,8 @@
    step=1;render(true);
  }));
  render();
+ const flow=document.getElementById('jobFlow');
+ if(flow&&'IntersectionObserver'in window){
+   new IntersectionObserver(entries=>{for(const e of entries)document.body.classList.toggle('flow-in-view',e.isIntersecting);},{threshold:.15}).observe(flow);
+ }
 })();

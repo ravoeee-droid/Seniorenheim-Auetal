@@ -38,6 +38,7 @@
 
   const launch = () => {
     started = true;
+    video.controls = true;
     try { video.currentTime = 0; } catch (_) {}
     player.classList.add('film-is-playing');
     video.play().catch(() => {

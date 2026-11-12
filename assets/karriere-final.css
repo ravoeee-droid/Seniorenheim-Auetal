@@ -1,0 +1,32 @@
+/* Karrierewelt – Release-Schicht: Hero-Fakten, Ansprechpartner, Mobile-Leiste, Film-Poster */
+body.career-page .hero-facts{list-style:none;display:flex;flex-wrap:wrap;gap:10px 28px;margin:30px 0 0;padding:22px 0 0;border-top:1px solid rgba(255,255,255,.18);max-width:680px}
+body.career-page .hero-facts li{position:relative;padding-left:20px;font-size:.92rem;font-weight:650;color:#e9ede7;letter-spacing:.01em}
+body.career-page .hero-facts li::before{content:"";position:absolute;left:0;top:.52em;width:9px;height:9px;border-radius:50%;background:#f0bbc6;box-shadow:0 0 0 4px rgba(240,187,198,.18)}
+@media(max-width:760px){body.career-page .hero-facts{gap:10px 18px;margin-top:22px;padding-top:16px}body.career-page .hero-facts li{font-size:.86rem}}
+
+body.career-page .contact-person{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;margin-top:34px;padding:18px 20px;border:1px solid rgba(255,255,255,.16);border-radius:20px;background:rgba(255,255,255,.06)}
+body.career-page .contact-person i{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#fff;color:var(--red);font-style:normal;font-family:var(--serif);font-size:1.3rem;letter-spacing:.02em}
+body.career-page .contact-person small{display:block;text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;color:#f0bbc6;margin-bottom:4px}
+body.career-page .contact-person strong{display:block;font-size:1.08rem;color:#fff;line-height:1.2}
+body.career-page .contact-person span{display:block;font-size:.88rem;color:#d6dcd6;margin-top:3px}
+body.career-page .contact-person a{display:inline-block;padding:10px 0;margin:-10px 0;color:#fff;font-weight:750;text-decoration:underline;text-decoration-color:rgba(255,255,255,.4);text-underline-offset:3px}
+body.career-page .auetal-consent a{display:inline-block;padding:8px 0;margin:-8px 0}
+
+/* Mobile-Leiste: verschwindet, sobald das Kontaktformular selbst im Bild ist */
+body.career-page .mobile-action{transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .3s}
+body.career-page.flow-in-view .mobile-action{transform:translateY(140%);opacity:0;pointer-events:none}
+@media(max-width:760px){
+  body.career-page .jobmatch-section .flow-card{padding-bottom:18px}
+  body.career-page .jobmatch-section .flow-nav{padding-bottom:4px}
+  body.career-page .career-final{padding-bottom:140px}
+  body.career-page .site-footer{padding-bottom:96px}
+}
+
+/* Film: echtes Poster-Bild statt leerer Fläche, Overlay bleibt bedienbar */
+body.career-page .auetal-film video{background:#231720 center/cover no-repeat}
+
+/* Wasserzeichen hinter dem Kontaktformular: Marke statt internem Produktnamen */
+body.career-page .jobmatch-section:after{content:"AUETAL"}
+
+/* Stellenliste: Link-Label groß genug für den Daumen */
+body.career-page .job-row a{min-height:44px}

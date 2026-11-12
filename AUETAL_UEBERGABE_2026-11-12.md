@@ -14,6 +14,36 @@
 - Entwurf-E-Mail an Herr Denecke mit vier konkreten Freigabepunkten in Gmail gespeichert, nicht versendet.
 - Drei redaktionelle Karussellkonzepte siehe `AUETAL_SOCIAL_PINNED_POSTS.md`.
 
+## Release-Durchgang Karrierewelt (12.11.2026, Branch `claude/vibrant-mendel-mm5py9`)
+Basis: Freigabe-Branch `auetal-karriere-freigabe-2026-11-11` (Commit `1531bbe`). Nur `karriere.html` und ihre Assets wurden verändert; andere Seiten unverändert.
+
+**Tempo / Technik**
+- Alle 18 Bilder der Karrierewelt liegen jetzt lokal als WebP unter `assets/img/karriere/` (zwei Größen, `srcset`), statt als JPG/PNG vom WordPress-Origin. Seitengewicht komplett durchgescrollt: ca. 1,1 MB statt > 5 MB. Hero: 82 KB statt 1 MB.
+- Hero-Bild ist der Team-Frame aus dem Arbeitgebervideo (1920 px, gleiches Motiv wie `team_img.png`, aber scharf). Preload + `fetchpriority="high"`.
+- Video: echtes Poster-Bild aus dem Film, `preload="none"` (84 MB MP4 wird erst beim Klick geladen), Player-Steuerung erscheint erst nach Start.
+- 21 CSS-Dateien zu einer gebündelt: `assets/karriere.bundle.css` (Build: `node scripts/build-karriere-css.js`; Quelle bleiben die Einzeldateien plus `assets/karriere-final.css`).
+- `copy-finalizer.js` wird auf der Karriereseite nicht mehr nachgeladen; alle Texte stehen final im HTML (kein Textflackern, keine Überraschungen).
+- OG-Bild (`og-karriere.jpg`, 1200×630) für Social-Shares ergänzt.
+
+**Struktur / Conversion**
+- Entfernt: Wunschjob-Builder (zweites Quiz vor dem Quiz), Pay-Sektion ohne freigegebene Zahlen, „So lernen wir uns kennen“-Prozessgrafik. 14 statt 17 Sektionen.
+- Eine Aktion, ein Label: „In 60 Sekunden kennenlernen“ (Header-Kurzform „In 60 Sek. kennenlernen“, Stellenliste „Kennenlernen →“, Mobile-Leiste „Kennenlernen“). „Job-Match“ taucht für Bewerber nicht mehr auf.
+- Hero: drei belegte Fakten unter den Buttons (familiengeführt, eigene Kinderkrippe Krabbelkäfer, Hospitation möglich).
+- Ansprechpartner-Karte „Frank Denecke · 05553 99430“ direkt neben dem Kontaktformular (ohne Foto, siehe offene Punkte).
+- Interne Meta-Texte entfernt („Belegt auf der Jobseite“, „laut Stellenanzeigen“, „nach Angaben der Einrichtung“, „nur wenn der gesicherte Versand aktiviert ist“, Hinweis zu nicht freigegebenen Teamstimmen).
+- Mobile: feste Leiste blendet sich aus, sobald das Kontaktformular im Bild ist; Formular-Steuerung und Footer sind nicht mehr verdeckt.
+- Fakten-Disziplin: Im Wechselgrund-Modul standen noch Workshop-Zahlen (25,50 €/h, 35 Urlaubstage) im JavaScript. Entfernt, bis Auetal sie schriftlich freigibt.
+
+**Geprüft (lokal gerendert, Chromium)**
+- Desktop 1440 px und Mobile 390 px: kein horizontaler Überlauf, keine Konsolenfehler, alle 13 Bilder laden, Formularfluss bis zum Absende-Schritt, Fokus-Ringe auf allen Bedienelementen, ein `h1`, alle Bilder mit `alt`, alle Felder mit Label, reduced-motion fehlerfrei.
+- `GET /api/bewerbung` auf der aktuellen Freigabe-Preview: `ready:true`.
+
+**Weiterhin offen (braucht Auetal oder Entscheidung)**
+- Vercel-Umgebungsvariablen (`AUETAL_*`) sind nur für den Branch `auetal-karriere-freigabe-2026-11-11` gesetzt. Für Production und für andere Branches ist die Bewerbungs-API nicht aktiv. Vor dem Livegang auf Production übertragen.
+- Vollständiger E2E-Test (Eintrag → Dashboard → Status → Löschung) steht weiter aus; von hier aus nicht durchgeführt, weil Testdatensätze ohne Admin-Zugang nicht wieder gelöscht werden könnten.
+- `noindex,nofollow` steht weiterhin im `<head>` und muss beim Livegang auf `karriere.seniorenheim-auetal.de` entfernt werden.
+- Foto von Frank Denecke für die Ansprechpartner-Karte; Freigabe für Gehalts-/Urlaubszahlen; Bewerber-Datenschutzhinweis und AVV.
+
 ## Bis zur faktischen Einrichtung/Abnahme
 - [ ] **Karrierewelt:** Herr Denecke bestätigt Texte, Häuser, offene Fachkraftstellen, Vorteile. Gründungsjahr 1985/1986 klären, keine ungeprüften Mitarbeiterzitate/Gehalts-/Urlaubszahlen.
 - [ ] **Bewerbungsprozess:** Vollständigen E2E-Test mit synthetischem Datensatz, Dashboard-Eingang, Statusänderung, Follow-up, Löschung und Mail-Benachrichtigung (sofern zugesagt) durchführen.

@@ -154,7 +154,7 @@
       title:'Wenn dein Kind nicht gegen deinen Beruf arbeiten muss.',
       text:'Auetal hat die eigene Kinderkrippe Krabbelkäfer. Verfügbare Plätze, Betreuungszeiten und mögliche Kosten klären wir im persönlichen Gespräch.',
       proof:'Kinderkrippe · Bedingungen persönlich klären',
-      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_4-e1542806489732.jpg',
+      image:'assets/img/karriere/auetal-4.webp',
       alt:'Kinderbereich in der betriebseigenen Kinderbetreuung des Auetal'
     },
     entwicklung: {
@@ -162,7 +162,7 @@
       title:'Wenn ein Wechsel nicht Stillstand bedeutet.',
       text:'Auetal unterstützt Fachkräfte mit Fortbildungen, Seminaren und Entwicklungsmöglichkeiten. Welche zusätzlichen Qualifikationen zu deiner Stelle passen, klären wir im Gespräch.',
       proof:'Fortbildung und berufliche Entwicklung für Pflegefachkräfte',
-      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_48-3.jpg',
+      image:'assets/img/karriere/auetal-48.webp',
       alt:'Alltag und Mitarbeiterangebote im Seniorenheim Auetal'
     },
     entlastung: {
@@ -170,15 +170,15 @@
       title:'Wenn weniger Papierkram wieder mehr Pflege bedeutet.',
       text:'Im Haus Clausberg arbeiten Pflege und Service eng zusammen. Elektronische Dokumentation soll den organisatorischen Aufwand reduzieren und Zeit für persönliche Pflege ermöglichen.',
       proof:'Pflege und Service arbeiten zusammen',
-      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_33.jpg',
+      image:'assets/img/karriere/auetal-33.webp',
       alt:'Alltag im Seniorenheim Auetal'
     },
     sicherheit: {
       kicker:'SICHERHEIT',
       title:'Wenn gute Arbeit auch ein solides Paket braucht.',
-      text:'Für examinierte Pflegefachkräfte wurden im Arbeitgeberworkshop 25,50 € pro Stunde und 35 Urlaubstage genannt. Auch Nachtzuschläge und betriebliche Altersvorsorge sind Themen. Alle Konditionen werden vor Veröffentlichung freigegeben.',
-      proof:'Stelle, Arbeitszeit und Konditionen offen besprechen',
-      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_52-1.jpg',
+      text:'Gehalt, Urlaub, Nachtzuschläge und betriebliche Altersvorsorge gehören bei uns offen auf den Tisch. Was für deine Qualifikation und deine Stelle gilt, besprechen wir persönlich und verbindlich.',
+      proof:'Zuschüsse zur Altersvorsorge und VWL · Konditionen offen besprechen',
+      image:'assets/img/karriere/auetal-52.webp',
       alt:'Einblicke in das Leben im Seniorenheim Auetal'
     },
     kennenlernen: {
@@ -186,7 +186,7 @@
       title:'Wenn du nicht nach einer Website entscheiden musst.',
       text:'Du musst nicht sofort kündigen oder dich festlegen. Ein Gespräch oder eine Hospitation hilft dir herauszufinden, ob du dich bei uns wohlfühlst.',
       proof:'Hospitation ist auf Wunsch möglich',
-      image:'https://seniorenheim-auetal.de/wp-content/uploads/2018/11/Auetal_5.jpg',
+      image:'assets/img/karriere/auetal-5.webp',
       alt:'Einblick in die Einrichtung des Seniorenheims Auetal'
     }
   };
