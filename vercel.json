@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/",
+      "destination": "/karriere.html"
+    },
+    {
       "source": "/media/:path*",
       "destination": "https://seniorenheim-auetal.de/wp-content/uploads/:path*"
     }
